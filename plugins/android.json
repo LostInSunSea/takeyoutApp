@@ -31,19 +31,19 @@
     },
     "installed_plugins": {
         "com.ionic.keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.takeyoutapp133295"
+            "PACKAGE_NAME": "com.ionicframework.takeyoutapp571145"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.takeyoutapp133295"
+            "PACKAGE_NAME": "com.ionicframework.takeyoutapp571145"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.takeyoutapp133295"
+            "PACKAGE_NAME": "com.ionicframework.takeyoutapp571145"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.takeyoutapp133295"
+            "PACKAGE_NAME": "com.ionicframework.takeyoutapp571145"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.takeyoutapp133295"
+            "PACKAGE_NAME": "com.ionicframework.takeyoutapp571145"
         }
     },
     "dependent_plugins": {}

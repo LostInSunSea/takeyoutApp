@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.ionicframework.takeyoutapp133295;
+package com.ionicframework.takeyoutapp571145;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
