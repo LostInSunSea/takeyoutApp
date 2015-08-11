@@ -1,46 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">
+  -->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-    <style>
-    </style>
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-  </head>
-  <body ng-app="starter">
-    <!--Where It'll Insert the Templates-->
-    <ion-nav-view></ion-nav-view>
-    <!--Header -->
-    <ion-nav-bar class="bar-positive"></ion-nav-bar>
-    <!--This is for the navigation bars -->
-    <ion-tabs class="tabs-positive">
-        <ion-tab icon="ion-ios-list" ui-sref="connect">
-            <ion-nav-view name="connect"></ion-nav-view>
-        </ion-tab>
-        <ion-tab icon="ion-ios-calendar" ui-sref="calendar">
-            <ion-nav-view name="calendar"></ion-nav-view>
-        </ion-tab>
-        <ion-tab icon="ion-ios-chatboxes" ui-sref="message">
-            <ion-nav-view name="message"></ion-nav-view>
-        </ion-tab>
-        <ion-tab icon="ion-ios-person" ui-sref="profile">
-            <ion-nav-view name="profile"></ion-nav-view>
-        </ion-tab>
-    </ion-tabs>
-  </body>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+</head>
+
+<body ng-app="starter">
+  <!-- This is the nav-bar-->
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <!-- This is Where Templates will be loaded -->
+  <ion-nav-view></ion-nav-view>
+</body>
 </html>
