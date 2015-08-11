@@ -23,7 +23,7 @@ var app = angular.module('starter', ['ionic'])
             views: {
                 connect: {
                     templateUrl: 'views/connectTemplate.html'//,
-                    //controller:'ConnectController'
+                    controller:'ConnectController'
                 }
             }
         })
@@ -32,7 +32,7 @@ var app = angular.module('starter', ['ionic'])
             views: {
                 calendar: {
                     templateUrl: 'views/calendarTemplate.html'//,
-                    //controller:'CalendarController'
+                    controller:'CalendarController'
                 }
             }
         })
@@ -41,7 +41,7 @@ var app = angular.module('starter', ['ionic'])
             views: {
                 message: {
                     templateUrl: 'views/messageTemplate.html'//,
-                    //controller:'MessageController'
+                    controller:'MessageController'
                 }
             }
         })
@@ -50,8 +50,22 @@ var app = angular.module('starter', ['ionic'])
             views: {
                 profile: {
                     templateUrl: 'views/profileTemplate.html'//,
-                    //controller:'ProfileController'
+                    controller:'ProfileController'
                 }
             }
         })
-    })
+    });
+
+    app.controller('CalendarController',['$scope', function($scope) {
+        $scope.greeting = 'Hola!';
+    }]);
+    app.controller('ProfileController',['$scope', function($scope) {
+        $scope.greeting = 'Hola!';
+    }]);
+    app.controller('MessageController',['$scope', function($scope) {
+        $scope.greeting = 'Hola!';
+    }]);
+    app.controller('ConnectController',['$scope', function($scope) {
+        $scope.greeting = 'Hola!';
+    }]);
+
