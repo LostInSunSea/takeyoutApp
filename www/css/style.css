@@ -57,6 +57,7 @@ body{
 	font-family:"Open Sans";
 }
 .ty-nav-bar .bar-header{
+	font-weight:800;
 	background-color:#ff8e30;
 	border:none;
 }
@@ -72,7 +73,8 @@ body{
 /* Height of each trip card */
 .item-text-wrap{
 	padding:0;
-	height:20vh;
+	height:30vh;
+	max-height:8em;
 }
 
 /* Center anything vertically */
@@ -135,13 +137,9 @@ body{
 /* Trip/hometown text */
 .ty-connect-location{
 	padding:3vw;
-	
-	/* Transparent gradient */
-	background-image: -webkit-gradient(
-		linear, left top, left bottom, from(rgba(255,255,255,0.8)), to(rgba(255,255,255,0)), color-stop(0,#fafafa)
-	);
-	
-	height:20vh;
+	background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.7), rgba(255,255,255,0.5), rgba(255,255,255,0.3), rgba(0,0,0,0));
+	height:30vh;
+	max-height:6em;
 	width:100vw;
 }
 
@@ -178,10 +176,95 @@ body{
 /* Buttons for adding i.e. Plan Trip & Add Meeting */
 .ty-add-button{
 	position:fixed;
-	right:5vw;
-	bottom:15vh;
+	right:2em;
+	bottom:12vh;
 	z-index:100;
 	
 	/* Shadow effect */
 	box-shadow: 0em 0.3em 0em 0em #007f7f, 0em 0.5em 1em 0em #000;
+}
+
+/* Empty trip image positioning */
+#ty-connect-empty{
+	position:fixed;
+	width:90vw;
+	max-width:50em;
+	bottom:0;
+	right:0;
+}
+
+.ty-transparent{
+	opacity:0.6;
+}
+
+#ty-arrow{
+	position:absolute;
+	width:35%;
+	max-width:8em;
+	bottom:21vh;
+	right:5em;
+}
+
+#ty-luggage{
+	position:absolute;
+	width:50%;
+	max-width:12em;
+	bottom:7vh;
+	right:13em;
+}
+
+#ty-empty-text{
+	position:absolute;
+	bottom:37vh;
+	width:50%;
+	max-width:18em;
+	right:1em;
+	text-align:center;
+}
+
+#ty-empty-text h2{
+	font-family:"Open Sans";
+	font-weight:800;
+	font-size:1em;
+	color:#00cbcb;
+}
+
+#ty-empty-text p{
+	font-weight:400;
+	text-transform:none;
+	font-size:1em;
+	letter-spacing:0.075em;
+	color:#626262;
+}
+
+/* Landscape */
+@media screen and (orientation:landscape) {
+	#ty-arrow{
+		position:absolute;
+		width:20%;
+		max-width:8em;
+		bottom:18vh;
+		right:12em;
+	}
+
+	#ty-luggage{
+		display:none;
+	}
+
+	#ty-empty-text{
+		position:absolute;
+		bottom:22vh;
+		width:40%;
+		max-width:18em;
+		right:1em;
+		text-align:center;
+	}
+	
+	#ty-empty-text h2{
+		font-size:1em;
+	}
+
+	#ty-empty-text p{
+		font-size:1em;
+	}
 }
