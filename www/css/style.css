@@ -99,44 +99,47 @@ body{
 
 /* Circular containers for icons or pictures */
 .ty-circle-container{
-	margin:2vw;
+	margin:1em;
 	display:block;
 	text-align:center;
 	float:left;
 	background-color:#fff;
+	border-style:1em solid #fff;
 	border-radius:100%;
 	box-shadow: 0em 0.5em 1em -0.25em #000;
 }
 
 /* Trip/hometown icons */
 .ty-trip-icon-container{
-	height:5.25vh;
-	width:5.25vh;
+	height:2.5em;
+	width:2.5em;
 }
 
 .ty-hometown{
+	border-style:1em solid #ffad68;
 	background-color:#ffad68;
 }
 
 .ty-trip{
+	border-style:1em solid #28d6d6;
 	background-color:#28d6d6;
 }
 
 .ty-trip-icon{
-	height:4.6vh;
-	width:4.6vh;
+	height:2.25em;
+	width:2.25em;
 	border-radius:100%;
 	margin:0 auto;
 }
 
 .ty-trip-icon p{
-	font-size:3.5vh;
+	font-size:1.5em;
 	color:#fff;
 }
 
 /* Trip/hometown text */
 .ty-connect-location{
-	padding:3vw;
+	padding:1em;
 	background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.7), rgba(255,255,255,0.5), rgba(255,255,255,0.3), rgba(0,0,0,0));
 	height:30vh;
 	max-height:6em;
