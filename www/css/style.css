@@ -52,10 +52,10 @@
 }
 
 /* NOTE: Classes/IDs prefaced with "ty-" are custom-made */
-
 body{
 	font-family:"Open Sans";
 }
+
 .ty-nav-bar .bar-header{
 	font-weight:800;
 	background-color:#ff8e30;
@@ -73,7 +73,8 @@ body{
 /* Height of each trip card */
 .item-text-wrap{
 	padding:0;
-	height:30vh;
+	height:18vh;
+	min-height:6em;
 	max-height:8em;
 }
 
@@ -82,6 +83,12 @@ body{
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+
+/* Horizontal divider */
+.ty-divider{
+	border-bottom:1px solid #e2e2e2;
 }
 
 /* Anything in all caps by default */
@@ -89,7 +96,7 @@ body{
 	text-transform:uppercase;
 	letter-spacing:.25em;
 	font-family:"Open Sans";
-	font-weight:800;
+	font-weight:600;
 }
 
 .bar-header{
@@ -111,8 +118,8 @@ body{
 
 /* Trip/hometown icons */
 .ty-trip-icon-container{
-	height:2.5em;
-	width:2.5em;
+	height:2em;
+	width:2em;
 }
 
 .ty-hometown{
@@ -126,8 +133,8 @@ body{
 }
 
 .ty-trip-icon{
-	height:2.25em;
-	width:2.25em;
+	height:1.75em;
+	width:1.75em;
 	border-radius:100%;
 	margin:0 auto;
 }
@@ -141,17 +148,18 @@ body{
 .ty-connect-location{
 	padding:1em;
 	background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.7), rgba(255,255,255,0.5), rgba(255,255,255,0.3), rgba(0,0,0,0));
-	height:30vh;
+	height:18vh;
+	min-height:5em;
 	max-height:6em;
 	width:100vw;
 }
 
 .ty-connect-location h2{
 	font-family:"Open Sans";
-	font-weight:500;
+	font-size:0.9em;
 	color:#626262;
-	letter-spacing:.05em;
-	font-weight:600;
+	letter-spacing:.1em;
+	font-weight:800;
 }
 
 .ty-connect-location h6{
@@ -159,7 +167,7 @@ body{
 	font-weight:400;
 	font-size:0.75em;
 	color:#626262;
-	letter-spacing:0.1em;
+	letter-spacing:0.05em;
 }
 
 /* General button */
@@ -270,4 +278,132 @@ body{
 	#ty-empty-text p{
 		font-size:1em;
 	}
+}
+
+/* Profile page */
+.ty-profile{
+	font-size:1em;
+	letter-spacing:0.05em;
+	color:#626262;
+}
+
+.ty-profile em {
+	letter-spacing:0.15em;
+}
+
+.ty-prof-header{
+	padding:0;
+	width:100vw;
+	height:35vh;
+	min-height:10em;
+	overflow:hidden;
+}
+
+.ty-prof-bg{
+	z-index:-1;
+	height:105%;
+	width:100%;
+}
+
+/* Profile pic */
+.ty-prof-pic-container{
+	float:none;
+	margin:0 auto;
+	height:13vh;
+	width:13vh;
+	min-height:5em;
+	min-width:5em;
+}
+
+.ty-prof-pic{
+	border-radius:100%;
+	height:12.5vh;
+	width:12.5vh;
+	min-height:4.5em;
+	min-width:4.5em;
+	margin:0 auto;
+}
+
+/* White overlay on header background */
+.ty-prof-header-overlay{
+	z-index:1;
+	position:absolute;
+	top:0vh;
+	height:35vh;
+	min-height:10em;
+	width:100vw;
+	background-color:#fff;
+	opacity:0.6;
+}
+
+/* Name & tagline */
+.ty-prof-header-info{
+	z-index:3;
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	position:fixed;
+	bottom:-0.75em;
+}
+
+.ty-prof-header-info h2, .ty-prof-header-info h6{
+	text-align:center;
+}
+
+.ty-prof-header-info h2{
+	color:#626262;
+	font-size:1em;
+	letter-spacing:0.1em;
+	font-weight:800;
+	padding:0;
+}
+
+.ty-prof-header-info h6{
+	font-family:"Open Sans";
+	font-weight:600;
+	font-size:0.9em;
+	color:#626262;
+	letter-spacing:0.05em;
+	margin-top:-0.5em;
+}
+
+/* Edit button */
+.ty-edit-button{
+	z-index:3;
+	float:right;
+	position:relative;
+	bottom:5em;
+	right:3vw;
+	width:15vw;
+	min-width:6.75em;
+	max-width:9em;
+}
+
+/* Profile content below header */
+.ty-prof-content{
+	font-size:0.9em;
+	padding:1.5em 2em 1em 2em;
+	width:100vw;
+}
+
+/* Quick facts icons */
+.ty-prof-icon{
+	float:left;
+	height:1.3em;
+	width:1.25em;
+	border-radius:100%;
+	border:1px solid #28d6d6;
+	background-color:#28d6d6;
+	color:white;
+	text-align:center;
+	font-size:1.25em;
+	padding:0;
+	margin-right:0.5em;
+}
+
+/* About profile tagline */
+.ty-prof-about{
+	margin-top:0.5em;
+	line-height:175%;
 }
