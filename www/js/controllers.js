@@ -17,5 +17,3 @@ angular.module('starter.controllers', [])
 })
 
 
-
-
