@@ -71,13 +71,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
             }
           })
-          .state('tabs.login', {
-            url: "/login",
+          .state('login', {
+            url: "/",
             views: {
-              'login-ln': {
+              'login': {
                 templateUrl: "templates/login.html"
               }
             }
           })
-      $urlRouterProvider.otherwise("/tab/login");
+      $urlRouterProvider.otherwise("/");
     })
