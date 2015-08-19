@@ -51,10 +51,14 @@ angular.module('starter.controllers', [])
   console.log('MeTabCtrl');
   $.get("http://kawaiikrew.net/www/php/get_user_data.php", {}, function(data) 
   {
- var user = JSON.parse(data);
- $scope.name = user.name;
- $scope.headline = user.headline;
- $scope.hometown = user.city + ", " + user.country;
+	 var user = JSON.parse(data);
+	 $scope.name = user.name;
+	 fullName = (user.name).split(" ");
+	 $scope.firstName = fullName[0];
+	 $scope.headline = user.headline;
+	 $scope.hometown = user.city + ", " + user.country;
+	 $scope.bio = user.bio;
+	 $scope.picFull = user.picFull;
   });
 })
 
