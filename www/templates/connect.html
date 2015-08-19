@@ -1,28 +1,21 @@
 <ion-view title="Connect">
     <ion-content padding="false">
-        <div class="card">
-            <div class="item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Rome.png');background-size:auto 100%;">
+        <div class="card" ng-repeat="trip in trips">
+            <div class="item item-text-wrap" style="background-image:url({{trip.backgroundImage}});background-size:auto 100%;">
 				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
-					<div class="ty-trip-icon ty-hometown ty-vertical">
-						<p class="ty-vertical icon ion-heart"></p>
+					<div class={{trip.tripClass}}>
+						<p class={{trip.icon}}></p>
 					</div>
 				</div>
 				<div class="ty-connect-location">
-					<h2 class="ty-caps">Menlo Park, US</h2>
-					<H6>Hometown</H6>
+					<h2 class="ty-caps">{{trip.displayString}}</h2>
+					<H6>{{trip.dateString}}</H6>
 				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
             </div>
-            <!--<div class="item item-divider">
-                <p>Menlo Park, US</p>
-                <H6>Hometown</H6>
-            </div>-->
         </div>
-       <div class="card">
+       <!-- <div class="card">
             <div class="item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Amsterdam.png'); background-size:auto 100%;">
-				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
 					<div class="ty-trip-icon ty-trip ty-vertical">
 						<p class="ty-vertical icon ion-plane"></p>
@@ -32,18 +25,11 @@
 					<h2 class="ty-caps">New York, US</h2>
 					<H6>Nov 01 - Nov 07</H6>
 				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
             </div>
-            <!--<div class="item item-divider">
-                <p>New York, US</p>
-                <H6>Hometown</H6>
-            </div>-->
 		</div>
 		
         <div class="card">
             <div class="ty-img-overlay item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Hong%20Kong.png'); background-size:auto 100%;">
-				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
 					<div class="ty-trip-icon ty-trip ty-vertical">
 						<p class="ty-vertical icon ion-plane"></p>
@@ -53,18 +39,11 @@
 					<h2 class="ty-caps">Beijing, China</h2>
 					<H6>Dec 10 - Jan 02</H6>
 				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
             </div>
-            <!--<div class="item item-divider">
-                <p>Beijing, China</p>
-                <H6>Hometown</H6>
-            </div>-->
         </div>
 		
 		<div class="card">
             <div class="ty-img-overlay item item-text-wrap" style="background-color:#000;">
-				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
 					<div class="ty-trip-icon ty-trip ty-vertical">
 						<p class="ty-vertical icon ion-plane"></p>
@@ -74,14 +53,8 @@
 					<h2 class="ty-caps">Black Background</h2>
 					<H6>I'm here to test legibility on a dark BG</H6>
 				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
             </div>
-            <!--<div class="item item-divider">
-                <p>Beijing, China</p>
-                <H6>Hometown</H6>
-            </div>-->
-        </div>
+        </div> -->
 		
         <!--<p>-->
             <!--<a class="add-button button icon icon-right ion-chevron-right" href="#/tab/connect2">Add Trip</a>-->
