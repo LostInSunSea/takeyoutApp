@@ -1,25 +1,22 @@
 <ion-view title="Connect">
     <ion-content padding="false">
-        <div class="card">
-            <div class="item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Rome.png');background-size:auto 100%;">
+        <div class="card" ng-repeat="trip in trips">
+            <div class="item item-text-wrap" style="background-image:url({{trip.backgroundImage}});background-size:auto 100%;">
 				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
-					<div class="ty-trip-icon ty-hometown ty-vertical">
-						<p class="ty-vertical icon ion-heart"></p>
+					<div class={{trip.tripClass}}>
+						<p class={{trip.icon}}></p>
 					</div>
 				</div>
 				<div class="ty-connect-location">
-					<h2 class="ty-caps">Menlo Park, US</h2>
-					<H6>Hometown</H6>
+					<h2 class="ty-caps">{{trip.displayString}}</h2>
+					<H6>{{trip.dateString}}</H6>
 					<div class="ty-vertical ty-trip-next icon ion-chevron-right"></div>
 				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
             </div>
         </div>
-       <div class="card">
+       <!-- <div class="card">
             <div class="item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Amsterdam.png'); background-size:auto 100%;">
-				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
 					<div class="ty-trip-icon ty-trip ty-vertical">
 						<p class="ty-vertical icon ion-plane"></p>
@@ -37,7 +34,6 @@
 		
         <div class="card">
             <div class="ty-img-overlay item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Hong%20Kong.png'); background-size:auto 100%;">
-				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
 					<div class="ty-trip-icon ty-trip ty-vertical">
 						<p class="ty-vertical icon ion-plane"></p>
@@ -55,7 +51,6 @@
 		
 		<div class="card">
             <div class="ty-img-overlay item item-text-wrap" style="background-color:#000;">
-				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
 					<div class="ty-trip-icon ty-trip ty-vertical">
 						<p class="ty-vertical icon ion-plane"></p>
@@ -70,7 +65,7 @@
                 <div style="visibility: hidden">World</div>
             </div>
             </div>
-        </div>
+        </div> -->
     </ion-content>
 	
 	<!--<div id="ty-connect-empty">
