@@ -572,20 +572,45 @@ body{
 .ty-trip-form{
 	margin:0 auto;
 	width:85vw;
-	margin-top:1em;
+	min-width:23em;
 }
 
 .ty-form-icon{
 	float:left;
-	height:1.75em;
-	width:1.75em;
+	height:1.5em;
+	width:1.5em;
 	border-radius:100%;
 	background-color:#28D6D6;
-	text-align:center;
 	margin-right:1em;
 }
 
 .ty-form-icon p{
-	font-size:1.25em;
+	text-align:center;
+	padding-left:2px;
+	font-size:1em;
 	color:#fff;
+}
+
+.col{
+	padding:0;
+	padding-top:2em;
+}
+
+.row{
+	padding:0;
+}
+
+.ty-start-date{
+	padding-right:0.5em;
+}
+
+.ty-end-date{
+	padding-left:0.5em;
+}
+
+textarea{
+	margin-top:1em;
+	resize:vertical;
+	height:auto;
+	font-family:'Open Sans';
 }
