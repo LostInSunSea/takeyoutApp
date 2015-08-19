@@ -51,7 +51,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             url: "/messages",
             views: {
               'messages-tab': {
-                templateUrl: "templates/messages.html"
+                templateUrl: "templates/messages.html",
+                controller: "MessagesTabCtrl"
               }
             }
           })
@@ -59,7 +60,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             url: "/me",
             views: {
               'me-tab': {
-                templateUrl: "templates/me.html"
+                templateUrl: "templates/me.html",
+                controller: "MeTabCtrl"
               }
             }
           })
@@ -79,5 +81,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
             }
           })
-      $urlRouterProvider.otherwise("/");
+      $urlRouterProvider.otherwise("/login");
     })
