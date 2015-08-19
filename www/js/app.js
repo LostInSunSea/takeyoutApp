@@ -68,7 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           .state('tabs.connect2', {
             url: "/connect2",
             views: {
-              'home-tab': {
+              'connect-tab': {
                 templateUrl: "templates/connect2.html"
               }
             }
