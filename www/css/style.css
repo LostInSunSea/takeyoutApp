@@ -299,22 +299,34 @@ body{
 	color:#626262;
 }
 
-.ty-profile em {
+.ty-profile em{
 	letter-spacing:0.15em;
 }
 
 .ty-prof-header{
 	padding:0;
 	width:100vw;
-	height:35vh;
+	height:16em;
 	min-height:10em;
 	overflow:hidden;
 }
 
 .ty-prof-bg{
 	z-index:-1;
-	height:105%;
+	height:120%;
 	width:100%;
+}
+
+/* White overlay on header background */
+.ty-prof-header-overlay{
+	z-index:1;
+	position:absolute;
+	top:0vh;
+	height:16em;
+	min-height:10em;
+	width:100vw;
+	background-color:#fff;
+	opacity:0.6;
 }
 
 /* Profile pic */
@@ -334,18 +346,6 @@ body{
 	min-height:4.5em;
 	min-width:4.5em;
 	margin:0 auto;
-}
-
-/* White overlay on header background */
-.ty-prof-header-overlay{
-	z-index:1;
-	position:absolute;
-	top:0vh;
-	height:35vh;
-	min-height:10em;
-	width:100vw;
-	background-color:#fff;
-	opacity:0.6;
 }
 
 /* Name & tagline */
@@ -374,7 +374,7 @@ body{
 .ty-prof-header-info h6{
 	font-family:"Open Sans";
 	font-weight:600;
-	font-size:0.9em;
+	font-size:1em;
 	color:#626262;
 	letter-spacing:0.05em;
 	margin-top:-0.5em;
@@ -385,7 +385,7 @@ body{
 	z-index:3;
 	float:right;
 	position:relative;
-	bottom:5em;
+	bottom:8em;
 	right:3vw;
 	width:15vw;
 	min-width:6.75em;
@@ -402,7 +402,7 @@ body{
 /* Quick facts icons */
 .ty-prof-icon{
 	float:left;
-	height:1.3em;
+	height:1.25em;
 	width:1.25em;
 	border-radius:100%;
 	border:1px solid #28d6d6;
@@ -523,7 +523,9 @@ body{
 	margin-bottom:5em;
 }
 
-.ty-setup .ty-prof-icon p{
+
+
+.ty-prof-icon p{
 	color:white;
 	font-size:1em;
 }
@@ -559,4 +561,31 @@ body{
 	width:15vw;
 	min-width:6.75em;
 	max-width:9em;
+}
+
+/* Add trip form */
+#ty-add-trip{
+	width:100vw;
+	font-size:0.9em;
+}
+
+.ty-trip-form{
+	margin:0 auto;
+	width:85vw;
+	margin-top:1em;
+}
+
+.ty-form-icon{
+	float:left;
+	height:1.75em;
+	width:1.75em;
+	border-radius:100%;
+	background-color:#28D6D6;
+	text-align:center;
+	margin-right:1em;
+}
+
+.ty-form-icon p{
+	font-size:1.25em;
+	color:#fff;
 }
