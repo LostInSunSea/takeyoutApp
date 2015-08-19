@@ -68,6 +68,7 @@ body{
 	padding:0;
 	width:100vw;
 	border-radius:0;
+	border-top:1px solid #e2e2e2;
 }
 
 /* Height of each trip card */
@@ -101,7 +102,9 @@ body{
 
 .bar-header{
 	/* 3D effect */
-	box-shadow: 0em 0.3em 0em 0em #d36000;
+	/*box-shadow: 0em 0.3em 0em 0em #d36000;*/
+	border-style:none;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 }
 
 /* Circular containers for icons or pictures */
@@ -113,13 +116,14 @@ body{
 	background-color:#fff;
 	border-style:1em solid #fff;
 	border-radius:100%;
-	box-shadow: 0em 0.5em 1em -0.25em #000;
+	/*box-shadow: 0em 0.5em 1em -0.25em rgba(0, 0, 0, 0.5);*/
+	box-shadow: 0em 0.25em 0.25em 0em rgba(0, 0, 0, 0.25);
 }
 
 /* Trip/hometown icons */
 .ty-trip-icon-container{
-	height:2em;
-	width:2em;
+	height:1.75em;
+	width:1.75em;
 }
 
 .ty-hometown{
@@ -133,8 +137,8 @@ body{
 }
 
 .ty-trip-icon{
-	height:1.75em;
-	width:1.75em;
+	height:2em;
+	width:2em;
 	border-radius:100%;
 	margin:0 auto;
 }
@@ -147,7 +151,7 @@ body{
 /* Trip/hometown text */
 .ty-connect-location{
 	padding:1em;
-	background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.7), rgba(255,255,255,0.5), rgba(255,255,255,0.3), rgba(0,0,0,0));
+	background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.7), rgba(255,255,255,0.5), rgba(255,255,255,0.3), rgba(0,0,0,0),rgba(0,0,0,0.25));
 	height:18vh;
 	min-height:5em;
 	max-height:6em;
@@ -170,18 +174,26 @@ body{
 	letter-spacing:0.05em;
 }
 
+.ty-trip-next{
+	position:absolute;
+	right:0.5em;
+	font-size:1.25em;
+}
+
 /* General button */
 .ty-button{
 	background-color:#28d6d6;
 	color:#fff;
+	/*color:#28d6d6*/
 	text-transform:uppercase;
 	letter-spacing:.2em;
 	font-size:0.75em;
 	border-radius:0.5em;
 	border:none;
+	/*border:1px solid #ff8e30;*/
 	
 	/* 3D effect */
-	box-shadow: 0em 0.3em 0em 0em #007f7f;
+	/*box-shadow: 0em 0.3em 0em 0em #007f7f;*/
 }
 
 /* Buttons for adding i.e. Plan Trip & Add Meeting */
@@ -192,7 +204,7 @@ body{
 	z-index:100;
 	
 	/* Shadow effect */
-	box-shadow: 0em 0.3em 0em 0em #007f7f, 0em 0.5em 1em 0em #000;
+	box-shadow: 0em 0.25em 0.25em 0em rgba(0, 0, 0, 0.25);
 }
 
 /* Empty trip image positioning */
@@ -208,7 +220,7 @@ body{
 	opacity:0.6;
 }
 
-#ty-arrow{
+#ty-trip-arrow{
 	position:absolute;
 	width:35%;
 	max-width:8em;
@@ -287,22 +299,34 @@ body{
 	color:#626262;
 }
 
-.ty-profile em {
+.ty-profile em{
 	letter-spacing:0.15em;
 }
 
 .ty-prof-header{
 	padding:0;
 	width:100vw;
-	height:35vh;
+	height:16em;
 	min-height:10em;
 	overflow:hidden;
 }
 
 .ty-prof-bg{
 	z-index:-1;
-	height:105%;
+	height:120%;
 	width:100%;
+}
+
+/* White overlay on header background */
+.ty-prof-header-overlay{
+	z-index:1;
+	position:absolute;
+	top:0vh;
+	height:16em;
+	min-height:10em;
+	width:100vw;
+	background-color:#fff;
+	opacity:0.6;
 }
 
 /* Profile pic */
@@ -317,23 +341,11 @@ body{
 
 .ty-prof-pic{
 	border-radius:100%;
-	height:12.5vh;
-	width:12.5vh;
+	height:12.25vh;
+	width:12.25vh;
 	min-height:4.5em;
 	min-width:4.5em;
 	margin:0 auto;
-}
-
-/* White overlay on header background */
-.ty-prof-header-overlay{
-	z-index:1;
-	position:absolute;
-	top:0vh;
-	height:35vh;
-	min-height:10em;
-	width:100vw;
-	background-color:#fff;
-	opacity:0.6;
 }
 
 /* Name & tagline */
@@ -362,7 +374,7 @@ body{
 .ty-prof-header-info h6{
 	font-family:"Open Sans";
 	font-weight:600;
-	font-size:0.9em;
+	font-size:1em;
 	color:#626262;
 	letter-spacing:0.05em;
 	margin-top:-0.5em;
@@ -373,7 +385,7 @@ body{
 	z-index:3;
 	float:right;
 	position:relative;
-	bottom:5em;
+	bottom:8em;
 	right:3vw;
 	width:15vw;
 	min-width:6.75em;
@@ -390,7 +402,7 @@ body{
 /* Quick facts icons */
 .ty-prof-icon{
 	float:left;
-	height:1.3em;
+	height:1.25em;
 	width:1.25em;
 	border-radius:100%;
 	border:1px solid #28d6d6;
@@ -406,4 +418,174 @@ body{
 .ty-prof-about{
 	margin-top:0.5em;
 	line-height:175%;
+}
+
+/* Profile setup page */
+.ty-setup{
+	margin:0;
+	padding:0;
+	width:100%;
+}
+
+.ty-setup-prog{
+	margin:0 auto;
+	margin-top:0.5em;
+	max-width:20em;
+}
+
+.ty-setup-prog-item{
+}
+
+.ty-setup-prog .ty-circle-container{
+	float:none;
+	box-shadow: 0em .25em 0.5em 0em rgba(0,0,0,0.2);
+	box-shadow: 0em 0em 0em 0em rgba(0,0,0,0);
+}
+
+.ty-setup-icon-container{
+	height:2.5em;
+	width:2.5em;
+	color:white;
+}
+
+.ty-setup-icon{
+	height:2.5em;
+	width:2.5em;
+	border-radius:100%;
+	text-align:center;
+	/*margin:0 auto;*/
+	background-color:#c2c2c2;
+	border-style:1em solid #c2c2c2;
+}
+
+.ty-setup-icon p{
+	font-size:1.75em;
+	font-weight:600;
+	color:#fff;
+}
+
+.ty-prog-bar{
+	margin:0 auto;
+	width:18vw;
+	height:0.3em;
+	border-radius:10vw;
+	background-color:#c2c2c2;
+	border-style:1em solid #c2c2c2;
+}
+
+.ty-setup-current{
+	border-style:1em solid #28D6D6;
+	background-color:#28D6D6;
+}
+
+/* Setup forms */
+.ty-setup-content{
+	margin:0 auto;
+	margin-top:2.5em;
+	width:85%;
+	height:50vh;
+}
+
+.ty-setup h2, .ty-field-name{
+	color:#626262;
+	font-size:1.25em;
+	letter-spacing:0.1em;
+	font-weight:800;
+	padding:0;
+}
+
+.ty-setup h6{
+	font-family:"Open Sans";
+	font-weight:600;
+	font-size:1.25em;
+	color:#929292;
+	letter-spacing:0.1em;
+	margin-top:-0.5em;
+}
+
+.ty-setup-description, .ty-input-label{
+	font-family:"Open Sans";
+	margin-top:1.5em;
+	color:#929292;
+	letter-spacing:0.05em;
+}
+
+.ty-setup-content em{
+	color:#626262;
+	font-weight:600;
+	letter-spacing:0.1em;
+}
+
+.ty-setup-form{
+	margin:0 auto;
+	width:100%;
+	margin-top:2em;
+	margin-bottom:5em;
+}
+
+
+
+.ty-prof-icon p{
+	color:white;
+	font-size:1em;
+}
+
+.item-stacked-label{
+	border-style:none;
+	border-bottom:1px solid #e2e2e2;
+}
+
+.ty-field-name{
+	font-size:0.9em;
+	font-weight:800;
+	color:#626262;
+	letter-spacing:0.1em;
+}
+
+.ty-setup-back-button{
+	z-index:3;
+	background-color:#c2c2c2;
+	position:fixed;
+	bottom:15vh;
+	left:6vw;
+	width:15vw;
+	min-width:6.75em;
+	max-width:9em;
+}
+
+.ty-setup-next-button{
+	z-index:3;
+	position:fixed;
+	bottom:15vh;
+	right:6vw;
+	width:15vw;
+	min-width:6.75em;
+	max-width:9em;
+}
+
+/* Add trip form */
+#ty-add-trip{
+	width:100vw;
+	font-size:0.9em;
+}
+
+.ty-trip-form{
+	margin:0 auto;
+	width:85vw;
+	margin-top:1em;
+}
+
+.ty-form-icon{
+	float:left;
+	height:1.75em;
+	width:1.75em;
+	border-radius:100%;
+	background-color:#28D6D6;
+	text-align:center;
+	margin-right:1em;
+}
+
+.ty-form-icon p{
+	font-size:1.25em;
+	color:#fff;
 }
