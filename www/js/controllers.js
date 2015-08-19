@@ -6,13 +6,19 @@ angular.module('starter.controllers', [])
   
   $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) {
  	var parsed = JSON.parse(data);
-        for(var i = 0; i < parsed.length; i++) 
-        {
-            var obj = parsed[i];
-            var fullPlaceName = obj.city + ", " + obj.country;
-            if (obj.startDate == null)
-            {
-           
+ 	
+ 	if (parsed.length == 1)
+ 	{
+	 	var connectEmpty = document.getElementById("ty-connect-empty");
+	 	connectEmpty.style.visibility = "visible";
+ 	}
+ 	
+    for(var i = 0; i < parsed.length; i++) 
+    {
+        var obj = parsed[i];
+        var fullPlaceName = obj.city + ", " + obj.country;
+        if (obj.startDate == null)
+        {   
            $scope.trips.push(	           
            {
            displayString:fullPlaceName,
@@ -21,9 +27,9 @@ angular.module('starter.controllers', [])
            dateString:"Hometown",
            backgroundImage:obj.backgroundImage
            });
-            }
-            else
-            {
+        }
+        else
+        {
            $scope.trips.push(	           
            {
            displayString:fullPlaceName,
@@ -32,10 +38,10 @@ angular.module('starter.controllers', [])
            dateString:convertDate(obj.startDate) + " - " + convertDate(obj.endDate),
            backgroundImage:obj.backgroundImage
            });	           
-            }
         }
+    }
         
-        $scope.$digest();
+    $scope.$digest();
  });
 })
 
