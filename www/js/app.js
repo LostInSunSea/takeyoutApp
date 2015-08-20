@@ -38,6 +38,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               }
             }
           })
+          .state('tabs.connect3', {
+            url: "/setup",
+            views: {
+              'connect-tab': {
+                templateUrl: "templates/setup.html",
+                controller: 'SetupTabCtrl'
+              }
+            }
+          })
           .state('tabs.calendar', {
             url: "/calendar",
             views: {
@@ -69,7 +78,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             url: "/connect2",
             views: {
               'connect-tab': {
-                templateUrl: "templates/connect2.html"
+                templateUrl: "templates/connect2.html",
+                controller: "NewTripTabCtrl"
               }
             }
           })
