@@ -78,7 +78,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             url: "/connect2",
             views: {
               'connect-tab': {
-                templateUrl: "templates/connect2.html"
+                templateUrl: "templates/connect2.html",
+                controller: "NewTripTabCtrl"
               }
             }
           })

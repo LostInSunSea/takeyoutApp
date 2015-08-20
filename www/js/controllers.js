@@ -57,6 +57,10 @@ angular.module('starter.controllers', [])
   console.log('SetupTabCtrl');
 })
 
+.controller('NewTripTabCtrl', function($scope) {
+  console.log('NewTripTabCtrl');
+})
+
 .controller('MeTabCtrl', function($scope) {
   console.log('MeTabCtrl');
   $.get("http://kawaiikrew.net/www/php/get_user_data.php", {}, function(data) 
