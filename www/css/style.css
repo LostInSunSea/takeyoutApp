@@ -337,8 +337,6 @@ body{
 	width:13vh;
 	min-height:5em;
 	min-width:5em;
-	max-height:5.25em;
-	max-width:5.25em;
 }
 
 .ty-prof-pic{
@@ -347,8 +345,6 @@ body{
 	width:12.25vh;
 	min-height:4.75em;
 	min-width:4.75em;
-	max-height:5em;
-	max-width:5em;
 	margin:0 auto;
 }
 
@@ -420,9 +416,11 @@ body{
 }
 
 .ty-accept-reject{
-	margin:0 auto;
+	/*margin:0 auto;
+	bottom:2em;
+	left:20vw;
 	width:60vw;
-	max-width:18em;
+	max-width:18em;*/
 }
 
 .ty-choose-circle{
@@ -432,23 +430,26 @@ body{
 	text-align:center;
 	color:white;
 	font-size:3em;
-	/*box-shadow: 0em 0.1em 0.25em 0em rgba(0, 0, 0, 0.25);*/
+	position:fixed;
+	bottom:1em;
+	box-shadow: 0em 0.1em 0.25em 0em rgba(0, 0, 0, 0.25);
 }
 
 .ty-accept-circle{
 	background-color:#C4D100;
-	float:right;
+	right:20vw;
 }
 
 .ty-reject-circle{
 	background-color:#FF7400;
-	float:left;
+	left:20vw;
 }
 
 /* About profile tagline */
 .ty-prof-about{
 	margin-top:0.5em;
 	line-height:175%;
+	margin-bottom:5em;
 }
 
 /* Profile setup page */
@@ -460,7 +461,7 @@ body{
 }
 
 #ty-setup-step-1{
-	/*display:none;*/
+	display:none;
 }
 
 #ty-setup-step-2{
@@ -468,7 +469,7 @@ body{
 }
 
 #ty-setup-step-3{
-	display:none;
+	/*display:none;*/
 }
 
 .ty-setup-prog{
@@ -581,6 +582,15 @@ body{
 	letter-spacing:0.1em;
 }
 
+.ty-setup-button{
+	display:block;
+	background-color:#c2c2c2;
+	margin:0 auto;
+	margin-top:2em;
+	width:15vw;
+	min-width:7em;
+}
+
 .ty-setup-back-button{
 	/*z-index:3;
 	background-color:#c2c2c2;
@@ -590,13 +600,7 @@ body{
 	width:15vw;
 	min-width:6.75em;
 	max-width:9em;*/
-	display:block;
-	background-color:#c2c2c2;
 	float:left;
-	margin:0 auto;
-	margin-top:2em;
-	width:15vw;
-	min-width:7em;
 }
 
 .ty-setup-next-button{
@@ -607,13 +611,11 @@ body{
 	width:15vw;
 	min-width:6.75em;
 	max-width:9em;*/
-	
-	display:block;
 	float:right;
-	margin:0 auto;
-	margin-top:2em;
-	width:15vw;
-	min-width:7em;
+}
+
+.ty-setup-done-button{
+	background-color:#28D6D6;
 }
 
 /* Add trip form */

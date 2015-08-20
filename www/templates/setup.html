@@ -57,9 +57,9 @@
 				</label>
 			</div>
 			
-			<a class="ty-caps ty-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>
+			<!--<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>-->
 			
-			<a class="ty-caps ty-button ty-setup-next-button button button-small" href="#">Done</a>
+			<a class="ty-caps ty-button ty-setup-button ty-setup-next-button button button-small icon icon-right ion-chevron-right" href="#">Next</a>
 		</div>
 		
 		<!-- Step 2 -->
@@ -85,9 +85,9 @@
 				</label>
 			</div>
 			
-			<a class="ty-caps ty-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>
+			<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>
 			
-			<a class="ty-caps ty-button ty-setup-next-button button button-small" href="#">Done</a>
+			<a class="ty-caps ty-button ty-setup-button ty-setup-next-button button button-small icon icon-right ion-chevron-right" href="#">Next</a>
 		</div>
 		
 		<!-- Step 3 -->
@@ -126,11 +126,25 @@
 						</label>
 					</div>
 				</div>
+				
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-chatbubbles"></p>
+								</div>
+								Languages 
+							</span>
+							<textarea rows="2" id="ty-language-input" placeholder="Which languages can you speak?" onkeyup="resizeTextArea('ty-language-input')"></textarea>
+						</label>
+					</div>
+				</div>
 			</div>
 			
-			<a class="ty-caps ty-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>
+			<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>
 			
-			<a class="ty-caps ty-button ty-setup-next-button button button-small" href="#">Done</a>
+			<a class="ty-caps ty-setup-button ty-setup-next-button ty-setup-done-button ty-button button button-small" href="#">Done</a>
 		</div>
 	</ion-content>
 </ion-view>
