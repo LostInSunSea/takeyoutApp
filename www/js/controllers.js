@@ -59,6 +59,16 @@ angular.module('starter.controllers', [])
 
 .controller('NewTripTabCtrl', function($scope) {
   console.log('NewTripTabCtrl');
+  /*var options = {
+  types: ['(cities)'],
+  componentRestrictions: {country: "us"}
+ };*/
+
+ //var input = document.getElementById('cityTextField');
+ //var autocomplete = new google.maps.places.Autocomplete(input, options);
+ /*autocomplete = new google.maps.places.Autocomplete(
+      (document.getElementById('cityTextField')),
+      {types: ['geocode']});*/
 })
 
 .controller('MeTabCtrl', function($scope) {
@@ -73,6 +83,7 @@ angular.module('starter.controllers', [])
 	 $scope.hometown = user.city + ", " + user.country;
 	 $scope.bio = user.bio;
 	 $scope.picFull = user.picFull;
+	 $scope.$digest();
   });
 })
 
