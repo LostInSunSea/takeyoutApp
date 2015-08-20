@@ -53,6 +53,10 @@ angular.module('starter.controllers', [])
   console.log('CalendarTabCtrl');
 })
 
+.controller('SetupTabCtrl', function($scope) {
+  console.log('SetupTabCtrl');
+})
+
 .controller('MeTabCtrl', function($scope) {
   console.log('MeTabCtrl');
   $.get("http://kawaiikrew.net/www/php/get_user_data.php", {}, function(data) 
