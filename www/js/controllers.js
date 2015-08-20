@@ -59,16 +59,30 @@ angular.module('starter.controllers', [])
 
 .controller('NewTripTabCtrl', function($scope) {
   console.log('NewTripTabCtrl');
-  /*var options = {
-  types: ['(cities)'],
-  componentRestrictions: {country: "us"}
- };*/
-
- //var input = document.getElementById('cityTextField');
- //var autocomplete = new google.maps.places.Autocomplete(input, options);
- /*autocomplete = new google.maps.places.Autocomplete(
+  var city;
+  var country;
+  autocomplete = new google.maps.places.Autocomplete(
       (document.getElementById('cityTextField')),
-      {types: ['geocode']});*/
+      {types: ['(cities)']});
+  google.maps.event.addListener(autocomplete, 'place_changed', function()
+  {
+      var place = autocomplete.getPlace();
+      for (var i = 0; i < place.address_components.length; i++) {
+      	var addressType = place.address_components[i].types[0];
+      	if (addressType == 'locality')
+      	{
+	      var val = place.address_components[i]['long_name'];
+	      alert("adding city of " + val);
+	      city = val;
+      	}
+      	if (addressType == 'country')
+      	{
+	      var val = place.address_components[i]['long_name'];
+	      alert("Adding country of " + val);
+	      country = val;
+      	}
+      }
+  })
 })
 
 .controller('MeTabCtrl', function($scope) {
