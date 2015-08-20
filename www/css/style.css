@@ -114,7 +114,7 @@ body{
 	text-align:center;
 	float:left;
 	background-color:#fff;
-	border-style:1em solid #fff;
+	/*border:1em solid #fff;*/
 	border-radius:100%;
 	/*box-shadow: 0em 0.5em 1em -0.25em rgba(0, 0, 0, 0.5);*/
 	box-shadow: 0em 0.25em 0.25em 0em rgba(0, 0, 0, 0.25);
@@ -127,12 +127,12 @@ body{
 }
 
 .ty-hometown{
-	border-style:1em solid #ffad68;
+	/*border:1em solid #ffad68;*/
 	background-color:#ffad68;
 }
 
 .ty-trip{
-	border-style:1em solid #28d6d6;
+	/*border:1em solid #28d6d6;*/
 	background-color:#28d6d6;
 }
 
@@ -499,7 +499,7 @@ body{
 	text-align:center;
 	/*margin:0 auto;*/
 	background-color:#c2c2c2;
-	border-style:1em solid #c2c2c2;
+	/*border:1em solid #c2c2c2;*/
 }
 
 .ty-setup-icon p{
@@ -514,11 +514,11 @@ body{
 	height:0.3em;
 	border-radius:10vw;
 	background-color:#c2c2c2;
-	border-style:1em solid #c2c2c2;
+	/*border:1em solid #c2c2c2;*/
 }
 
 .ty-setup-current{
-	border-style:1em solid #28D6D6;
+	/*border:1em solid #28D6D6;*/
 	background-color:#28D6D6;
 }
 
