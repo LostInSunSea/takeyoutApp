@@ -461,7 +461,7 @@ body{
 }
 
 #ty-setup-step-1{
-	/*display:none;*/
+	display:none;
 }
 
 #ty-setup-step-2{
@@ -469,7 +469,7 @@ body{
 }
 
 #ty-setup-step-3{
-	display:none;
+	/*display:none;*/
 }
 
 .ty-setup-prog{
@@ -582,6 +582,15 @@ body{
 	letter-spacing:0.1em;
 }
 
+.ty-setup-button{
+	display:block;
+	background-color:#c2c2c2;
+	margin:0 auto;
+	margin-top:2em;
+	width:15vw;
+	min-width:7em;
+}
+
 .ty-setup-back-button{
 	/*z-index:3;
 	background-color:#c2c2c2;
@@ -591,13 +600,7 @@ body{
 	width:15vw;
 	min-width:6.75em;
 	max-width:9em;*/
-	display:block;
-	background-color:#c2c2c2;
 	float:left;
-	margin:0 auto;
-	margin-top:2em;
-	width:15vw;
-	min-width:7em;
 }
 
 .ty-setup-next-button{
@@ -608,13 +611,11 @@ body{
 	width:15vw;
 	min-width:6.75em;
 	max-width:9em;*/
-	
-	display:block;
 	float:right;
-	margin:0 auto;
-	margin-top:2em;
-	width:15vw;
-	min-width:7em;
+}
+
+.ty-setup-done-button{
+	background-color:#28D6D6;
 }
 
 /* Add trip form */
