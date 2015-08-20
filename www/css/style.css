@@ -337,14 +337,18 @@ body{
 	width:13vh;
 	min-height:5em;
 	min-width:5em;
+	max-height:5.25em;
+	max-width:5.25em;
 }
 
 .ty-prof-pic{
 	border-radius:100%;
 	height:12.25vh;
 	width:12.25vh;
-	min-height:4.5em;
-	min-width:4.5em;
+	min-height:4.75em;
+	min-width:4.75em;
+	max-height:5em;
+	max-width:5em;
 	margin:0 auto;
 }
 
@@ -361,6 +365,7 @@ body{
 
 .ty-prof-header-info h2, .ty-prof-header-info h6{
 	text-align:center;
+	padding:0em 1em 0em 1em;
 }
 
 .ty-prof-header-info h2{
@@ -414,6 +419,32 @@ body{
 	margin-right:0.5em;
 }
 
+.ty-accept-reject{
+	margin:0 auto;
+	width:60vw;
+	max-width:18em;
+}
+
+.ty-choose-circle{
+	height:1.5em;
+	width:1.5em;
+	border-radius:100%;
+	text-align:center;
+	color:white;
+	font-size:3em;
+	/*box-shadow: 0em 0.1em 0.25em 0em rgba(0, 0, 0, 0.25);*/
+}
+
+.ty-accept-circle{
+	background-color:#C4D100;
+	float:right;
+}
+
+.ty-reject-circle{
+	background-color:#FF7400;
+	float:left;
+}
+
 /* About profile tagline */
 .ty-prof-about{
 	margin-top:0.5em;
@@ -425,6 +456,19 @@ body{
 	margin:0;
 	padding:0;
 	width:100%;
+	height:auto;
+}
+
+#ty-setup-step-1{
+	/*display:none;*/
+}
+
+#ty-setup-step-2{
+	display:none;
+}
+
+#ty-setup-step-3{
+	display:none;
 }
 
 .ty-setup-prog{
@@ -483,7 +527,6 @@ body{
 	margin:0 auto;
 	margin-top:2.5em;
 	width:85%;
-	height:50vh;
 }
 
 .ty-setup h2, .ty-field-name{
@@ -519,11 +562,7 @@ body{
 .ty-setup-form{
 	margin:0 auto;
 	width:100%;
-	margin-top:2em;
-	margin-bottom:5em;
 }
-
-
 
 .ty-prof-icon p{
 	color:white;
@@ -543,24 +582,38 @@ body{
 }
 
 .ty-setup-back-button{
-	z-index:3;
+	/*z-index:3;
 	background-color:#c2c2c2;
 	position:fixed;
 	bottom:15vh;
 	left:6vw;
 	width:15vw;
 	min-width:6.75em;
-	max-width:9em;
+	max-width:9em;*/
+	display:block;
+	background-color:#c2c2c2;
+	float:left;
+	margin:0 auto;
+	margin-top:2em;
+	width:15vw;
+	min-width:7em;
 }
 
 .ty-setup-next-button{
-	z-index:3;
+	/*z-index:3;
 	position:fixed;
 	bottom:15vh;
 	right:6vw;
 	width:15vw;
 	min-width:6.75em;
-	max-width:9em;
+	max-width:9em;*/
+	
+	display:block;
+	float:right;
+	margin:0 auto;
+	margin-top:2em;
+	width:15vw;
+	min-width:7em;
 }
 
 /* Add trip form */
@@ -613,4 +666,13 @@ textarea{
 	resize:vertical;
 	height:auto;
 	font-family:'Open Sans';
+}
+
+.ty-done-centered{
+	font-size:0.9em;
+	display:block;
+	margin:0 auto;
+	margin-top:4em;
+	width:15vw;
+	min-width:7em;
 }
