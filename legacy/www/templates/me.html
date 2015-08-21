@@ -1,0 +1,171 @@
+<ion-view title="Profile">
+	<!-- Profile setup page -->
+	<!--<ion-content class="ty-setup">
+		<table class="ty-setup-prog">
+			<tr>
+				<td class="ty-setup-prog-item">
+					<div class="ty-circle-container ty-setup-icon-container">
+						<div class="ty-setup-current ty-setup-icon">
+							<p class="ty-vertical">1</p>
+						</div>
+					</div>
+				</td>
+				<td class="ty-setup-prog-item">
+					<div class="ty-prog-bar"></div>
+				</td>
+				<td class="ty-setup-prog-item">
+					<div class="ty-circle-container ty-setup-icon-container">
+						<div class="ty-setup-icon">
+							<p class="ty-vertical">2</p>
+						</div>
+					</div>
+				</td>
+				<td class="ty-setup-prog-item">
+					<div class="ty-prog-bar"></div>
+				</td>
+				<td class="ty-setup-prog-item">
+					<div class="ty-circle-container ty-setup-icon-container">
+						<div class="ty-setup-icon">
+							<p class="ty-vertical">3</p>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>	
+		
+		<!-- Step 1 -->
+		<!--<div class="ty-setup-content">
+			<div class="ty-setup-header">
+				<h2 class="ty-caps">Step 1</h2>
+				<h6 class="ty-caps">Your Hometown</h6>
+			</div>
+			
+			<div class="ty-setup-description">
+				<p>Your <em>hometown</em> will be used so that you can always connect with others in your most frequented area.</p>
+			</div>
+		
+		
+			<div class="ty-setup-form">
+				<label class="item item-input item-stacked-label">
+					<span class="ty-field-name ty-caps ty-input-label">
+						<div class="ty-prof-icon">
+							<p class="ty-vertical icon-left ion-home"></p>
+						</div>
+						Hometown
+					</span>
+					<input class="ty-input-label" type="text" placeholder="Menlo Park, CA">
+				</label>
+			</div>
+		</div>
+		
+		<!-- Step 2 -->
+		<!--<div class="ty-setup-content">
+			<div class="ty-setup-header">
+				<h2 class="ty-caps">Step 2</h2>
+				<h6 class="ty-caps">People You Want To Meet</h6>
+			</div>
+			
+			<div class="ty-setup-description">
+				<p>What kinds of people do you want to meet? Tell us your preferences. (Don't worry, you can always change this later!)</p>
+			</div>
+		
+		
+			<div class="ty-setup-form">
+				<label class="item item-input item-stacked-label">
+					<span class="ty-field-name ty-caps ty-input-label">
+						<div class="ty-prof-icon">
+							<p class="ty-vertical icon-left ion-levels"></p>
+						</div>
+						Preferences
+					</span>
+					<input class="ty-input-label" type="text" placeholder="Industry name or job function">
+				</label>
+			</div>
+		</div>-->
+		
+		<!-- Step 3 -->
+		<!--<div class="ty-setup-content">
+			<div class="ty-setup-header">
+				<h2 class="ty-caps">Step 3</h2>
+				<h6 class="ty-caps">Tell Us About Yourself</h6>
+			</div>
+			
+			<div class="ty-setup-description">
+				<p>We want to get to you know a little better!</p>
+			</div>
+		
+		
+			<div class="ty-setup-form">
+				<label class="item item-input item-stacked-label">
+					<span class="ty-field-name ty-caps ty-input-label">
+						<div class="ty-prof-icon">
+							<p class="ty-vertical icon-left ion-pizza"></p>
+						</div>
+						Favorite Foods
+					</span>
+					<input class="ty-input-label" type="text" placeholder="Ex. Ramen, ice cream">
+				</label><br />
+				<label class="item item-input item-stacked-label">
+					<span class="ty-field-name ty-caps ty-input-label">About</span>
+					<input class="ty-input-label" type="text" placeholder="What makes you, YOU?">
+				</label>
+			</div>
+		</div>
+	</ion-content>
+
+	<div class="ty-setup-buttons">
+		<a class="ty-caps ty-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>
+	
+		<!-- DONE button appears on step 3 -->
+		<!--<a class="ty-caps ty-button ty-setup-next-button button button-small" href="#">Done</a>
+		
+		<!-- NEXT button otherwise -->
+		<!--<a class="ty-caps ty-button ty-setup-next-button button button-small icon icon-right ion-chevron-right" href="#">Next</a>-->
+	<!--</div>
+	
+	<!-- Profile page -->
+    <<ion-content class="ty-profile">
+		<div class="ty-prof-header ty-divider">
+			<div class="ty-prof-bg" style="background-image:url('https://www.dropbox.com/s/wyhpeo82nl0vl6o/nature-forest-waterfall-jungle.jpg?raw=1');background-size:cover;-webkit-filter: blur(5px);filter:blur(5px);"></div>
+			<div class="ty-prof-header-overlay"></div>
+			
+			<div class="ty-prof-header-info">
+				<div class="ty-circle-container ty-prof-pic-container">
+					<div class="ty-prof-pic ty-vertical" style="background-image:url({{picFull}});background-size:cover;"></div>
+				</div>
+			
+			
+				<h2 class="ty-caps">{{name}}</h2>
+				<h6>{{headline}}</h6>
+			</div>
+			
+			<a class="button button-small ty-caps ty-button ty-add-button ty-edit-button" href="#">Edit</a>
+		</div>
+		
+		<ul class="ty-prof-content ty-divider">
+			<li>
+				<div class="ty-prof-icon">
+					<p class="ty-vertical icon icon-left ion-home"></p>
+				</div>
+				<p class="ty-prof-facts"><em class="ty-caps"> Hometown:</em>{{hometown}}</p>
+			</li>
+			<li>
+				<div class="ty-prof-icon">
+					<p class="ty-vertical icon icon-left ion-chatbubbles"></p>
+				</div>
+				<p class="ty-prof-facts"><em class="ty-caps"> Speaks:</em> Slothish (native)</p>
+			</li>
+			<li>
+				<div class="ty-prof-icon">
+					<p class="ty-vertical icon icon-left ion-pizza"></p>
+				</div>
+				<p class="ty-prof-facts"><em class="ty-caps"> Favorite Foods:</em> Leaves</p>
+			</li>
+		</ul>
+
+		<div class="ty-prof-content">
+			<em class="ty-caps">About {{firstName}}</em>
+			<p class="ty-prof-about">{{bio}}</p>
+		</div>
+    </ion-content>
+</ion-view>

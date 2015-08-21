@@ -1,0 +1,59 @@
+<ion-view title="Add Trip">
+	<ion-content id="ty-add-trip">
+		<div class="ty-add-form">
+			<div class="ty-trip-form">
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-location"></p>
+								</div>
+								Location
+							</span>
+							<input class="ty-input-label" type="text" placeholder="City or zipcode" id="cityTextField">
+						</label>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col col-50 ty-start-date">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-calendar"></p>
+								</div>
+								Date
+							</span>
+							<input class="ty-input-label" type="text" placeholder="Start date">
+						</label>
+					</div>
+					<div class="col col-50 ty-end-date">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label" style="color:#fff;">
+								End
+							</span>
+							<input class="ty-input-label" type="text" placeholder="End date">
+						</label>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-levels"></p>
+								</div>
+								Preferences
+							</span>
+							<textarea rows="2" id="ty-pref2" placeholder="Industry name or job function" onkeyup="resizeTextArea('ty-pref2')"></textarea>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<a class="ty-done-centered ty-caps ty-button button button-small" href="#">Done</a>
+	</ion-content>
+</ion-view>

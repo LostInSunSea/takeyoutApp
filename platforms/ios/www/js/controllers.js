@@ -1,56 +1,190 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
 
-  // Form data for the login modal
-  $scope.loginData = {};
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+  .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
+    $scope.login = function() {
+      console.log("something called");
+      $cordovaOauth.linkedin('75raqzxpgqo73n','hLVHrUKJRsBNSfAG',['r_basicprofile'],'spaghettiandmeatballs248').then(function(result) {
+        console.log(JSON.stringify(result));
+        console.log(window.location.href);
+        $state.go("tab.connect");
+        console.log("why arent you working");
+      }, function(error) {
+        console.log(error);
+      });
+    }
+  })
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+  .controller('ConnectTabCtrl', function($scope) {
+    console.log('ConnectTabCtrl');
+    $scope.trips = [];
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
-})
+    $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) {
+      var parsed = JSON.parse(data);
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
+      if (parsed.length == 1)
+      {
+        var connectEmpty = document.getElementById("ty-connect-empty");
+        connectEmpty.style.visibility = "visible";
+      }
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+      for(var i = 0; i < parsed.length; i++)
+      {
+        var obj = parsed[i];
+        var fullPlaceName = obj.city + ", " + obj.country;
+        if (obj.startDate == null)
+        {
+          $scope.trips.push(
+            {
+              displayString:fullPlaceName,
+              tripClass:"ty-trip-icon ty-hometown ty-vertical",
+              icon:"ty-vertical icon ion-heart",
+              dateString:"Hometown",
+              backgroundImage:obj.backgroundImage
+            });
+        }
+        else
+        {
+          $scope.trips.push(
+            {
+              displayString:fullPlaceName,
+              tripClass:"ty-trip-icon ty-trip ty-vertical",
+              icon:"ty-vertical icon ion-plane",
+              dateString:convertDate(obj.startDate) + " - " + convertDate(obj.endDate),
+              backgroundImage:obj.backgroundImage
+            });
+        }
+      }
+
+      $scope.$digest();
+    });
+  })
+
+  .controller('MessagesTabCtrl', function($scope) {
+    console.log('MessagesTabCtrl');
+  })
+
+  .controller('CalendarTabCtrl', function($scope) {
+    console.log('CalendarTabCtrl');
+  })
+
+  .controller('SetupTabCtrl', function($scope) {
+    console.log('SetupTabCtrl');
+    var city;
+    var country;
+    autocomplete = new google.maps.places.Autocomplete(
+      (document.getElementById('hometownTextField')),
+      {types: ['(cities)']});
+    google.maps.event.addListener(autocomplete, 'place_changed', function()
+    {
+      var place = autocomplete.getPlace();
+      for (var i = 0; i < place.address_components.length; i++) {
+        var addressType = place.address_components[i].types[0];
+        if (addressType == 'locality')
+        {
+          var val = place.address_components[i]['long_name'];
+          alert("adding city of " + val);
+          city = val;
+        }
+        if (addressType == 'country')
+        {
+          var val = place.address_components[i]['long_name'];
+          alert("Adding country of " + val);
+          country = val;
+        }
+      }
+    })
+  })
+
+  .controller('NewTripTabCtrl', function($scope) {
+    console.log('NewTripTabCtrl');
+    var city;
+    var country;
+    autocomplete = new google.maps.places.Autocomplete(
+      (document.getElementById('cityTextField')),
+      {types: ['(cities)']});
+    google.maps.event.addListener(autocomplete, 'place_changed', function()
+    {
+      var place = autocomplete.getPlace();
+      for (var i = 0; i < place.address_components.length; i++) {
+        var addressType = place.address_components[i].types[0];
+        if (addressType == 'locality')
+        {
+          var val = place.address_components[i]['long_name'];
+          alert("adding city of " + val);
+          city = val;
+        }
+        if (addressType == 'country')
+        {
+          var val = place.address_components[i]['long_name'];
+          alert("Adding country of " + val);
+          country = val;
+        }
+      }
+    })
+  })
+
+  .controller('MeTabCtrl', function($scope) {
+    console.log('MeTabCtrl');
+    $.get("http://kawaiikrew.net/www/php/get_user_data.php", {}, function(data)
+    {
+      var user = JSON.parse(data);
+      $scope.name = user.name;
+      fullName = (user.name).split(" ");
+      $scope.firstName = fullName[0];
+      $scope.headline = user.headline;
+      $scope.hometown = user.city + ", " + user.country;
+      $scope.bio = user.bio;
+      $scope.picFull = user.picFull;
+      $scope.$digest();
+    });
+  })
+
+//In the connect controller, convert the sql date string in the format yyyy-mm-dd to a more readable format
+function convertDate(initial)
+{
+  values = initial.split("-");
+  switch(values[1])
+  {
+    case '01':
+      return "Jan " + values[2];
+      break;
+    case '02':
+      return "Feb " + values[2];
+      break;
+    case '03':
+      return "Mar " + values[2];
+      break;
+    case '04':
+      return "Apr " + values[2];
+      break;
+    case '05':
+      return "May " + values[2];
+      break;
+    case '06':
+      return "Jun " + values[2];
+      break;
+    case '07':
+      return "Jul " + values[2];
+      break;
+    case '08':
+      return "Aug " + values[2];
+      break;
+    case '09':
+      return "Sep " + values[2];
+      break;
+    case '10':
+      return "Oct " + values[2];
+      break;
+    case '11':
+      return "Nov " + values[2];
+      break;
+    case '12':
+      return "Dec " + values[2];
+      break;
+  }
+}
