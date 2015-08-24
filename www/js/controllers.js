@@ -1,21 +1,33 @@
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
-
-
-
-
-
   .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
     $scope.login = function() {
       //console.log("something called");
       $cordovaOauth.linkedin('75raqzxpgqo73n','hLVHrUKJRsBNSfAG',['r_basicprofile'],'spaghettiandmeatballs248').then(function(result) {
         $.get("https://api.linkedin.com/v1/people/~:(id,location,formatted-name,industry,summary,specialties,positions,headline,picture-urls::(original),picture-url,interests,languages,skills,date-of-birth)?oauth2_access_token=" + result.access_token + "&format=json", {}, function(data)
-        {
-	        alert(JSON.stringify(data));
-        })
-        //console.log(window.location.href);
+        	{
+	        	$.post("http://kawaiikrew.net/www/php/login.php", 
+	        	{  formattedName:data.formattedName,
+		           id:data.id,
+		           headline:data.headline,
+		           pictureUrl:data.pictureUrl,
+		           pictureUrls:data.pictureUrls,
+		           industry:data.industry,
+		           positions:data.positions,
+		           summary:data.summary
+	        	}, function(returnMessage)
+	        	{
+		        	if (returnMessage == "connect")
+		        	{
+			        	$state.go("tab.connect");
+		        	}
+		        	else if (returnMessage == "setup")
+		        	{
+			        	$state.go("tab.setup");
+		        	}
+	        	});
+        	});
         //$state.go("tab.connect");
-        //console.log("why arent you working");
       }, function(error) {
         console.log(error);
       });
