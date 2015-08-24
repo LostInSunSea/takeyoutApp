@@ -53,7 +53,7 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
         }
       }
     })
-    .state('tab.connect3', {
+    .state('tab.setup', {
       url: "/setup",
       views: {
         'connect-tab': {
