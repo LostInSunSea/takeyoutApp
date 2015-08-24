@@ -1,0 +1,56 @@
+<ion-view title="Profile">	
+	<!-- Profile page -->
+    <<ion-content class="ty-profile">
+		<div class="ty-prof-header ty-divider">
+			<div class="ty-prof-bg" style="background-image:url('https://www.dropbox.com/s/wyhpeo82nl0vl6o/nature-forest-waterfall-jungle.jpg?raw=1');background-size:cover;-webkit-filter: blur(5px);filter:blur(5px);"></div>
+			<div class="ty-prof-header-overlay"></div>
+			
+			<div class="ty-prof-header-info">
+				<div class="ty-circle-container ty-prof-pic-container">
+					<div class="ty-prof-pic ty-vertical" style="background-image:url({{picFull}});background-size:cover;"></div>
+				</div>
+			
+			
+				<h2 class="ty-caps">{{name}}</h2>
+				<h6>{{headline}}</h6>
+			</div>
+			
+			<a class="button button-small ty-caps ty-button ty-add-button ty-edit-button" href="#">Edit</a>
+		</div>
+		
+		<ul class="ty-prof-content ty-divider">
+			<li>
+				<div class="ty-prof-icon">
+					<p class="ty-vertical icon icon-left ion-home"></p>
+				</div>
+				<p class="ty-prof-facts"><em class="ty-caps"> Hometown:</em>{{hometown}}</p>
+			</li>
+			<li>
+				<div class="ty-prof-icon">
+					<p class="ty-vertical icon icon-left ion-chatbubbles"></p>
+				</div>
+				<p class="ty-prof-facts"><em class="ty-caps"> Speaks:</em> Slothish (native)</p>
+			</li>
+			<li>
+				<div class="ty-prof-icon">
+					<p class="ty-vertical icon icon-left ion-pizza"></p>
+				</div>
+				<p class="ty-prof-facts"><em class="ty-caps"> Favorite Foods:</em> Leaves</p>
+			</li>
+		</ul>
+
+		<div class="ty-prof-content">
+			<em class="ty-caps">About {{firstName}}</em>
+			<p class="ty-prof-about">{{bio}}</p>
+		</div>
+    </ion-content>
+	
+	<div class="ty-accept-reject">
+		<div class="ty-choose-circle ty-accept-circle">
+			<p class="ty-vertical icon ion-thumbsup"></p>
+		</div>
+		<div class="ty-choose-circle ty-reject-circle">
+			<p class="ty-vertical icon ion-thumbsdown"></p>
+		</div>
+	</div>
+</ion-view>
