@@ -34,7 +34,7 @@
 		</table>	
 		
 		<!-- Step 1 -->
-		<div class="ty-setup-content" id="ty-setup-step-1">
+		<div class="ty-setup-content" id="ty-setup-step-1" style="display: inline">
 			<div class="ty-setup-header">
 				<h2 class="ty-caps">Step 1</h2>
 				<h6 class="ty-caps">Your Hometown</h6>
@@ -53,17 +53,17 @@
 						</div>
 						Hometown
 					</span>
-					<input class="ty-input-label" type="text" placeholder="Menlo Park, CA" id="hometownTextField">
+					<input class="ty-input-label" type="text" placeholder="Menlo Park, USA" id="hometownTextField">
 				</label>
 			</div>
 			
 			<!--<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>-->
 			
-			<a class="ty-caps ty-button ty-setup-button ty-setup-next-button button button-small icon icon-right ion-chevron-right" href="#">Next</a>
+			<a class="ty-caps ty-button ty-setup-button ty-setup-next-button button button-small icon icon-right ion-chevron-right" ng-click="firstToSecondPage()" href="#">Next</a>
 		</div>
 		
 		<!-- Step 2 -->
-		<div class="ty-setup-content" id="ty-setup-step-2">
+		<div class="ty-setup-content" id="ty-setup-step-2" style="display: none">
 			<div class="ty-setup-header">
 				<h2 class="ty-caps">Step 2</h2>
 				<h6 class="ty-caps">People You Want To Meet</h6>
@@ -85,13 +85,13 @@
 				</label>
 			</div>
 			
-			<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>
+			<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" ng-click="secondToFirstPage()" href="#">Back</a>
 			
-			<a class="ty-caps ty-button ty-setup-button ty-setup-next-button button button-small icon icon-right ion-chevron-right" href="#">Next</a>
+			<a class="ty-caps ty-button ty-setup-button ty-setup-next-button button button-small icon icon-right ion-chevron-right" ng-click="secondToThirdPage()" href="#">Next</a>
 		</div>
 		
 		<!-- Step 3 -->
-		<div class="ty-setup-content" id="ty-setup-step-3">
+		<div class="ty-setup-content" id="ty-setup-step-3" style="display: none">
 			<div class="ty-setup-header">
 				<h2 class="ty-caps">Step 3</h2>
 				<h6 class="ty-caps">Tell Us About Yourself</h6>
@@ -110,7 +110,7 @@
 						</div>
 						Favorite Foods
 					</span>
-					<input class="ty-input-label" type="text" placeholder="Ex. Ramen, ice cream">
+					<input class="ty-input-label" type="text" placeholder="Ex. Ramen, ice cream" id="favFoods">
 				</label>
 				
 				<div class="row">
@@ -142,9 +142,9 @@
 				</div>
 			</div>
 			
-			<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>
+			<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" ng-click="thirdToSecondPage()"href="#">Back</a>
 			
-			<a class="ty-caps ty-setup-button ty-setup-next-button ty-setup-done-button ty-button button button-small" href="#">Done</a>
+			<a class="ty-caps ty-setup-button ty-setup-next-button ty-setup-done-button ty-button button button-small" ng-click="finish()" href="#">Done</a>
 		</div>
 	</ion-content>
 </ion-view>
