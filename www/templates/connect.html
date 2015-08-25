@@ -1,7 +1,7 @@
 <ion-view cache-view="false" title="Connect">
     <ion-content padding="false">
         <div class="card" ng-repeat="trip in trips">
-            <div class="item item-text-wrap" style="background-image:url({{trip.backgroundImage}});background-size:auto 100%;">
+            <div class="item item-text-wrap" ng-click="goToMatch('{{trip.displayString}}', '{{trip.dateString}}')" style="background-image:url({{trip.backgroundImage}});background-size:auto 100%;">
 				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
 					<div class={{trip.tripClass}}>
