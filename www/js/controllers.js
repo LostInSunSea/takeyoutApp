@@ -24,7 +24,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		        	else if (returnMessage == "setup")
 		        	{
 			        	//test
-			        	$state.go("tab.setup");
+			        	$state.go("setup");
 		        	}
 	        	});
         	});
