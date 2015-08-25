@@ -210,7 +210,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     $.get("http://kawaiikrew.net/www/php/get_user_data.php", {}, function(data)
     {
       var user = JSON.parse(data);
-      alert(user.name);
       $scope.name = user.name;
       fullName = (user.name).split(" ");
       $scope.firstName = fullName[0];
@@ -218,6 +217,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       $scope.hometown = user.city + ", " + user.country;
       $scope.bio = user.bio;
       $scope.picFull = user.picFull;
+      $scope.favoriteFoods = user.favoriteFoods;
+      $scope.languages = user.languages;
       $scope.$digest();
     });
   })
