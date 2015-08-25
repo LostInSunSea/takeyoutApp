@@ -549,7 +549,7 @@ body{
 
 .ty-setup h2, .ty-field-name{
 	color:#626262;
-	font-size:1.25em;
+	font-size:1em;
 	letter-spacing:0.1em;
 	font-weight:800;
 	padding:0;
@@ -559,7 +559,7 @@ body{
 	font-family:"Open Sans";
 	font-weight:600;
 	font-size:1.25em;
-	color:#929292;
+	color:#626262;
 	letter-spacing:0.1em;
 	margin-top:-0.5em;
 }
@@ -567,7 +567,7 @@ body{
 .ty-setup-description, .ty-input-label{
 	font-family:"Open Sans";
 	margin-top:1.5em;
-	color:#929292;
+	color:#626262;
 	letter-spacing:0.05em;
 }
 
@@ -593,7 +593,7 @@ body{
 }
 
 .ty-field-name{
-	font-size:0.9em;
+	font-size:0.8em;
 	font-weight:800;
 	color:#626262;
 	letter-spacing:0.1em;
@@ -689,7 +689,7 @@ textarea{
 }
 
 .ty-done-centered{
-	font-size:0.9em;
+	font-size:0.75em;
 	display:block;
 	margin:0 auto;
 	margin-top:4em;
@@ -855,4 +855,47 @@ input[type="date"]:valid:before{
 	margin-left:-35vw;
 	width:70vw;
 	background-color:#239ccc;
+}
+
+/* Add meeting form */
+.ty-meeting-form{
+	margin:0 auto;
+	width:85vw;
+	min-width:23em;
+}
+
+.ty-add-form h2{
+	font-weight:400;
+	color:#626262;
+	letter-spacing:0.1em;
+	font-size:1em;
+}
+
+.ty-add-form em{
+	font-weight:800;
+	letter-spacing:0.1em;
+}
+
+.ty-add-form .ty-prof-pic-list{
+	margin-top:-1em;
+	margin-bottom:1em;
+}
+
+.ty-add-form .icon{
+	color:#626262;
+	float:right;
+	font-size:1.5em;
+	margin-right:0.5em;
+	margin-top:1.5em;
+}
+
+/*.ty-friend{
+	padding-left:1em;
+	padding-right:1em;
+}*/
+
+.ty-friend p{
+	letter-spacing:0.075em;
+	color:#626262;
+	margin-top:-0.75em;
 }
