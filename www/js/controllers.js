@@ -1,3 +1,6 @@
+//Global var, the current 10 matches
+var matches;
+
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
@@ -35,7 +38,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     }
   })
 
-  .controller('ConnectTabCtrl', function($scope, $ionicPlatform) {
+  .controller('ConnectTabCtrl', function($scope, $state) {
     console.log('ConnectTabCtrl');  
 	$scope.trips = [];
 
@@ -78,6 +81,20 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
       $scope.$digest();
     });
+    
+    $scope.goToMatch = function(id) {
+	    console.log("Pressed with id of " + id);
+	    var location = id.split(", ");
+	    matches = [];
+	    $.get("http://kawaiikrew.net/www/php/match.php", 
+	    {
+		    city:location[0],
+		    country:location[1],
+	    }, function(data){
+		  matches = JSON.parse(data);
+		  $state.go("user_profile");
+	    })
+    }
   })
 
   .controller('MessagesTabCtrl', function($scope) {
@@ -236,6 +253,16 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('MatchCtrl', function($scope) {
 	  console.log("MatchCtrl");
+	  var user = matches[0];
+	  $scope.name = user.name;
+      fullName = (user.name).split(" ");
+      $scope.firstName = fullName[0];
+      $scope.headline = user.headline;
+      $scope.hometown = user.city + ", " + user.country;
+      $scope.bio = user.bio;
+      $scope.picFull = user.picFull;
+      $scope.favoriteFoods = user.favoriteFoods;
+      $scope.languages = user.languages;
   })
 
   .controller('MeTabCtrl', function($scope) {
