@@ -15,7 +15,6 @@
 				<h6>{{headline}}</h6>
 			</div>
 			
-			<a class="button button-small ty-caps ty-button ty-add-button ty-edit-button" href="#">Edit</a>
 		</div>
 		
 		<ul class="ty-prof-content ty-divider">
@@ -29,13 +28,13 @@
 				<div class="ty-prof-icon">
 					<p class="ty-vertical icon icon-left ion-chatbubbles"></p>
 				</div>
-				<p class="ty-prof-facts"><em class="ty-caps"> Speaks:</em> Slothish (native)</p>
+				<p class="ty-prof-facts"><em class="ty-caps"> Speaks:</em> {{languages}}</p>
 			</li>
 			<li>
 				<div class="ty-prof-icon">
 					<p class="ty-vertical icon icon-left ion-pizza"></p>
 				</div>
-				<p class="ty-prof-facts"><em class="ty-caps"> Favorite Foods:</em> Leaves</p>
+				<p class="ty-prof-facts"><em class="ty-caps"> Favorite Foods:</em> {{favoriteFoods}}</p>
 			</li>
 		</ul>
 
@@ -46,10 +45,10 @@
     </ion-content>
 	
 	<div class="ty-accept-reject">
-		<div class="ty-choose-circle ty-accept-circle">
+		<div class="ty-choose-circle ty-accept-circle" ng-click="accept()">
 			<p class="ty-vertical icon ion-thumbsup"></p>
 		</div>
-		<div class="ty-choose-circle ty-reject-circle">
+		<div class="ty-choose-circle ty-reject-circle" ng-click="reject()">
 			<p class="ty-vertical icon ion-thumbsdown"></p>
 		</div>
 	</div>

@@ -58,6 +58,11 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
       templateUrl: "templates/setup.html",
       controller: 'SetupTabCtrl'
     })
+    .state('user_profile', {
+      url: "/user_profile",
+      templateUrl: "templates/user_profile.html",
+      controller: 'MatchCtrl'
+    })
     .state('tab.calendar', {
       url: "/calendar",
       views: {
