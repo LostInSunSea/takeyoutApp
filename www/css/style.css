@@ -697,6 +697,21 @@ textarea{
 	min-width:7em;
 }
 
+#ty-pref2{
+	letter-spacing:0.1em;
+}
+
+/* Placeholder text for date */
+input[type="date"]:before{
+	content:attr(placeholder) !important;
+	color:#aaa;
+	margin-right:0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before{
+	content:"";
+}
+
 /* Calendar page */
 .ty-tabs h2{
 	font-size:0.9em;
