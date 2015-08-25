@@ -263,6 +263,39 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       $scope.picFull = user.picFull;
       $scope.favoriteFoods = user.favoriteFoods;
       $scope.languages = user.languages;
+      
+      $scope.accept = function(){
+	      alert("Accept");
+	      matches.shift();
+	      user = matches[0];
+		  $scope.name = user.name;
+	      fullName = (user.name).split(" ");
+	      $scope.firstName = fullName[0];
+	      $scope.headline = user.headline;
+	      $scope.hometown = user.city + ", " + user.country;
+	      $scope.bio = user.bio;
+	      $scope.picFull = user.picFull;
+	      $scope.favoriteFoods = user.favoriteFoods;
+	      $scope.languages = user.languages;
+	      $scope.$digest();
+      }
+      
+      $scope.reject = function(){
+	      alert("Reject");
+	      matches.shift();
+	      user = matches[0];
+		  $scope.name = user.name;
+	      fullName = (user.name).split(" ");
+	      $scope.firstName = fullName[0];
+	      $scope.headline = user.headline;
+	      $scope.hometown = user.city + ", " + user.country;
+	      $scope.bio = user.bio;
+	      $scope.picFull = user.picFull;
+	      $scope.favoriteFoods = user.favoriteFoods;
+	      $scope.languages = user.languages;
+	      $scope.$digest();
+      }
+      
   })
 
   .controller('MeTabCtrl', function($scope) {
