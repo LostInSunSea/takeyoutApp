@@ -53,14 +53,10 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
         }
       }
     })
-    .state('tab.setup', {
+    .state('setup', {
       url: "/setup",
-      views: {
-        'connect-tab': {
-          templateUrl: "templates/setup.html",
-          controller: 'SetupTabCtrl'
-        }
-      }
+      templateUrl: "templates/setup.html",
+      controller: 'SetupTabCtrl'
     })
     .state('tab.calendar', {
       url: "/calendar",
