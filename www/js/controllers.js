@@ -35,9 +35,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     }
   })
 
-  .controller('ConnectTabCtrl', function($scope) {
-    console.log('ConnectTabCtrl');
-    $scope.trips = [];
+  .controller('ConnectTabCtrl', function($scope, $ionicPlatform) {
+    console.log('ConnectTabCtrl');  
+	$scope.trips = [];
 
     $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) {
       var parsed = JSON.parse(data);
@@ -61,7 +61,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
               icon:"ty-vertical icon ion-heart",
               dateString:"Hometown",
               backgroundImage:obj.backgroundImage
-            });
+            });  
         }
         else
         {
@@ -177,48 +177,38 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     })*/
   })
 
-  .controller('NewTripTabCtrl', function($scope, $cordovaDatePicker) {
+  .controller('NewTripTabCtrl', function($scope, $state) {
     console.log('NewTripTabCtrl');
-    var city;
-    var country;
     
-    
-    $scope.startDatePick = function() {
-	    var options = 
-		{
-		    date: new Date(),
-		    mode: 'date',
-		    minDate: new Date(),
-		    allowOldDates: false,
-		    allowFutureDates: true,
-		    doneButtonLabel: 'DONE',
-		    doneButtonColor: '#000000',
-		    cancelButtonLabel: 'CANCEL',
-		    cancelButtonColor: '#000000'
-    	};
-	    $cordovaDatePicker.show(options).then(function(date){
-        alert(date);
-        });
-    }
-    
-    $scope.endDatePick = function() {
-	    var options = 
-		{
-		    date: new Date(),
-		    mode: 'date',
-		    minDate: new Date(),
-		    allowOldDates: false,
-		    allowFutureDates: true,
-		    doneButtonLabel: 'DONE',
-		    doneButtonColor: '#000000',
-		    cancelButtonLabel: 'CANCEL',
-		    cancelButtonColor: '#000000'
-    	};
-	    $cordovaDatePicker.show(options).then(function(date){
-        alert(date);
-        });
-    }
-
+	$scope.makeTrip = function() {
+		var location = document.getElementById('cityTextField').value;
+		var locationSplit = location.split(", ");
+	    var city = locationSplit[0];
+	    var country = locationSplit[1];
+	    var startDate = document.getElementById('start-date').value;
+	    var endDate = document.getElementById('end-date').value;
+	    if (startDate != null && endDate != null)
+	    {
+		    $.post("http://kawaiikrew.net/www/php/add_trip.php", 
+		    {
+			    Start:startDate,
+			    End:endDate,
+			    Country:country,
+			    City:city
+		    },
+		    function(data)
+		    {
+			    if (data == "Successfully inserted")
+			    {
+				    $state.go('tab.connect');
+			    }
+		    });
+	    }
+	    else
+	    {
+		    //TODO: print error message
+	    }
+	}
 
     /*autocomplete = new google.maps.places.Autocomplete(
       (document.getElementById('cityTextField')),

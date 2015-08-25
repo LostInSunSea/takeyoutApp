@@ -25,7 +25,7 @@
 								</div>
 								Date
 							</span>
-							<input class="ty-input-label" type="text" placeholder="Start date">
+							<input class="ty-input-label" type="date" placeholder="Start date" id="start-date">
 						</label>
 					</div>
 					<div class="col col-50 ty-end-date">
@@ -33,7 +33,7 @@
 							<span class="ty-field-name ty-caps ty-input-label" style="color:#fff;">
 								End
 							</span>
-							<input class="ty-input-label" type="text" placeholder="End date">
+							<input class="ty-input-label" type="date" placeholder="End date" id="end-date">
 						</label>
 					</div>
 				</div>
@@ -54,6 +54,6 @@
 			</div>
 		</div>
 		
-		<a class="ty-done-centered ty-caps ty-button button button-small" href="#">Done</a>
+		<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="makeTrip()" href="#">Done</a>
 	</ion-content>
 </ion-view>
