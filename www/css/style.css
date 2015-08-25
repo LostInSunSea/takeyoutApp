@@ -169,9 +169,9 @@ body{
 .ty-connect-location{
 	padding:1em;
 	background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.9), rgba(255,255,255,0.7), rgba(255,255,255,0.5), rgba(255,255,255,0.3), rgba(0,0,0,0),rgba(0,0,0,0.25));
-	height:20vh;
-	min-height:5em;
-	max-height:6em;
+	height:18vh;
+	min-height:6em;
+	max-height:8em;
 	width:100vw;
 }
 
@@ -702,7 +702,7 @@ textarea{
 }
 
 /* Placeholder text for date */
-input[type="date"]:before{
+/*input[type="date"]:before{
 	content:attr(placeholder) !important;
 	color:#aaa;
 	margin-right:0.5em;
@@ -710,6 +710,16 @@ input[type="date"]:before{
 input[type="date"]:focus:before,
 input[type="date"]:valid:before{
 	content:"";
+}*/
+
+.ty-date-label{
+	text-transform:none;
+	font-weight:400;
+	margin-top:1em;
+}
+
+.ty-date-label p{
+	color:#b2b2b2;
 }
 
 /* Calendar page */
