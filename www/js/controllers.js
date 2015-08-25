@@ -107,7 +107,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	    city = locationSplit[0];
 	    country = locationSplit[1];
 	    firstPage.style.display = "none";
-	    secondPage.style.display = "inline";
+	    secondPage.style.display = "block";
 	    thirdPage.style.display = "none";
     }
     
@@ -115,18 +115,18 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	    preferences = document.getElementById('ty-pref1').value;
 	    firstPage.style.display = "none";
 	    secondPage.style.display = "none";
-	    thirdPage.style.display = "inline";
+	    thirdPage.style.display = "block";
     }
     
     $scope.secondToFirstPage = function() {
-	  	firstPage.style.display = "inline";
+	  	firstPage.style.display = "block";
 	    secondPage.style.display = "none";
 	    thirdPage.style.display = "none"; 
     }
     
     $scope.thirdToSecondPage = function() {
 	    firstPage.style.display = "none";
-	    secondPage.style.display = "inline";
+	    secondPage.style.display = "block";
 	    thirdPage.style.display = "none";
     }
     
@@ -177,11 +177,50 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     })*/
   })
 
-  .controller('NewTripTabCtrl', function($scope) {
+  .controller('NewTripTabCtrl', function($scope, $cordovaDatePicker) {
     console.log('NewTripTabCtrl');
     var city;
     var country;
-    autocomplete = new google.maps.places.Autocomplete(
+    
+    
+    $scope.startDatePick = function() {
+	    var options = 
+		{
+		    date: new Date(),
+		    mode: 'date',
+		    minDate: new Date(),
+		    allowOldDates: false,
+		    allowFutureDates: true,
+		    doneButtonLabel: 'DONE',
+		    doneButtonColor: '#000000',
+		    cancelButtonLabel: 'CANCEL',
+		    cancelButtonColor: '#000000'
+    	};
+	    $cordovaDatePicker.show(options).then(function(date){
+        alert(date);
+        });
+    }
+    
+    $scope.endDatePick = function() {
+	    var options = 
+		{
+		    date: new Date(),
+		    mode: 'date',
+		    minDate: new Date(),
+		    allowOldDates: false,
+		    allowFutureDates: true,
+		    doneButtonLabel: 'DONE',
+		    doneButtonColor: '#000000',
+		    cancelButtonLabel: 'CANCEL',
+		    cancelButtonColor: '#000000'
+    	};
+	    $cordovaDatePicker.show(options).then(function(date){
+        alert(date);
+        });
+    }
+
+
+    /*autocomplete = new google.maps.places.Autocomplete(
       (document.getElementById('cityTextField')),
       {types: ['(cities)']});
     google.maps.event.addListener(autocomplete, 'place_changed', function()
@@ -202,7 +241,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
           country = val;
         }
       }
-    })
+    })*/
   })
 
   .controller('MeTabCtrl', function($scope) {
