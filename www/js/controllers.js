@@ -88,11 +88,72 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     console.log('CalendarTabCtrl');
   })
 
-  .controller('SetupTabCtrl', function($scope) {
+  .controller('SetupTabCtrl', function($scope, $state) {
     console.log('SetupTabCtrl');
     var city;
     var country;
-    autocomplete = new google.maps.places.Autocomplete(
+    var preferences;
+    var favoriteFoods;
+    var languages;
+    var bio;
+    
+    var firstPage = document.getElementById('ty-setup-step-1');
+    var secondPage = document.getElementById('ty-setup-step-2');
+    var thirdPage = document.getElementById('ty-setup-step-3');
+    
+    $scope.firstToSecondPage = function() {
+	    var location = document.getElementById('hometownTextField');
+	    var locationSplit = (location.value).split(", ");
+	    city = locationSplit[0];
+	    country = locationSplit[1];
+	    firstPage.style.display = "none";
+	    secondPage.style.display = "inline";
+	    thirdPage.style.display = "none";
+    }
+    
+    $scope.secondToThirdPage = function() {
+	    preferences = document.getElementById('ty-pref1').value;
+	    firstPage.style.display = "none";
+	    secondPage.style.display = "none";
+	    thirdPage.style.display = "inline";
+    }
+    
+    $scope.secondToFirstPage = function() {
+	  	firstPage.style.display = "inline";
+	    secondPage.style.display = "none";
+	    thirdPage.style.display = "none"; 
+    }
+    
+    $scope.thirdToSecondPage = function() {
+	    firstPage.style.display = "none";
+	    secondPage.style.display = "inline";
+	    thirdPage.style.display = "none";
+    }
+    
+    $scope.finish = function(){
+	    favoriteFoods = document.getElementById('favFoods').value;
+	    bio = document.getElementById('ty-about-input').value;
+	    languages = document.getElementById('ty-language-input').value;
+	    
+	    $.post("http://kawaiikrew.net/www/php/add_profile_info.php", 
+	    {
+		    bio:bio,
+		    city:city,
+		    country:country,
+		    preferences:preferences,
+		    languages:languages,
+		    favoriteFoods:favoriteFoods
+	    }, function(data) 
+	    {
+		    if (data=="Success")
+		    {
+				$state.go("tab.connect");
+			}
+	    });
+    }
+    
+    //TODO: figure out a way to get autocomplete for this
+    /*autocomplete = new google.maps.places.Autocomplete(
       (document.getElementById('hometownTextField')),
       {types: ['(cities)']});
     google.maps.event.addListener(autocomplete, 'place_changed', function()
@@ -113,7 +174,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
           country = val;
         }
       }
-    })
+    })*/
   })
 
   .controller('NewTripTabCtrl', function($scope) {
@@ -149,6 +210,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     $.get("http://kawaiikrew.net/www/php/get_user_data.php", {}, function(data)
     {
       var user = JSON.parse(data);
+      alert(user.name);
       $scope.name = user.name;
       fullName = (user.name).split(" ");
       $scope.firstName = fullName[0];
