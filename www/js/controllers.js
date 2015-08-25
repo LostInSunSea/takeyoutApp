@@ -82,15 +82,22 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       $scope.$digest();
     });
     
-    $scope.goToMatch = function(id) {
+    $scope.goToMatch = function(id, type) {
 	    console.log("Pressed with id of " + id);
 	    var location = id.split(", ");
+        console.log(type);
+        if (type != "Hometown")
+        {
+            type = "Travel";
+        }
 	    matches = [];
 	    $.get("http://kawaiikrew.net/www/php/match.php", 
 	    {
 		    city:location[0],
 		    country:location[1],
+            type:type
 	    }, function(data){
+		  alert(data);
 		  matches = JSON.parse(data);
 		  $state.go("user_profile");
 	    })
@@ -253,16 +260,24 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('MatchCtrl', function($scope) {
 	  console.log("MatchCtrl");
-	  var user = matches[0];
-	  $scope.name = user.name;
-      fullName = (user.name).split(" ");
-      $scope.firstName = fullName[0];
-      $scope.headline = user.headline;
-      $scope.hometown = user.city + ", " + user.country;
-      $scope.bio = user.bio;
-      $scope.picFull = user.picFull;
-      $scope.favoriteFoods = user.favoriteFoods;
-      $scope.languages = user.languages;
+	  
+	  if (matches == [] || matches == null)
+	  {
+		  alert("No users, create a no users found page");
+	  }
+	  else
+	  {
+	  	  var user = matches[0];
+		  $scope.name = user.name;
+	      fullName = (user.name).split(" ");
+	      $scope.firstName = fullName[0];
+	      $scope.headline = user.headline;
+	      $scope.hometown = user.city + ", " + user.country;
+	      $scope.bio = user.bio;
+	      $scope.picFull = user.picFull;
+	      $scope.favoriteFoods = user.favoriteFoods;
+	      $scope.languages = user.languages;  
+	  }
       
       $scope.accept = function(){
 	      alert("Accept");
