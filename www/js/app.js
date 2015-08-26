@@ -130,6 +130,24 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
         }
       }
     })
+	.state('tab.requests', {
+      url: "/requests",
+      views: {
+        'calendar-tab': {
+          templateUrl: "templates/requests.html",
+          controller: ""
+        }
+      }
+    })
+	.state('tab.connect_empty', {
+      url: "/connect_empty",
+      views: {
+        'connect-tab': {
+          templateUrl: "templates/connect_empty.html",
+          controller: ""
+        }
+      }
+    })
   /*
   // Each tab has its own nav history stack:
   .state('tab.dash', {
