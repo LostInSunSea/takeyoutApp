@@ -834,13 +834,13 @@ input[type="date"]:valid:before{
 	font-family:'League Spartan';
 	margin-top:1em;
 	font-weight:800;
-	color:#626262;
+	color:#FF8E30;
 	font-size:2.25em;
 	letter-spacing:0.25em;
 }
 
 .ty-login-tagline h2{
-	font-weight:400;
+	font-weight:600;
 	letter-spacing:0.1em;
 	font-size:1.25em;
 	font-family:"Open Sans";
