@@ -101,7 +101,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
             key:key
 	    }, function(data){
 		  matches = JSON.parse(data);
-		  $state.go("user_profile");
+		  $state.go("tab.user_profile");
 	    })
     }
   })
@@ -262,8 +262,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('MatchCtrl', function($scope) {
 	  console.log("MatchCtrl");
-	  
-	  if (matches == [] || matches == null)
+	  	  
+	  if (matches.length == 0)
 	  {
 		  alert("No users, create a no users found page");
 	  }
