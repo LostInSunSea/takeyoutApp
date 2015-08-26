@@ -101,7 +101,14 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
             key:key
 	    }, function(data){
 		  matches = JSON.parse(data);
-		  $state.go("tab.user_profile");
+		  if (matches.length == 0)
+		  {
+		      $state.go('tab.connect_empty');
+		  }
+		  else
+		  {
+		      $state.go("tab.user_profile");
+		  }
 	    })
     }
   })
@@ -260,12 +267,12 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     })*/
   })
 
-  .controller('MatchCtrl', function($scope) {
+  .controller('MatchCtrl', function($scope, $state) {
 	  console.log("MatchCtrl");
 	  	  
 	  if (matches.length == 0)
 	  {
-		  alert("No users, create a no users found page");
+		  alert("No users, go to no users found page");
 	  }
 	  else
 	  {
