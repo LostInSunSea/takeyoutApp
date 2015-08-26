@@ -59,6 +59,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
         {
           $scope.trips.push(
             {
+	          id:obj.id,  
               displayString:fullPlaceName,
               tripClass:"ty-trip-icon ty-hometown ty-vertical",
               icon:"ty-vertical icon ion-heart",
@@ -70,6 +71,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
         {
           $scope.trips.push(
             {
+	          id:obj.id,
               displayString:fullPlaceName,
               tripClass:"ty-trip-icon ty-trip ty-vertical",
               icon:"ty-vertical icon ion-plane",
@@ -82,22 +84,22 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       $scope.$digest();
     });
     
-    $scope.goToMatch = function(id, type) {
-	    console.log("Pressed with id of " + id);
-	    var location = id.split(", ");
-        console.log(type);
+    $scope.goToMatch = function(type, id) {
+	    var key = id;
         if (type != "Hometown")
         {
             type = "Travel";
         }
+        else
+        {
+	        key = "user";
+        }
 	    matches = [];
 	    $.get("http://kawaiikrew.net/www/php/match.php", 
 	    {
-		    city:location[0],
-		    country:location[1],
-            type:type
+            type:type,
+            key:key
 	    }, function(data){
-		  alert(data);
 		  matches = JSON.parse(data);
 		  $state.go("user_profile");
 	    })
