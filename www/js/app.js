@@ -99,6 +99,33 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
         }
       }
     })
+	.state('tab.add_meeting', {
+      url: "/add_meeting",
+      views: {
+        'calendar-tab': {
+          templateUrl: "templates/add_meeting.html",
+          controller: ""
+        }
+      }
+    })
+	.state('tab.friend_list', {
+      url: "/friend_list",
+      views: {
+        'calendar-tab': {
+          templateUrl: "templates/friend_list.html",
+          controller: ""
+        }
+      }
+    })
+	.state('tab.trips', {
+      url: "/trips",
+      views: {
+        'calendar-tab': {
+          templateUrl: "templates/trips.html",
+          controller: ""
+        }
+      }
+    })
   /*
   // Each tab has its own nav history stack:
   .state('tab.dash', {
