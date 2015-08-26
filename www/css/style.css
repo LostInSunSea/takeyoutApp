@@ -436,6 +436,10 @@ a{
 	margin-right:0.5em;
 }
 
+.ty-prof-content-margin{
+	margin-bottom:20em;
+}
+
 .ty-accept-reject{
 	/*margin:0 auto;
 	bottom:2em;
@@ -452,8 +456,8 @@ a{
 	color:white;
 	font-size:3em;
 	position:fixed;
-	bottom:1em;
-	box-shadow: 0em 0.1em 0.25em 0em rgba(0, 0, 0, 0.25);
+	bottom:10vh;
+	box-shadow: 0em 0.1em 0.2em 0em rgba(0, 0, 0, 0.25);
 }
 
 .ty-accept-circle{
@@ -462,7 +466,7 @@ a{
 }
 
 .ty-reject-circle{
-	background-color:#FF7400;
+	background-color:#ff3f00;
 	left:20vw;
 }
 
