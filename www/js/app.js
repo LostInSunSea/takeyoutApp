@@ -147,6 +147,14 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
           controller: ""
         }
       }
+    }).state('tab.edit_profile', {
+      url: "/edit_profile",
+      views: {
+        'me-tab': {
+          templateUrl: "templates/edit_profile.html",
+          controller: ""
+        }
+      }
     })
   /*
   // Each tab has its own nav history stack:
