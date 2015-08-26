@@ -1,0 +1,60 @@
+<ion-view title="Add Meeting">
+	<ion-content id="ty-add-meeting">
+		<div class="ty-add-form">
+			<div class="row ty-divider">
+				<div class="col">
+					<div class="ty-prof-pic-list ty-prof-pic" style="background-image:url('https://www.dropbox.com/s/rpz7pg7wmbte16k/me.jpg?raw=1');background-size:cover;"></div>
+				</div>
+				<div class="col col-75 ty-friend">
+					<h2 class="ty-caps"><em>Sloth Person</em></h2>
+					<p>San Francisco, CA, United States</p>
+				</div>
+					<!--<p class="icon ion-chevron-right"></p>-->
+			</div>
+			
+			<div class="ty-meeting-form">
+				<div class="row">
+					<div class="col col-50 ty-start-date">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label" id="ty-date-input">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-calendar"></p>
+								</div>
+								Date
+							</span>
+							<input class="ty-input-label" id="ty-meeting-date" type="date" placeholder="Date">
+						</label>
+					</div>
+					<div class="col col-50 ty-end-date">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-clock"></p>
+								</div>
+								Time
+							</span>
+							<input class="ty-input-label" type="time" placeholder="Time" id="end-date">
+						</label>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-location"></p>
+								</div>
+								Location
+							</span>
+							<input class="ty-input-label" type="text" placeholder="City or zipcode" id="cityTextField">
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="makeTrip()" href="#">Done</a>
+		
+	</ion-content>
+</ion-view>
