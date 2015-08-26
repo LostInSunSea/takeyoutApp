@@ -461,12 +461,12 @@ a{
 }
 
 .ty-accept-circle{
-	background-color:#C4D100;
+	background-color:#C4dd00;
 	right:20vw;
 }
 
 .ty-reject-circle{
-	background-color:#ff3f00;
+	background-color:#ff5033;
 	left:20vw;
 }
 
