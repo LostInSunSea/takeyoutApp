@@ -44,7 +44,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
     $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) {
       var parsed = JSON.parse(data);
-
       if (parsed.length == 1)
       {
         var connectEmpty = document.getElementById("ty-connect-empty");
@@ -80,7 +79,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
             });
         }
       }
-
       $scope.$digest();
     });
     
@@ -166,6 +164,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     $scope.finish = function(){
 	    favoriteFoods = document.getElementById('favFoods').value;
 	    bio = document.getElementById('ty-about-input').value;
+	    if (bio.length > 140)
+	    {
+		    alert("Please enter a bio less than 140 characters. Your current bio has " + bio.length + " characters");
+		    return;
+	    }
 	    languages = document.getElementById('ty-language-input').value;
 	    
 	    $.post("http://kawaiikrew.net/www/php/add_profile_info.php", 
