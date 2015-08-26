@@ -918,15 +918,22 @@ input[type="date"]:valid:before{
 	margin-top:1.5em;
 }
 
-/*.ty-friend{
-	padding-left:1em;
-	padding-right:1em;
-}*/
-
 .ty-friend p{
 	letter-spacing:0.075em;
 	color:#626262;
 	margin-top:-0.75em;
+}
+
+.ty-trips-list{
+	/*display:none;*/
+}
+
+.ty-friendlist{
+	display:none;
+}
+
+.ty-add-meeting{
+	display:none;
 }
 
 /* Friend list form */
