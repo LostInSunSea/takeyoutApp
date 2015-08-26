@@ -1006,7 +1006,8 @@ input[type="date"]:valid:before{
 }
 
 /* Edit profile */
-.ty-edit-profile{
+.ty-edit-profile .ty-done-centered{
+	margin-top:2em;
 	margin-bottom:2em;
 }
 
