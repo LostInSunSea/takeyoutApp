@@ -13,4 +13,4 @@ function resizeTextArea(id, page){
 	else{
 		document.getElementById(id).style.height = 100 + "px";
 	}
-}z
+}
