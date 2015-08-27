@@ -294,6 +294,12 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       $scope.accept = function(){
 	      alert("Accept");
 	      matches.shift();
+	      if (matches.length == 0)
+	      {
+		      //$state.go('tab.connect_empty')
+		      window.location.href = "#/tab/connect_empty";
+		      return;
+	      }
 	      user = matches[0];
 		  $scope.name = user.name;
 	      fullName = (user.name).split(" ");
@@ -310,6 +316,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       $scope.reject = function(){
 	      alert("Reject");
 	      matches.shift();
+	      if (matches.length == 0)
+	      {
+		      $state.go('tab.connect_empty')
+		      return;
+	      }
 	      user = matches[0];
 		  $scope.name = user.name;
 	      fullName = (user.name).split(" ");
