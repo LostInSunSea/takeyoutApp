@@ -121,6 +121,21 @@ a{
 	font-weight:600;
 }
 
+/* Tabs style */
+.ty-tabs{
+	letter-spacing:0.1em;
+}
+
+.ty-tabs-style{
+	background-color:#e2e2e2 !important;
+	color:#626262 !important;
+	border-style:none !important;
+}
+.ty-tabs-style:hover{
+	background-color:#FFAD68 !important;
+	color:#fff !important;
+}
+
 .bar-header{
 	/* 3D effect */
 	/*box-shadow: 0em 0.3em 0em 0em #d36000;*/
