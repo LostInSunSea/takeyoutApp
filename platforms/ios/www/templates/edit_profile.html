@@ -1,0 +1,78 @@
+<ion-view title="Edit Profile">
+	<!-- Meeting form -->
+	<ion-content class="ty-edit-profile">
+		<div class="ty-add-form">
+			<a href="#"><div class="row ty-divider">
+				<div class="col">
+					<div class="ty-prof-pic-list ty-prof-pic" style="background-image:url('https://www.dropbox.com/s/rpz7pg7wmbte16k/me.jpg?raw=1');background-size:cover;"></div>
+				</div>
+				<div class="col col-75 ty-friend ty-edit-prof-pic">
+					<h2 class="ty-caps"><em>Profile Picture</em></h2>
+				</div>
+			</div></a>
+			
+			<div class="ty-meeting-form">
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-home"></p>
+								</div>
+									Hometown
+								</span>
+								<input class="ty-input-label" type="text" placeholder="The Amazon" id="cityTextField">
+							</label>
+						</div>
+					</div>
+				
+			
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-pizza"></p>
+								</div>
+									Favorite Foods
+								</span>
+								<input class="ty-input-label" type="text" placeholder="Leaves" id="cityTextField">
+							</label>
+						</div>
+					</div>
+				
+				
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-chatbubbles"></p>
+								</div>
+								Languages
+							</span>
+							<textarea rows="2" id="ty-language-input" placeholder="Slothish" onkeyup="resizeTextArea('ty-language-input')"></textarea>
+						</label>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-form-icon">
+									<p class="ty-vertical icon-left ion-person"></p>
+								</div>
+								About
+							</span>
+							<textarea rows="2" id="ty-about-input" placeholder="O hai der" onkeyup="resizeTextArea('ty-about-input')"></textarea>
+						</label>
+					</div>
+				</div>
+			</div>		
+				
+			<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="makeTrip()" href="#">Done</a>
+		</div>
+		
+	</ion-content>
+</ion-view>
