@@ -1,6 +1,6 @@
 <ion-view title="Profile">	
 	<!-- Profile page -->
-    <ion-content class="ty-profile">
+    <ion-content class="ty-profile" id="user-profile">
 		<div class="ty-prof-header ty-divider">
 			<div class="ty-prof-bg" style="background-image:url('https://www.dropbox.com/s/wyhpeo82nl0vl6o/nature-forest-waterfall-jungle.jpg?raw=1');background-size:cover;-webkit-filter: blur(5px);filter:blur(5px);"></div>
 			<div class="ty-prof-header-overlay"></div>
@@ -45,7 +45,7 @@
 		</div>
     </ion-content>
 	
-	<div class="ty-accept-reject">
+	<div class="ty-accept-reject" id="acceptreject">
 		<div class="ty-choose-circle ty-accept-circle" ng-click="accept()">
 			<p class="ty-vertical icon ion-thumbsup"></p>
 		</div>
@@ -54,7 +54,7 @@
 		</div>
 	</div>
 	
-	<ion-content class="ty-connect-empty">
+	<ion-content class="ty-connect-empty" id="empty">
 		<div class="ty-connect-empty-img">
 			<img src="img/sadface.svg" />
 		</div>
