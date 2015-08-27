@@ -132,9 +132,8 @@ a{
 	color:#c2c2c2 !important;
 	border-color:#c2c2c2 !important;
 }
-.ty-tabs-style:hover{
-	background-color:#fff !important;
-	color:#FF8E30 !important;
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+    color:#FF8E30 !important;
 	border-color:#FF8E30 !important;
 }
 
