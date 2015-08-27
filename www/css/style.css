@@ -123,17 +123,19 @@ a{
 
 /* Tabs style */
 .ty-tabs{
-	letter-spacing:0.1em;
+	letter-spacing:0.2em;
+	font-size:0.6em !important;
 }
 
 .ty-tabs-style{
-	background-color:#e2e2e2 !important;
-	color:#626262 !important;
-	border-style:none !important;
+	background-color:#fff !important;
+	color:#c2c2c2 !important;
+	border-color:#c2c2c2 !important;
 }
 .ty-tabs-style:hover{
-	background-color:#FFAD68 !important;
-	color:#fff !important;
+	background-color:#fff !important;
+	color:#FF8E30 !important;
+	border-color:#FF8E30 !important;
 }
 
 .bar-header{
@@ -777,8 +779,8 @@ input[type="date"]:valid:before{
 
 .ty-calendar h6{
 	font-family:"Open Sans";
-	font-weight:600;
-	font-size:1em;
+	font-weight:400;
+	font-size:0.9em;
 	color:#626262;
 	letter-spacing:0.05em;
 	margin-top:-0.5em;	
@@ -795,7 +797,7 @@ input[type="date"]:valid:before{
 .ty-meeting-requests{
 	margin-top:-1.75em;
 	text-align:center;
-	box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+	/*box-shadow: 0px 0px 5px rgba(0,0,0,0.2);*/
 }
 
 .ty-meeting-requests h2{
