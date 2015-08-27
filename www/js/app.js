@@ -152,7 +152,7 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
       views: {
         'me-tab': {
           templateUrl: "templates/edit_profile.html",
-          controller: ""
+          controller: "EditProfileCtrl"
         }
       }
     })

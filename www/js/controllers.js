@@ -325,6 +325,57 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       
   })
 
+  .controller('EditProfileCtrl', function($scope, $state) {
+	console.log('EditProfileCtrl');
+	$scope.update = function() {
+		$.get("http://kawaiikrew.net/www/php/get_user_data.php", {}, function(data)
+		{
+			var user = JSON.parse(data);
+			var favoriteFoods = user.favoriteFoods;
+			var bio = user.bio;
+			var languages = user.languages;
+			var city = user.city;
+			var country = user.country;
+			var preferences = user.preferences;
+			
+			if (document.getElementById('cityTextField').value != "")
+			{
+				var location = (document.getElementById('cityTextField').value).split(", ");
+				city = location[0];
+				country = location[1];	
+			}
+			if (document.getElementById('favoriteFoodsTextField').value != "")
+			{
+				favoriteFoods = document.getElementById('favoriteFoodsTextField').value;
+			}
+			if (document.getElementById('ty-language-input').value != "")
+			{
+				languages = document.getElementById('ty-language-input').value;
+			}
+			if (document.getElementById('ty-about-input').value != "")
+			{
+				bio = document.getElementById('ty-about-input').value;
+			}
+			
+			$.post("http://kawaiikrew.net/www/php/add_profile_info.php", 
+			{
+				bio:bio,
+				city:city,
+				country:country,
+				preferences:preferences,
+				languages:languages,
+				favoriteFoods:favoriteFoods
+			}, function(data) 
+			{
+				if (data=="Success")
+				{
+					$state.go("tab.me");
+				}
+			});
+	    });
+	}
+  })
+
   .controller('MeTabCtrl', function($scope) {
     console.log('MeTabCtrl');
     $.get("http://kawaiikrew.net/www/php/get_user_data.php", {}, function(data)
