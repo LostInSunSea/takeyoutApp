@@ -7,7 +7,7 @@
 					<div class="ty-prof-pic-list ty-prof-pic" style="background-image:url('https://www.dropbox.com/s/rpz7pg7wmbte16k/me.jpg?raw=1');background-size:cover;"></div>
 				</div>
 				<div class="col col-75 ty-friend ty-edit-prof-pic">
-					<h2 class="ty-caps"><em>Profile Picture</em></h2>
+					<div class="ty-field-name ty-caps ty-change-pic">Profile Picture</div>
 				</div>
 			</div></a>
 			
@@ -16,38 +16,25 @@
 					<div class="col">
 						<label class="item item-input item-stacked-label">
 							<span class="ty-field-name ty-caps ty-input-label">
-								<div class="ty-form-icon">
-									<p class="ty-vertical icon-left ion-home"></p>
+								<div class="ty-prof-icon">
+									<p class="ty-vertical ion-home"></p>
 								</div>
-									Hometown
-								</span>
-								<input class="ty-input-label" type="text" placeholder="The Amazon" id="cityTextField">
-							</label>
-						</div>
+								<!--<div class="ty-prof-icon">
+									<p class="ty-vertical icon ion-home"></p>
+								</div>-->
+								Hometown
+							</span>
+							<input class="ty-input-label" type="text" placeholder="The Amazon" id="cityTextField">
+						</label>
 					</div>
-				
-			
-				<div class="row">
-					<div class="col">
-						<label class="item item-input item-stacked-label">
-							<span class="ty-field-name ty-caps ty-input-label">
-								<div class="ty-form-icon">
-									<p class="ty-vertical icon-left ion-pizza"></p>
-								</div>
-									Favorite Foods
-								</span>
-								<input class="ty-input-label" type="text" placeholder="Leaves" id="favoriteFoodsTextField">
-							</label>
-						</div>
-					</div>
-				
+				</div>
 				
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
 							<span class="ty-field-name ty-caps ty-input-label">
-								<div class="ty-form-icon">
-									<p class="ty-vertical icon-left ion-chatbubbles"></p>
+								<div class="ty-prof-icon">
+									<p class="ty-vertical ion-chatbubbles"></p>
 								</div>
 								Languages
 							</span>
@@ -60,18 +47,31 @@
 					<div class="col">
 						<label class="item item-input item-stacked-label">
 							<span class="ty-field-name ty-caps ty-input-label">
-								<div class="ty-form-icon">
-									<p class="ty-vertical icon-left ion-person"></p>
+								<div class="ty-prof-icon">
+									<p class="ty-vertical ion-pizza"></p>
 								</div>
-								About
+								Favorite Foods
+							</span>
+							<input class="ty-input-label" type="text" placeholder="Leaves" id="favoriteFoodsTextField">
+						</label>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col">
+						<label class="item item-input item-stacked-label">
+							<span class="ty-field-name ty-caps ty-input-label">
+								<div class="ty-prof-icon">
+									<p class="ty-vertical ion-person"></p>
+								</div>
+							About
 							</span>
 							<textarea rows="2" id="ty-about-input" placeholder="O hai der" onkeyup="resizeTextArea('ty-about-input')"></textarea>
 						</label>
 					</div>
 				</div>
-			</div>		
-				
-			<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="update()" href="#">Done</a>
+			</div>
+			<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="update()" href="#">Save</a>
 		</div>
 		
 	</ion-content>

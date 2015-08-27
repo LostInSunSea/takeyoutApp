@@ -1,6 +1,6 @@
 <ion-view title="Profile">	
 	<!-- Profile page -->
-    <<ion-content class="ty-profile">
+    <ion-content class="ty-profile">
 		<div class="ty-prof-header ty-divider">
 			<div class="ty-prof-bg" style="background-image:url('https://www.dropbox.com/s/wyhpeo82nl0vl6o/nature-forest-waterfall-jungle.jpg?raw=1');background-size:cover;-webkit-filter: blur(5px);filter:blur(5px);"></div>
 			<div class="ty-prof-header-overlay"></div>
@@ -20,19 +20,19 @@
 		<ul class="ty-prof-content ty-divider">
 			<li>
 				<div class="ty-prof-icon">
-					<p class="ty-vertical icon icon-left ion-home"></p>
+					<p class="ty-vertical icon ion-home"></p>
 				</div>
-				<p class="ty-prof-facts"><em class="ty-caps"> Hometown:</em>{{hometown}}</p>
+				<p class="ty-prof-facts"><em class="ty-caps"> Hometown:</em> {{hometown}}</p>
 			</li>
 			<li>
 				<div class="ty-prof-icon">
-					<p class="ty-vertical icon icon-left ion-chatbubbles"></p>
+					<p class="ty-vertical icon ion-chatbubbles"></p>
 				</div>
 				<p class="ty-prof-facts"><em class="ty-caps"> Speaks:</em> {{languages}}</p>
 			</li>
 			<li>
 				<div class="ty-prof-icon">
-					<p class="ty-vertical icon icon-left ion-pizza"></p>
+					<p class="ty-vertical icon ion-pizza"></p>
 				</div>
 				<p class="ty-prof-facts"><em class="ty-caps"> Favorite Foods:</em> {{favoriteFoods}}</p>
 			</li>
@@ -53,4 +53,14 @@
 			<p class="ty-vertical icon ion-thumbsdown"></p>
 		</div>
 	</div>
+	
+	<ion-content class="ty-connect-empty">
+		<div class="ty-connect-empty-img">
+			<img src="img/sadface.svg" />
+		</div>
+		<div class="ty-connect-empty-text">
+			<h2 class="ty-caps">We can't find you any matches</h2>
+			<div class="ty-subtitle"><h2>It seems there are no more available matches. Try again later!</h2></div>
+		</div>
+	</ion-content>
 </ion-view>
