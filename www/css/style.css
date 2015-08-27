@@ -496,7 +496,7 @@ a{
 }
 
 .ty-accept-circle{
-	background-color:#c0dd44;
+	background-color:#9ada44;
 	right:20vw;
 }
 
@@ -1014,6 +1014,7 @@ input[type="date"]:valid:before{
 
 /* Empty connect state */
 .ty-connect-empty{
+	display:none;
 	background-color:#fff;
 	margin:0 auto;
 	text-align:center;
