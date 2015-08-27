@@ -448,20 +448,31 @@ a{
 /* Quick facts icons */
 .ty-prof-icon{
 	float:left;
-	height:1.25em;
-	width:1.25em;
+	color:#fff;
+	background-color:#28d6d6;
+	height:1.75em;
+	width:1.75em;
+	text-align:center;
 	border-radius:100%;
-	border:1px solid #28d6d6;
+	margin-right:0.5em;
+	padding-left:0.075em;
+	/*float:left;
+	height:1.5em;
+	width:1.5em;
+	border-radius:100%;
 	background-color:#28d6d6;
 	color:white;
 	text-align:center;
 	font-size:1.25em;
-	padding:0;
-	margin-right:0.5em;
+	margin-right:0.5em;*/
 }
 
 .ty-prof-content-margin{
 	margin-bottom:20em;
+}
+
+.ty-prof-facts em{
+	letter-spacing:0.075em;
 }
 
 .ty-accept-reject{
@@ -626,9 +637,13 @@ a{
 
 .ty-field-name{
 	font-size:0.8em;
-	font-weight:800;
+	font-weight:600;
 	color:#626262;
-	letter-spacing:0.1em;
+	letter-spacing:0.075em;
+}
+
+.ty-change-pic{
+	font-size:0.95em;
 }
 
 .ty-setup-button{
@@ -690,7 +705,7 @@ a{
 
 .ty-form-icon p{
 	text-align:center;
-	padding-left:2px;
+	padding-left:1px;
 	font-size:1em;
 	color:#fff;
 }
@@ -910,7 +925,7 @@ input[type="date"]:valid:before{
 	top:85vh;
 	margin-left:-35vw;
 	width:70vw;
-	background-color:#239ccc;
+	background-color:#28d6d6;
 }
 
 /* Add meeting form */
