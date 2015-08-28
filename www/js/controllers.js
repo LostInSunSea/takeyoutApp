@@ -523,6 +523,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		var convoID=1;
 		var myID="A0BwIAdiU9";
 		$scope.inputMessage=" ";
+		var lastMessageIndex=0;
 
 		//me
 		$scope.me={
@@ -562,6 +563,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 							pic:$scope.other.pic
 						})
 					}
+					if(data[i].id>lastMessageIndex){
+						lastMessageIndex=data[i].id;
+					}
 				}
 				console.log("------------------")
 				console.log($scope.messages)
@@ -581,12 +585,39 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 			});
 		}
 		//update messages------------------------------------------------
+		$interval(function(){
+			console.log(lastMessageIndex);
+			$.get("http://kawaiikrew.net/www/php/update_message.php",
+				{conversationID : convoID, index:lastMessageIndex},
+				function(data) {
+					var parsed = JSON.parse(data);
+					for(var i = 0; i < parsed.length; i++) {
+						var obj = parsed[i];
+						lastMessageIndex = obj.id;
+						if (obj.from == $scope.me.id)
+						{
+							$scope.messages.push({
+								message: obj.message,
+								time:obj.time,
+								person:$scope.me.name,
+								pic:$scope.me.pic
+							});
+						}
+						else
+						{
+							$scope.messages.push({
+								message:obj.message,
+								time:obj.time,
+								person:$scope.other.name,
+								pic:$scope.other.pic
+							});
+						}
+					}
 
-		$scope.updateMessages= function () {
-
-		}
-
-	})
+					$scope.$digest();
+				}
+			);},5000)
+		})
 
 
 
