@@ -1,6 +1,6 @@
 <ion-view title="Add Meeting">
 	<!-- Trip list -->
-	<ion-content class="ty-trips-list" padding="false">
+	<ion-content class="ty-trips-list" padding="false" id="trips-list">
         <!--<div class="card" ng-repeat="trip in trips">
             <div class="item item-text-wrap" ng-click="goToMatch('{{trip.displayString}}', '{{trip.dateString}}')" style="background-image:url({{trip.backgroundImage}});background-size:auto 100%;">
 				<!-- Trip Icon -->
@@ -17,7 +17,7 @@
             </div>
         </div>
 	</ion-content>-->
-        <a href="#/tab/friend_list"><div class="card">
+        <div class="card">
             <div class="item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Amsterdam.png'); background-size:auto 100%;">
 				<div class="ty-circle-container ty-trip-icon-container">
 					<div class="ty-trip-icon ty-trip ty-vertical">
@@ -29,10 +29,8 @@
 					<H6>Nov 01 - Nov 07</H6>
 					<div class="ty-vertical ty-trip-next icon ion-chevron-right"></div>
 				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
             </div>
-		</div></a>
+		</div>
 		
         <div class="card">
             <div class="ty-img-overlay item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Hong%20Kong.png'); background-size:auto 100%;">
@@ -46,8 +44,6 @@
 					<H6>Dec 10 - Jan 02</H6>
 					<div class="ty-vertical ty-trip-next icon ion-chevron-right"></div>
 				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
             </div>
         </div>
 	
@@ -64,8 +60,8 @@
 	</ion-content>
 
 	<!-- Friend list -->
-	<ion-content class="ty-friendlist">
-			<a href="#/tab/add_meeting"><div class="ty-friend-section">
+	<ion-content class="ty-friendlist" id="friendlist">
+			<div class="ty-friend-section">
 				<div class="row ty-divider">
 					<!-- Profile picture -->
 					<div class="col col-25">
@@ -79,7 +75,7 @@
 						</div>
 					</div>
 				</div>
-			</div></a>
+			</div>
 			<div class="ty-friend-section">
 				<div class="row ty-divider">
 					<!-- Profile picture -->
@@ -113,7 +109,7 @@
 	</ion-content>
 
 	<!-- Meeting form -->
-	<ion-content class="ty-add-meeting">
+	<ion-content class="ty-add-meeting" id="add-meeting">
 		<div class="ty-add-form">
 			<a href="#/tab/friend_list"><div class="row ty-divider">
 				<div class="col">

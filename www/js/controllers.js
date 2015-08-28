@@ -118,6 +118,17 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
   .controller('CalendarTabCtrl', function($scope) {
     console.log('CalendarTabCtrl');
   })
+  
+  .controller('MakeMeetingCtrl', function($scope) {
+	  console.log('MakeMeetingCtrl');
+	  var trips = document.getElementById('trips-list');
+	  var friends = document.getElementById('friendlist');
+	  var meeting = document.getElementById('add-meeting');
+	  
+	  trips.style.display = "block";
+	  friends.style.display = "none";
+	  meeting.style.display = "none";  
+  })
 
   .controller('SetupTabCtrl', function($scope, $state) {
     console.log('SetupTabCtrl');

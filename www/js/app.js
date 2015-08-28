@@ -108,7 +108,7 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
       views: {
         'calendar-tab': {
           templateUrl: "templates/add_meeting.html",
-          controller: ""
+          controller: "MakeMeetingCtrl"
         }
       }
     })
