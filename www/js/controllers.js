@@ -117,6 +117,28 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('CalendarTabCtrl', function($scope) {
     console.log('CalendarTabCtrl');
+    $scope.meetings = [];
+    $.get("http://kawaiikrew.net/www/php/get_meetings.php", {}, function(data){
+	    var parsed = JSON.parse(data);
+		for(var i = 0; i < parsed.length; i++)
+		{
+		  var obj = parsed[i];
+		  var date = convertDate(obj.date);
+		  var dateFields = date.split(" ");
+		  $scope.meetings.push(
+		  {
+			id:obj.id,
+			date:date,
+			day:dateFields[1],
+			month:dateFields[0],
+			time:obj.time,
+			place:obj.place,
+			picFull:obj.picFull,
+			name:obj.name
+		  });
+	    }
+	    $scope.$digest();
+    })
   })
   
   .controller('MakeMeetingCtrl', function($scope, $state) {
