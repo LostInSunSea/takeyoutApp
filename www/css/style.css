@@ -1058,3 +1058,111 @@ input[type="date"]:valid:before{
 .ty-edit-prof-pic em{
 	margin-left:1em;
 }
+
+/* Other profile */
+.ty-other-prof{
+	height:13em;
+}
+
+.ty-other-prof-header{
+	padding-top:0em;
+}
+
+/* Messages */
+.ty-timestamp{
+	text-align:center;
+	color:#b2b2b2;
+	font-weight:600;
+	font-size:0.75em;
+	letter-spacing:0.1em;
+	margin-bottom:-1em;
+}
+
+.ty-chatroom .row{
+	padding-left:0.5em;
+	padding-right:0.5em;
+}
+
+.ty-chatroom .col{
+	padding:0.25em;
+	margin:0.25em;
+	position:relative;
+}
+
+.ty-msg-pic .ty-prof-pic-list {
+	border-radius:100%;
+	height:3.75em;
+	width:3.75em;
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.ty-my-pic .ty-prof-pic-list{
+	left:35%;
+}
+
+.ty-message-bubble {
+    position:relative;
+	width:95%;
+    padding:0.75em;
+	color:#626262;
+    border-radius:0.5em;
+	letter-spacing:0.075em;
+	font-size:0.9em;
+	font-weight:400;
+}
+
+.ty-other-person{
+    background-color:#c2c2c2;
+}
+
+.ty-other-person:after {
+    content:"";
+    position:absolute;
+    bottom:40%;
+    left:-1em;
+	border-top:0.5em solid transparent;
+	border-bottom:0.5em solid transparent; 
+	border-right:1.25em solid #c2c2c2; 
+}
+
+.ty-me{
+	background-color:#28D6D6;
+	color:#fff;
+}
+
+.ty-me:after{
+	content:"";
+    position:absolute;
+    bottom:40%;
+    right:-1em;
+	border-top:0.5em solid transparent;
+	border-bottom:0.5em solid transparent; 
+	border-left:1.25em solid #28D6D6; 
+}
+
+.ty-msg-box{
+	padding:0;
+	margin:0;
+	position:fixed;
+	bottom:0vh;
+	width:100vw;
+	/*height:5em;*/
+	border-top:1px solid #d2d2d2;
+	background-color:#fff;
+}
+
+#ty-chatbox{
+	overflow:auto;
+	width:80%;
+	height:5em;
+}
+
+.ty-msg-actions{
+	padding:0;
+	margin:0;
+	width:20%;
+	float:left;
+}
