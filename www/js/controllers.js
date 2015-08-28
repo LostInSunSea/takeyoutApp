@@ -464,7 +464,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		console.log('MeChatCtrl');
 		$scope.messages=[];
 		$scope.messages.push({
-				
+
 		})
 
 	})
