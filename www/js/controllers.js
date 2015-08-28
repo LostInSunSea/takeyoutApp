@@ -272,7 +272,13 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('MatchCtrl', function($scope, $state) {
 	  console.log("MatchCtrl");
-	  	  
+	  var profilePage = document.getElementById('user-profile');
+	  var buttons = document.getElementById('acceptreject');
+	  var emptyPage = document.getElementById('empty');
+	  profilePage.style.display = "block";
+	  buttons.style.display = "block";
+	  emptyPage.style.display = "none";
+
 	  if (matches.length == 0)
 	  {
 		  alert("No users, go to no users found page");
@@ -296,9 +302,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
-		      //$state.go('tab.connect_empty')
-		      window.location.href = "#/tab/connect_empty";
-		      return;
+		    profilePage.style.display = "none";
+			buttons.style.display = "none";
+			emptyPage.style.display = "block";
+		    return;
 	      }
 	      user = matches[0];
 		  $scope.name = user.name;
@@ -318,7 +325,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
-		      $state.go('tab.connect_empty')
+		      profilePage.style.display = "none";
+			  buttons.style.display = "none";
+			  emptyPage.style.display = "block";
 		      return;
 	      }
 	      user = matches[0];
