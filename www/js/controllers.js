@@ -520,41 +520,70 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 	.controller('ChatCtrl', function($scope,$interval) {
 		console.log('MeChatCtrl');
+		var convoID=1;
+		var myID="A0BwIAdiU9";
+		$scope.inputMessage=" ";
 
 		//me
-		$scope.user1={
+		$scope.me={
 			name:"Jerry",
-			id:"A0BwIAdiU9",
+			id:myID,
 			pic:"https://media.licdn.com/mpr/mprx/0_-4EOGNezPHGS5K0dqaOruQWzzwcS5T2vBppOk8jzKHk2hlOXqpOYWtQznHLShlSejW-12iLvya4u65WWUw7Go8eMJa4D65s54w7j3TgN-fDT2PTJNVJPTzP5MUGj75DNlHI-Q0xjiLy"
 		};
 		//other person
-		$scope.user2={
+		$scope.other={
 			name:"Joanne",
 			id:"YK9WBUuVDs",
 			pic:"http://cdn.cutestpaw.com/wp-content/uploads/2012/06/s-Bread-Cat-FTW.png"
 		};
-		//list of messages
-		$scope.messages=[];
-		$scope.messages.push({
-			time:"2015-3-10",
-			message:"Hello",
-			person:$scope.user1.name,
-			pic: $scope.user1.pic
-		})
-		$scope.messages.push({
-			time:"2015-3-10",
-			message:"Well Okay",
-			person:$scope.user2.name,
-			pic: $scope.user2.pic
-		})
 
+		//initial message load----------------------------------------
+		$scope.messages=[];
+		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: 1, limit: 5 } )
+			.done(function( data ) {
+				console.log(data);
+				data=JSON.parse(data);
+				for(var i =0; i<data.length;i++){
+					//check if i am sender and use specific style sheet
+					//console.log(data[i]);
+					if(data[i].from==myID){
+						$scope.messages.push({
+							time:data[i].time,
+							message:data[i].message,
+							person:$scope.me.name,
+							pic:$scope.me.pic
+						})
+					}
+					else{
+						$scope.messages.push({
+							time:data[i].time,
+							message:data[i].message,
+							person:$scope.other.name,
+							pic:$scope.other.pic
+						})
+					}
+				}
+				console.log("------------------")
+				console.log($scope.messages)
+			})
+		//send messages--------------------------------------------------
 		$scope.sendMessage=function(){
+			//console.log($scope.inputMessage);
 			$scope.messages.push({
 				time:"2015-3-10",
-				message:"Well Okay",
-				person:$scope.user2.name,
-				pic: $scope.user2.pic
-			})
+				message:$scope.inputMessage,
+				person:$scope.me.name,
+				pic: $scope.me.pic
+			});
+
+			$.post( "http://kawaiikrew.net/www/php/add_message.php", { text: $scope.inputMessage, from:$scope.me.id, to:$scope.other.id, convoID:convoID, time:"2015-08-26", id:1}, function(data, status){
+				lastMessageIndex = data;
+			});
+		}
+		//update messages------------------------------------------------
+
+		$scope.updateMessages= function () {
+
 		}
 
 	})
