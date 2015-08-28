@@ -520,10 +520,42 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 	.controller('ChatCtrl', function($scope,$interval) {
 		console.log('MeChatCtrl');
+
+		//me
+		$scope.user1={
+			name:"Jerry",
+			id:"A0BwIAdiU9",
+			pic:"https://media.licdn.com/mpr/mprx/0_-4EOGNezPHGS5K0dqaOruQWzzwcS5T2vBppOk8jzKHk2hlOXqpOYWtQznHLShlSejW-12iLvya4u65WWUw7Go8eMJa4D65s54w7j3TgN-fDT2PTJNVJPTzP5MUGj75DNlHI-Q0xjiLy"
+		};
+		//other person
+		$scope.user2={
+			name:"Joanne",
+			id:"YK9WBUuVDs",
+			pic:"http://cdn.cutestpaw.com/wp-content/uploads/2012/06/s-Bread-Cat-FTW.png"
+		};
+		//list of messages
 		$scope.messages=[];
 		$scope.messages.push({
-
+			time:"2015-3-10",
+			message:"Hello",
+			person:$scope.user1.name,
+			pic: $scope.user1.pic
 		})
+		$scope.messages.push({
+			time:"2015-3-10",
+			message:"Well Okay",
+			person:$scope.user2.name,
+			pic: $scope.user2.pic
+		})
+
+		$scope.sendMessage=function(){
+			$scope.messages.push({
+				time:"2015-3-10",
+				message:"Well Okay",
+				person:$scope.user2.name,
+				pic: $scope.user2.pic
+			})
+		}
 
 	})
 
