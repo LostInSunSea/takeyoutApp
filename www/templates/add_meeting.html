@@ -61,7 +61,7 @@
 
 	<!-- Friend list -->
 	<ion-content class="ty-friendlist" id="friendlist">
-			<div class="ty-friend-section" ng-repeat="friend in friends">
+			<div class="ty-friend-section" ng-repeat="friend in friends" ng-click="goToPlan('{{friend.id}}','{{friend.name}}','{{friend.picFull}}')">
 				<div class="row ty-divider">
 					<!-- Profile picture -->
 					<div class="col col-25">
@@ -83,10 +83,10 @@
 		<div class="ty-add-form">
 			<a href="#/tab/friend_list"><div class="row ty-divider">
 				<div class="col">
-					<div class="ty-prof-pic-list ty-prof-pic" style="background-image:url('https://www.dropbox.com/s/rpz7pg7wmbte16k/me.jpg?raw=1');background-size:cover;"></div>
+					<div class="ty-prof-pic-list ty-prof-pic" style="background-image:url({{picture}});background-size:cover;"></div>
 				</div>
 				<div class="col col-75 ty-friend">
-					<h2 class="ty-caps"><em>Sloth Person</em></h2>
+					<h2 class="ty-caps"><em>{{name}}</em></h2>
 					<p>New York, US</p>
 				</div>
 			</div></a>
@@ -102,7 +102,7 @@
 								When
 								<div class="ty-date-label"><p>Date</p></div>
 							</span>
-							<input class="ty-input-label" type="date" placeholder="Start date" id="start-date">
+							<input class="ty-input-label" type="date" placeholder="Start date" id="date">
 						</label>
 					</div>
 					<div class="col col-50 ty-end-date">
@@ -111,7 +111,7 @@
 								End
 								<div class="ty-date-label"><p>Time</p></div>
 							</span>
-							<input class="ty-input-label" type="time" placeholder="End date" id="end-date">
+							<input class="ty-input-label" type="time" placeholder="End date" id="time">
 						</label>
 					</div>
 				</div>
@@ -125,13 +125,13 @@
 								</div>
 								Where
 							</span>
-							<input class="ty-input-label" type="text" placeholder="City or zipcode" id="cityTextField">
+							<input class="ty-input-label" type="text" placeholder="City or zipcode" id="place">
 						</label>
 					</div>
 				</div>
 			</div>			
 				
-			<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="makeTrip()" href="#">Done</a>
+			<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="makeMeeting()" href="#">Done</a>
 		</div>
 		
 	</ion-content>

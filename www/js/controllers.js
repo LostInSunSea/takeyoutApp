@@ -203,6 +203,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		  var time = document.getElementById('time').value;
 		  var place = document.getElementById('place').value;
 		  
+		  
 		  $.post("http://kawaiikrew.net/www/php/add_meeting.php", 
 		  {
 			  date:date,
