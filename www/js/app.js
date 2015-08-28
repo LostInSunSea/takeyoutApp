@@ -162,10 +162,11 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
       views: {
         'messages-tab': {
           templateUrl: "templates/chat.html",
-          controller: ""
+          controller: "ChatCtrl"
         }
       }
     })
+
   /*
   // Each tab has its own nav history stack:
   .state('tab.dash', {

@@ -1,23 +1,30 @@
 <ion-view title="Sloth Person">
     <ion-content class="ty-chatroom" padding="false">
-        <div class="row">
-			<div class="col">
-				<p class="ty-timestamp">Sat, 8:05 PM</p>
-			</div>
-		</div>
-        <div class="row">
-			<div class="col col-20">
-				<div class="ty-msg-pic">
-					<div class="ty-prof-pic-list" style="background-image:url('https://www.dropbox.com/s/rpz7pg7wmbte16k/me.jpg?raw=1');background-size:cover;"></div>
+		<div class = "message" ng-repeat="message in messages">
+		
+			<!-- Timestamp template -->
+			<div class="row">
+				<div class="col">
+					<p class="ty-timestamp">Sat, 8:05 PM</p>
 				</div>
 			</div>
+			
+			<!-- Other user template -->
+			<div class="row">
+				<div class="col col-20">
+					<div class="ty-msg-pic">
+						<div class="ty-prof-pic-list" style="background-image:url('https://www.dropbox.com/s/rpz7pg7wmbte16k/me.jpg?raw=1');background-size:cover;"></div>
+					</div>
+				</div>
 				<div class="col col-80">
 					<div class="ty-message-bubble ty-other-person">
 						<p>This is a message.</p>
 					</div>
 				</div>
+			</div>
 		</div>
-
+		
+		<!-- Self template -->
 		<div class="row">
 			<div class="col col-10">
 			</div>
@@ -33,7 +40,14 @@
 			</div>-->
 		</div>
     </ion-content>
-	
+	<ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+		<label class="item-input-wrapper">
+			<input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+		</label>
+		<button class="button button-clear" ng-click="sendMessage()">
+			Send
+		</button>
+	</ion-footer-bar>
 	<!--<div class="ty-msg-box">
 		<div class="ty-type-msg">
 			<textarea id="ty-chatbox" placeholder="Type your message here.."></textarea>
