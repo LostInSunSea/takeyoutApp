@@ -118,6 +118,70 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
   .controller('CalendarTabCtrl', function($scope) {
     console.log('CalendarTabCtrl');
   })
+  
+  .controller('MakeMeetingCtrl', function($scope) {
+	  console.log('MakeMeetingCtrl');
+	  $scope.trips = [];
+	  $scope.friends = [];
+	  var trips = document.getElementById('trips-list');
+	  var friends = document.getElementById('friendlist');
+	  var meeting = document.getElementById('add-meeting');
+	  
+	  trips.style.display = "block";
+	  friends.style.display = "none";
+	  meeting.style.display = "none";
+	  
+	  $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) 
+	  {
+	      var parsed = JSON.parse(data);
+	      if (parsed.length == 1)
+	      {
+	        var connectEmpty = document.getElementById("ty-connect-empty");
+	        connectEmpty.style.visibility = "visible";
+	      }
+		  else
+		  {
+		  	for(var i = 1; i < parsed.length; i++)
+		  	{
+		  		var obj = parsed[i];
+		  		var fullPlaceName = obj.city + ", " + obj.country;
+		        $scope.trips.push(
+		        {
+			      id:obj.id,
+	              displayString:fullPlaceName,
+	              tripClass:"ty-trip-icon ty-trip ty-vertical",
+	              icon:"ty-vertical icon ion-plane",
+	              dateString:convertDate(obj.startDate) + " - " + convertDate(obj.endDate),
+	              backgroundImage:obj.backgroundImage
+		        });
+	        }
+	        $scope.$digest();
+		  }
+	  });
+	  
+	  $scope.goToFriends = function(id)
+	  {
+		  trips.style.display = "none";
+		  friends.style.display = "block";
+		  meeting.style.display = "none";
+		  
+		  $.get("http://kawaiikrew.net/www/php/get_friends.php", {trip:id}, function(friendData)
+		  {
+			 var parsedFriends = JSON.parse(friendData);
+			 for (var i = 0; i < parsedFriends.length; i++)
+			 {
+				 var friend = parsedFriends[i];
+				 $scope.friends.push({
+					 id:friend.id,
+					 name:friend.name,
+					 picFull:friend.picFull 
+				 });
+			 }
+			 
+			 $scope.$digest(); 
+		  });
+	  }
+  })
 
   .controller('SetupTabCtrl', function($scope, $state) {
     console.log('SetupTabCtrl');
