@@ -119,13 +119,16 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     console.log('CalendarTabCtrl');
   })
   
-  .controller('MakeMeetingCtrl', function($scope) {
+  .controller('MakeMeetingCtrl', function($scope, $state) {
 	  console.log('MakeMeetingCtrl');
 	  $scope.trips = [];
 	  $scope.friends = [];
+	  $scope.picture;
+	  $scope.name;
 	  var trips = document.getElementById('trips-list');
 	  var friends = document.getElementById('friendlist');
 	  var meeting = document.getElementById('add-meeting');
+	  var friendID;
 	  
 	  trips.style.display = "block";
 	  friends.style.display = "none";
@@ -179,6 +182,41 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 			 }
 			 
 			 $scope.$digest(); 
+		  });
+	  }
+	  
+	  $scope.goToPlan = function(id, name, picture)
+	  {
+		  trips.style.display = "none";
+		  friends.style.display = "none";
+		  meeting.style.display = "block";
+		  
+		  $scope.name = name;
+		  $scope.picture = picture;
+		  
+		  friendID = id;
+	  }
+	  
+	  $scope.makeMeeting = function()
+	  {
+		  var date = document.getElementById('date').value;
+		  var time = document.getElementById('time').value;
+		  var place = document.getElementById('place').value;
+		  
+		  
+		  $.post("http://kawaiikrew.net/www/php/add_meeting.php", 
+		  {
+			  date:date,
+			  time:time,
+			  place:place,
+			  userId:friendID
+		  }, function (data)
+		  {
+		  	alert(data);
+		  	if (data == "Success")
+		  	{
+			  	$state.go('tab.calendar');
+		  	}
 		  });
 	  }
   })
@@ -362,7 +400,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	  }
       
       $scope.accept = function(){
-	      alert("Accept");
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
@@ -385,7 +422,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       }
       
       $scope.reject = function(){
-	      alert("Reject");
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
