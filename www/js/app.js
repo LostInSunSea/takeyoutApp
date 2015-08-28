@@ -147,12 +147,22 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
           controller: ""
         }
       }
-    }).state('tab.edit_profile', {
+    })
+	.state('tab.edit_profile', {
       url: "/edit_profile",
       views: {
         'me-tab': {
           templateUrl: "templates/edit_profile.html",
           controller: "EditProfileCtrl"
+        }
+      }
+    })
+	.state('tab.chat', {
+      url: "/chat",
+      views: {
+        'messages-tab': {
+          templateUrl: "templates/chat.html",
+          controller: ""
         }
       }
     })
