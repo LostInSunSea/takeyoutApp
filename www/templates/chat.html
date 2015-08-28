@@ -5,7 +5,7 @@
 			<!-- Timestamp template -->
 			<div class="row">
 				<div class="col">
-					<p class="ty-timestamp">Sat, 8:05 PM</p>
+					<p class="ty-timestamp">{{message.time}}</p>
 				</div>
 			</div>
 			
@@ -13,31 +13,15 @@
 			<div class="row">
 				<div class="col col-20">
 					<div class="ty-msg-pic">
-						<div class="ty-prof-pic-list" style="background-image:url('https://www.dropbox.com/s/rpz7pg7wmbte16k/me.jpg?raw=1');background-size:cover;"></div>
+						<div class="ty-prof-pic-list" style="background-image:url({{message.pic}});background-size:cover;"></div>
 					</div>
 				</div>
 				<div class="col col-80">
 					<div class="ty-message-bubble ty-other-person">
-						<p>This is a message.</p>
+						<p>{{message.message}}</p>
 					</div>
 				</div>
 			</div>
-		</div>
-		
-		<!-- Self template -->
-		<div class="row">
-			<div class="col col-10">
-			</div>
-			<div class="col col-90">
-				<div class="ty-message-bubble ty-me">
-					<p>This is a message. This is a message.This is a message.This is a message.This is a message.This is a message.This is a message.why am i talking to myself</p>
-				</div>
-			</div>
-			<!--<div class="col col-20">
-				<div class="ty-msg-pic ty-my-pic">
-					<div class="ty-prof-pic-list" style="background-image:url('https://www.dropbox.com/s/rpz7pg7wmbte16k/me.jpg?raw=1');background-size:cover;"></div>
-				</div>
-			</div>-->
 		</div>
     </ion-content>
 	<ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
