@@ -122,6 +122,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
   .controller('MakeMeetingCtrl', function($scope) {
 	  console.log('MakeMeetingCtrl');
 	  $scope.trips = [];
+	  $scope.friends = [];
 	  var trips = document.getElementById('trips-list');
 	  var friends = document.getElementById('friendlist');
 	  var meeting = document.getElementById('add-meeting');
@@ -153,12 +154,33 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	              dateString:convertDate(obj.startDate) + " - " + convertDate(obj.endDate),
 	              backgroundImage:obj.backgroundImage
 		        });
-		        alert("Outta there");
 	        }
-	        alert("About to digest yum");
 	        $scope.$digest();
 		  }
 	  });
+	  
+	  $scope.goToFriends = function(id)
+	  {
+		  trips.style.display = "none";
+		  friends.style.display = "block";
+		  meeting.style.display = "none";
+		  
+		  $.get("http://kawaiikrew.net/www/php/get_friends.php", {trip:id}, function(friendData)
+		  {
+			 var parsedFriends = JSON.parse(friendData);
+			 for (var i = 0; i < parsedFriends.length; i++)
+			 {
+				 var friend = parsedFriends[i];
+				 $scope.friends.push({
+					 id:friend.id,
+					 name:friend.name,
+					 picFull:friend.picFull 
+				 });
+			 }
+			 
+			 $scope.$digest(); 
+		  });
+	  }
   })
 
   .controller('SetupTabCtrl', function($scope, $state) {
