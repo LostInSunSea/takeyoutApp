@@ -1,7 +1,6 @@
 <ion-view title="Sloth Person">
-    <ion-content class="ty-chatroom" padding="false">
+    <ion-content class="ty-chatroom" padding="false" scrollbary="true">
 		<div class = "message" ng-repeat="message in messages">
-		
 			<!-- Timestamp template -->
 			<div class="row">
 				<div class="col">
@@ -26,7 +25,7 @@
     </ion-content>
 	<ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
 		<label class="item-input-wrapper">
-			<input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+			<input type="text" placeholder="Type your message" on-return="sendMessage()" ng-model="inputMessage" on-focus="inputUp()" on-blur="inputDown()" />
 		</label>
 		<button class="button button-clear" ng-click="sendMessage()">
 			Send
