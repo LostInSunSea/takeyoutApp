@@ -1,5 +1,6 @@
 //Global var, the current 10 matches
 var matches;
+var currFriends;
 
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
@@ -111,9 +112,67 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     }
   })
 
-  .controller('MessagesTabCtrl', function($scope) {
-    console.log('MessagesTabCtrl');
-  })
+  .controller('MessagesTabCtrl', function($scope, $state) {
+        console.log('MessagesTabCtrl');
+        currFriends=[];
+        $scope.trips = [];
+        $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) {
+            var parsed = JSON.parse(data);
+            if (parsed.length == 1)
+            {
+                var connectEmpty = document.getElementById("ty-connect-empty");
+                connectEmpty.style.visibility = "visible";
+            }
+
+            for(var i = 0; i < parsed.length; i++)
+            {
+                var obj = parsed[i];
+                var fullPlaceName = obj.city + ", " + obj.country;
+                if (obj.startDate == null)
+                {
+                    $scope.trips.push(
+                        {
+                            id:obj.id,
+                            displayString:fullPlaceName,
+                            tripClass:"ty-trip-icon ty-hometown ty-vertical",
+                            icon:"ty-vertical icon ion-heart",
+                            dateString:"Hometown",
+                            backgroundImage:obj.backgroundImage
+                        });
+                }
+                else
+                {
+                    $scope.trips.push(
+                        {
+                            id:obj.id,
+                            displayString:fullPlaceName,
+                            tripClass:"ty-trip-icon ty-trip ty-vertical",
+                            icon:"ty-vertical icon ion-plane",
+                            dateString:convertDate(obj.startDate) + " - " + convertDate(obj.endDate),
+                            backgroundImage:obj.backgroundImage
+                        });
+                }
+            }
+            $scope.$digest();
+        });
+
+        $scope.getConversations=function(tripId){
+            console.log(tripId);
+            $.get("http://kawaiikrew.net/www/php/get_friends.php",
+            {
+                trip:tripId
+            }).done(function(data){
+                currFriends=JSON.parse(data);
+                console.log(currFriends)
+                if(data.length>0){
+                    $state.go('tab.conversations');
+                }
+                else{
+                    $state.go('tab.conversations');
+                }
+                })
+        }
+    })
 
   .controller('CalendarTabCtrl', function($scope) {
     console.log('CalendarTabCtrl');
@@ -622,6 +681,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 	.controller('ConversationsCtrl',function($scope){
 		console.log("ConversationsCtrl");
+        $scope.friends=currFriends;
+
 	})
 
 
