@@ -620,7 +620,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		})
 
 
-
+	.controller('ConversationsCtrl',function($scope){
+		console.log("ConversationsCtrl");
+	})
 
 
   .controller('MeTabCtrl', function($scope) {
