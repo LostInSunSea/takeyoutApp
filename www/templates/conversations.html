@@ -1,7 +1,7 @@
 <ion-view cache-view="false" title="Connect">
     <ion-content padding="false">
         <div class="ty-meeting" ng-repeat="friend in friends">
-            <div ng-click="goToChat({{friend.tripId}},{{friend.id}})">
+            <div ng-click="goToChat({{friend.tripId}}, '{{friend.id}}','{{friend.picFull}}','{{friend.name}}')">
             <div class="row ty-meeting-top">
                 <!-- Profile -->
                 <div class="col col-25">

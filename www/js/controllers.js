@@ -2,7 +2,6 @@
 var matches;
 var currFriends;
 var chatInfo;
-var myInfo={};
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
@@ -579,7 +578,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
   })
 
 	.controller('ChatCtrl', function($scope,$interval) {
+        console.log("chatinfo:");
         console.log(chatInfo);
+        //---------------------
 		var convoID=chatInfo[0];
 		var myID="A0BwIAdiU9";
         var otherID=chatInfo[1];
@@ -602,11 +603,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		$scope.messages=[];
 		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: 1, limit: 5 } )
 			.done(function( data ) {
-				//console.log(data);
 				data=JSON.parse(data);
 				for(var i =0; i<data.length;i++){
-					//check if i am sender and use specific style sheet
-					//console.log(data[i]);
+
 					if(data[i].from==myID){
 						$scope.messages.push({
 							time:data[i].time,
@@ -627,12 +626,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 						lastMessageIndex=data[i].id;
 					}
 				}
-				//console.log("------------------")
-				//console.log($scope.messages)
 			})
 		//send messages--------------------------------------------------
 		$scope.sendMessage=function(){
-			//console.log($scope.inputMessage);
 			$scope.messages.push({
 				time:"2015-3-10",
 				message:$scope.inputMessage,
@@ -646,7 +642,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		}
 		//update messages------------------------------------------------
 		$interval(function(){
-			//console.log(lastMessageIndex);
 			$.get("http://kawaiikrew.net/www/php/update_message.php",
 				{conversationID : convoID, index:lastMessageIndex},
 				function(data) {
@@ -683,10 +678,12 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	.controller('ConversationsCtrl',function($scope,$state){
 		//console.log("ConversationsCtrl");
         $scope.friends=currFriends;
-        $scope.goToChat=function(tripId,id){
-            chatInfo=[];
-            //console.log(currFriends);
-            chatInfo=[tripId,id];
+        $scope.goToChat=function(tripId,id,pic,name){
+            chatInfo={};
+            chatInfo["tripId"]=tripId;
+            chatInfo["id"]=id;
+            chatInfo["pic"]=pic;
+            chatInfo["name"]=name;
             $state.go("tab.chat");
         }
 	})
