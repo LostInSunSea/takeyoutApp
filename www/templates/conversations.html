@@ -1,48 +1,20 @@
 <ion-view cache-view="false" title="Connect">
     <ion-content padding="false">
-        <div class="ty-meeting">
+        <div class="ty-meeting" ng-repeat="friend in friends">
+            <div ng-click="goToChat({{friend.tripId}},{{friend.id}})">
             <div class="row ty-meeting-top">
                 <!-- Profile -->
                 <div class="col col-25">
-                    <div class="ty-prof-pic-list ty-prof-pic " style="background-image:url('https://www.dropbox.com/s/x59ngk8zevotl4z/S1e16_Finn_afraid_of_the_ocean.jpg?raw=1');background-size:cover;"></div>
+                    <div class="ty-prof-pic-list ty-prof-pic " style="background-image:url({{friend.picFull}} );background-size:cover;"></div>
                 </div>
-
                 <!-- Name, date, & time -->
                 <div class="col col-50">
                     <div class="ty-meeting-info">
-                        <h2 class="ty-caps">Finn</h2>
-                        <h6>Sat, Sep 05 at 6:00pm</h6><br/>
-                    </div>
-                </div>
-
-                <!-- Month & day -->
-                <div class="col">
-                    <div class="ty-date">
-                        <div class="ty-month"><h2 class="ty-caps">Sep</h2></div>
-                        <div class="ty-day"><h2 class="ty-caps">05</h2></div>
+                        <h3 class="ty-caps">{{friend.name}}</h3>
+                        <h6>{{friend.headline}}</h6>
                     </div>
                 </div>
             </div>
-
-            <!-- Location -->
-            <div class="ty-meeting-location">
-                <div class="row">
-                    <div class="col"></div>
-                    <div class="col col-75">
-                        <h6>The Candy Kingdom</h6>
-                        <p>Somewhere in the middle of Ooo</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Decision buttons -->
-            <div class="row ty-meeting-decision ty-divider">
-                <div class="col">
-                    <a class="ty-done-centered ty-accept-meeting ty-caps ty-button button button-small icon icon-left ion-checkmark-circled" href="#">Accept</a>
-                </div>
-                <div class="col">
-                    <a class="ty-done-centered ty-decline-meeting ty-caps ty-button button button-small icon icon-left ion-close-circled" href="#">Decline</a>
-                </div>
             </div>
         </div>
     </ion-content>

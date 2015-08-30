@@ -1,7 +1,8 @@
 //Global var, the current 10 matches
 var matches;
 var currFriends;
-
+var chatInfo;
+var myInfo={};
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
@@ -578,9 +579,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
   })
 
 	.controller('ChatCtrl', function($scope,$interval) {
-		console.log('MeChatCtrl');
-		var convoID=1;
+        console.log(chatInfo);
+		var convoID=chatInfo[0];
 		var myID="A0BwIAdiU9";
+        var otherID=chatInfo[1];
 		$scope.inputMessage=" ";
 		var lastMessageIndex=0;
 
@@ -593,15 +595,14 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		//other person
 		$scope.other={
 			name:"Joanne",
-			id:"YK9WBUuVDs",
+			id:otherID,
 			pic:"http://cdn.cutestpaw.com/wp-content/uploads/2012/06/s-Bread-Cat-FTW.png"
 		};
-
 		//initial message load----------------------------------------
 		$scope.messages=[];
 		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: 1, limit: 5 } )
 			.done(function( data ) {
-				console.log(data);
+				//console.log(data);
 				data=JSON.parse(data);
 				for(var i =0; i<data.length;i++){
 					//check if i am sender and use specific style sheet
@@ -626,8 +627,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 						lastMessageIndex=data[i].id;
 					}
 				}
-				console.log("------------------")
-				console.log($scope.messages)
+				//console.log("------------------")
+				//console.log($scope.messages)
 			})
 		//send messages--------------------------------------------------
 		$scope.sendMessage=function(){
@@ -645,7 +646,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		}
 		//update messages------------------------------------------------
 		$interval(function(){
-			console.log(lastMessageIndex);
+			//console.log(lastMessageIndex);
 			$.get("http://kawaiikrew.net/www/php/update_message.php",
 				{conversationID : convoID, index:lastMessageIndex},
 				function(data) {
@@ -679,15 +680,20 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		})
 
 
-	.controller('ConversationsCtrl',function($scope){
-		console.log("ConversationsCtrl");
+	.controller('ConversationsCtrl',function($scope,$state){
+		//console.log("ConversationsCtrl");
         $scope.friends=currFriends;
-
+        $scope.goToChat=function(tripId,id){
+            chatInfo=[];
+            //console.log(currFriends);
+            chatInfo=[tripId,id];
+            $state.go("tab.chat");
+        }
 	})
 
 
   .controller('MeTabCtrl', function($scope) {
-    console.log('MeTabCtrl');
+    //console.log('MeTabCtrl');
     $.get("http://kawaiikrew.net/www/php/get_user_data.php", {}, function(data)
     {
       var user = JSON.parse(data);
