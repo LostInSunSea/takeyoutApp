@@ -592,7 +592,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 	.controller('ChatCtrl', function($scope,$interval) {
         console.log(chatInfo);
-
+        var myID=myInfo.id;
         var convoID=chatInfo.tripId;
         //-------------------
         //get my own info
