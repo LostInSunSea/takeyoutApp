@@ -578,30 +578,38 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
   })
 
 	.controller('ChatCtrl', function($scope,$interval) {
-        console.log("chatinfo:");
         console.log(chatInfo);
+        var convoID=chatInfo.tripId;
+        //-------------------
+        //get my own info
+        var myName;
+        var myPic;
+        $.get("http://kawaiikrew.net/www/php/get_user_data.php").done(function(data){
+            myName=data.name;
+            myPic=data.picFull;
+        })
+        var myID="A0BwIAdiU9";
+
         //---------------------
-		var convoID=chatInfo[0];
-		var myID="A0BwIAdiU9";
-        var otherID=chatInfo[1];
+        var otherID=chatInfo.id;
 		$scope.inputMessage=" ";
 		var lastMessageIndex=0;
 
 		//me
 		$scope.me={
-			name:"Jerry",
+			name:myName,
 			id:myID,
-			pic:"https://media.licdn.com/mpr/mprx/0_-4EOGNezPHGS5K0dqaOruQWzzwcS5T2vBppOk8jzKHk2hlOXqpOYWtQznHLShlSejW-12iLvya4u65WWUw7Go8eMJa4D65s54w7j3TgN-fDT2PTJNVJPTzP5MUGj75DNlHI-Q0xjiLy"
+			pic:myPic
 		};
 		//other person
 		$scope.other={
-			name:"Joanne",
+			name:chatInfo.name,
 			id:otherID,
-			pic:"http://cdn.cutestpaw.com/wp-content/uploads/2012/06/s-Bread-Cat-FTW.png"
+			pic:chatInfo.pic
 		};
 		//initial message load----------------------------------------
 		$scope.messages=[];
-		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: 1, limit: 5 } )
+		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: convoID, limit: 5 } )
 			.done(function( data ) {
 				data=JSON.parse(data);
 				for(var i =0; i<data.length;i++){
@@ -636,7 +644,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 				pic: $scope.me.pic
 			});
 
-			$.post( "http://kawaiikrew.net/www/php/add_message.php", { text: $scope.inputMessage, from:$scope.me.id, to:$scope.other.id, convoID:convoID, time:"2015-08-26", id:1}, function(data, status){
+			$.post( "http://kawaiikrew.net/www/php/add_message.php", { text: $scope.inputMessage, to:$scope.other.id, convoID:convoID, time:"2015-08-26", id:convoID}, function(data, status){
 				lastMessageIndex = data;
 			});
 		}
