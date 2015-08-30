@@ -588,12 +588,13 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
         var myID;
 
         $.get("http://kawaiikrew.net/www/php/get_user_data.php").done(function(data){
+            data=JSON.parse(data);
             myName=data.name;
             myPic=data.picFull;
             myID=data.id;
+            console.log("my own data is:"+myName+"   "+myID+"   "+myPic);
+            console.log(data);
         })
-
-        console.log("my own data is:"+myName+"   "+myID+"   "+myPic);
 
         //---------------------
         var otherID=chatInfo.id;
@@ -684,7 +685,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 							});
 						}
 					}
-
+                    console.log($scope.messages)
 					$scope.$digest();
 				}
 			);},5000)
