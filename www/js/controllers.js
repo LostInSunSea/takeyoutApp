@@ -2,6 +2,7 @@
 var matches;
 var currFriends;
 var chatInfo;
+var myInfo;
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
@@ -42,6 +43,18 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
   .controller('ConnectTabCtrl', function($scope, $state) {
     console.log('ConnectTabCtrl');  
 	$scope.trips = [];
+
+        $.get("http://kawaiikrew.net/www/php/get_user_data.php").done(function(data){
+            data=JSON.parse(data);
+            myInfo={};
+            myInfo["name"]=data.name;
+            myInfo["pic"]=data.picFull;
+            myInfo['id']=data.id;
+            console.log("my own data is:"+myName+"   "+myID+"   "+myPic);
+            console.log(data);
+        })
+
+
 
     $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) {
       var parsed = JSON.parse(data);
@@ -583,19 +596,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
         var convoID=chatInfo.tripId;
         //-------------------
         //get my own info
-        var myName;
-        var myPic;
-        var myID;
-
-        $.get("http://kawaiikrew.net/www/php/get_user_data.php").done(function(data){
-            data=JSON.parse(data);
-            myName=data.name;
-            myPic=data.picFull;
-            myID=data.id;
-            console.log("my own data is:"+myName+"   "+myID+"   "+myPic);
-            console.log(data);
-        })
-
         //---------------------
         var otherID=chatInfo.id;
 		$scope.inputMessage=" ";
@@ -603,9 +603,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 		//me
 		$scope.me={
-			name:myName,
-			id:myID,
-			pic:myPic
+			name:myInfo.name,
+			id:myInfo.id,
+			pic:myInfo.pic
 		};
 		//other person
 		$scope.other={
