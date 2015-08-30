@@ -261,6 +261,14 @@ a{
 	right:0;
 }
 
+#ty-meeting-empty{
+	position:fixed;
+	width:90vw;
+	max-width:50em;
+	bottom:0;
+	right:0;
+}
+
 .ty-transparent{
 	/*opacity:0.6;*/
 }
@@ -471,7 +479,7 @@ a{
 }
 
 .ty-prof-content-margin{
-	margin-bottom:20em;
+	margin-bottom:6em;
 }
 
 .ty-prof-facts em{
@@ -1023,12 +1031,19 @@ input[type="date"]:valid:before{
 	text-align:center;
 }
 
+.ty-friend-empty{
+	display:none;
+	background-color:#fff;
+	margin:0 auto;
+	text-align:center;
+}
+
 .ty-connect-empty-text{
 	margin:0 auto;
 	width:85vw;
 }
 
-.ty-connect-empty h2{
+.ty-connect-empty h2, .ty-friend-empty h2{
 	font-family:"Open Sans";
 	font-weight:800;
 	font-size:1.5em;
