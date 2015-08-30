@@ -186,6 +186,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
                 })
         }
     })
+    
+  .controller('ConversationCtrl', function($scope) {
+	 console.log('ConversationCtrl');
+	 alert("We here");
+  })
 
   .controller('CalendarTabCtrl', function($scope) {
     console.log('CalendarTabCtrl');
@@ -230,34 +235,44 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	  
 	  $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) 
 	  {
+		  var id;
+		  var dateString;
+		  var icon;
+		  var tripClass;
 	      var parsed = JSON.parse(data);
-	      if (parsed.length == 1)
-	      {
-	        var connectEmpty = document.getElementById("ty-connect-empty");
-	        connectEmpty.style.visibility = "visible";
-	      }
-		  else
-		  {
-		  	for(var i = 1; i < parsed.length; i++)
+		  	for(var i = 0; i < parsed.length; i++)
 		  	{
 		  		var obj = parsed[i];
+		  		if (i == 0)
+		  		{
+			  		id = 0;
+			  		dateString = "Hometown";
+			  		icon = "ty-vertical icon ion-heart";
+			  		tripClass = "ty-trip-icon ty-hometown ty-vertical";
+		  		}
+		  		else
+		  		{
+			  		id = obj.id;
+			  		dateString = convertDate(obj.startDate) + " - " + convertDate(obj.endDate);
+			  		icon = "ty-vertical icon ion-plane";
+			  		tripClass = "ty-trip-icon ty-trip ty-vertical";
+		  		}
 		  		var fullPlaceName = obj.city + ", " + obj.country;
 		        $scope.trips.push(
 		        {
-			      id:obj.id,
+			      id:id,
 	              displayString:fullPlaceName,
-	              tripClass:"ty-trip-icon ty-trip ty-vertical",
-	              icon:"ty-vertical icon ion-plane",
-	              dateString:convertDate(obj.startDate) + " - " + convertDate(obj.endDate),
+	              tripClass:tripClass,
+	              icon:icon,
+	              dateString:dateString,
 	              backgroundImage:obj.backgroundImage
 		        });
 	        }
 	        $scope.$digest();
-		  }
 	  });
 	  
 	  $scope.goToFriends = function(id)
-	  {
+	  {		  
 		  trips.style.display = "none";
 		  friends.style.display = "block";
 		  meeting.style.display = "none";

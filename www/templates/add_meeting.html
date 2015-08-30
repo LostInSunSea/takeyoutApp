@@ -5,8 +5,8 @@
             <div class="item item-text-wrap" ng-click="goToFriends({{trip.id}})" style="background-image:url({{trip.backgroundImage}});background-size:auto 100%;">
 				<!-- Trip Icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
-					<div class="ty-trip-icon ty-trip ty-vertical">
-						<p class="ty-vertical icon ion-plane"></p>
+					<div class={{trip.tripClass}}>
+						<p class={{trip.icon}}></p>
 					</div>
 				</div>
 				<div class="ty-connect-location">
