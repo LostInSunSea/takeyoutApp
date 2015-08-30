@@ -579,16 +579,21 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 	.controller('ChatCtrl', function($scope,$interval) {
         console.log(chatInfo);
+
         var convoID=chatInfo.tripId;
         //-------------------
         //get my own info
         var myName;
         var myPic;
+        var myID;
+
         $.get("http://kawaiikrew.net/www/php/get_user_data.php").done(function(data){
             myName=data.name;
             myPic=data.picFull;
+            myID=data.id;
         })
-        var myID="A0BwIAdiU9";
+
+        console.log("my own data is:"+myName+"   "+myID+"   "+myPic);
 
         //---------------------
         var otherID=chatInfo.id;
@@ -612,6 +617,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: convoID, limit: 5 } )
 			.done(function( data ) {
 				data=JSON.parse(data);
+                console.log("------------------")
+                console.log("all messages");
+                console.log(data);
 				for(var i =0; i<data.length;i++){
 
 					if(data[i].from==myID){
@@ -686,7 +694,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	.controller('ConversationsCtrl',function($scope,$state){
 		//console.log("ConversationsCtrl");
         $scope.friends=currFriends;
+        console.log("currFriends");
+        console.log(currFriends);
         $scope.goToChat=function(tripId,id,pic,name){
+            console.log("id for go to chat is"+id);
             chatInfo={};
             chatInfo["tripId"]=tripId;
             chatInfo["id"]=id;
