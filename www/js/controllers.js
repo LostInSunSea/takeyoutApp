@@ -620,13 +620,15 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		$scope.me={
 			name:myInfo.name,
 			id:myInfo.id,
-			pic:myInfo.pic
+			pic:myInfo.pic,
+            class:"ty-me"
 		};
 		//other person
 		$scope.other={
 			name:chatInfo.name,
 			id:otherID,
-			pic:chatInfo.pic
+			pic:chatInfo.pic,
+            class:"ty-other-person"
 		};
 		//initial message load----------------------------------------
 		$scope.messages=[];

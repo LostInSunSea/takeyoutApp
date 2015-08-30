@@ -16,13 +16,14 @@
 					</div>
 				</div>
 				<div class="col col-80">
-					<div class="ty-message-bubble ty-other-person">
+					<div class="ty-message-bubble {{me.class}}">
 						<p>{{message.message}}</p>
 					</div>
 				</div>
 			</div>
 		</div>
     </ion-content>
+
 	<ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
 		<label class="item-input-wrapper">
 			<input type="text" placeholder="Type your message" on-return="sendMessage()" ng-model="inputMessage" on-focus="inputUp()" on-blur="inputDown()" />
