@@ -261,6 +261,14 @@ a{
 	right:0;
 }
 
+#ty-meeting-empty{
+	position:fixed;
+	width:90vw;
+	max-width:50em;
+	bottom:0;
+	right:0;
+}
+
 .ty-transparent{
 	/*opacity:0.6;*/
 }
