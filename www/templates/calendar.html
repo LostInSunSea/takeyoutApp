@@ -61,5 +61,17 @@
 		</div>
 	</div>
 
-	<a class="ty-caps ty-button ty-add-button button icon icon-left ion-plus-circled" menu-close href="#/tab/add_meeting">Add Meeting</a>
+	<a class="ty-add-meeting-button ty-caps ty-button ty-add-button button icon icon-left ion-plus-circled" menu-close href="#/tab/add_meeting">Add Meeting</a>
+	
+	<!-- Empty friend list -->
+	<!-- Display when no connections have been made and hide ADD MEETING button -->
+	<ion-content class="ty-friend-empty">
+		<div class="ty-connect-empty-img">
+			<img src="img/sadface.svg" />
+		</div>
+		<div class="ty-connect-empty-text">
+			<h2 class="ty-caps">You don't have any connections yet</h2>
+			<div class="ty-subtitle"><h2>It seems you don't have any friends yet! Get out there and get connected!</h2></div>
+		</div>
+	</ion-content>
 </ion-view>
