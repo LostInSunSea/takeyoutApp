@@ -991,12 +991,23 @@ input[type="date"]:valid:before{
 }
 
 /* Friend list form */
-.ty-friendlist h2{
+.ty-friendlist h2, .ty-conversations h2{
 	font-size:1em;
 	font-weight:800;
 	letter-spacing:0.15em;
 	color:#626262;
 	margin-top:0.5em;
+}
+
+.ty-conversations h2{
+	margin-top:-0.25em;
+}
+
+.ty-conversations p{
+	color:#626262;
+	margin-top:-1em;
+	font-size:0.9em;
+	letter-spacing:0.05em;
 }
 
 .ty-friend-section .ty-prof-pic-list{
