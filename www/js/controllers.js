@@ -179,15 +179,12 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
                 })
         }
     })
-    
-  .controller('ConversationCtrl', function($scope) {
-	 console.log('ConversationCtrl');
-	 alert("We here");
-  })
 
   .controller('CalendarTabCtrl', function($scope) {
     console.log('CalendarTabCtrl');
     $scope.meetings = [];
+    $scope.requestNum = 0;
+    $scope.requestText = "requests.";
     $.get("http://kawaiikrew.net/www/php/get_meetings.php", {}, function(data){
 	    var parsed = JSON.parse(data);
 		for(var i = 0; i < parsed.length; i++)
@@ -206,6 +203,19 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 			picFull:obj.picFull,
 			name:obj.name
 		  });
+	    }
+	    $scope.$digest();
+    })
+    
+    $.get("http://kawaiikrew.net/www/php/get_num_meeting_request.php", {}, function(data){
+	    $scope.requestNum = data;
+	    if (data == 1)
+	    {
+		    $scope.requestText = "request.";
+	    }
+	    else
+	    {
+		    $scope.requestText = "requests.";
 	    }
 	    $scope.$digest();
     })
@@ -306,7 +316,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		  var place = document.getElementById('place').value;
 		  
 		  
-		  $.post("http://kawaiikrew.net/www/php/add_meeting.php", 
+		  $.post("http://kawaiikrew.net/www/php/request_meeting.php", 
 		  {
 			  date:date,
 			  time:time,
@@ -314,13 +324,38 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 			  userId:friendID
 		  }, function (data)
 		  {
-		  	alert(data);
 		  	if (data == "Success")
 		  	{
 			  	$state.go('tab.calendar');
 		  	}
 		  });
 	  }
+  })
+
+  .controller('RequestCtrl', function($scope) {
+	  console.log('RequestCtrl');
+	  $scope.requests = [];
+	  $.get("http://kawaiikrew.net/www/php/get_meeting_requests.php", {}, function(data){
+		var parsed = JSON.parse(data);
+		for (var i = 0; i < parsed.length; i++)
+		{
+			var obj = parsed[i];
+			var date = convertDate(obj.date);
+		    var dateFields = date.split(" ");
+			$scope.requests.push({
+				id:obj.id,
+				name:obj.name,
+				picFull:obj.picFull,
+				date:date,
+				time:obj.time,
+				place:obj.place,
+				month:dateFields[0],
+				day:dateFields[1] 
+			});
+		}
+			 
+		$scope.$digest(); 
+	  })
   })
 
   .controller('SetupTabCtrl', function($scope, $state) {
