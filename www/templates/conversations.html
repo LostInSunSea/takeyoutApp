@@ -1,17 +1,17 @@
-<ion-view cache-view="false" title="Connect">
-    <ion-content padding="false">
-        <div class="ty-meeting" ng-repeat="friend in friends">
+<ion-view cache-view="false" title="Messages">
+    <ion-content padding="false" class="ty-conversations">
+        <div class="ty-friend-section" ng-repeat="friend in friends">
             <div ng-click="goToChat({{friend.tripId}}, '{{friend.id}}','{{friend.picFull}}','{{friend.name}}')">
-            <div class="row ty-meeting-top">
+            <div class="row ty-divider">
                 <!-- Profile -->
                 <div class="col col-25">
                     <div class="ty-prof-pic-list ty-prof-pic " style="background-image:url({{friend.picFull}} );background-size:cover;"></div>
                 </div>
                 <!-- Name, date, & time -->
-                <div class="col col-50">
-                    <div class="ty-meeting-info">
-                        <h3 class="ty-caps">{{friend.name}}</h3>
-                        <h6>{{friend.headline}}</h6>
+                <div class="col col-75">
+                    <div class="ty-friend-info">
+                        <h2 class="ty-caps">{{friend.name}}</h2>
+                        <p>{{friend.headline}}</p>
                     </div>
                 </div>
             </div>

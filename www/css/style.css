@@ -991,7 +991,7 @@ input[type="date"]:valid:before{
 }
 
 /* Friend list form */
-.ty-friendlist h2{
+.ty-friendlist h2, .ty-conversations h2{
 	font-size:1em;
 	font-weight:800;
 	letter-spacing:0.15em;
@@ -999,10 +999,24 @@ input[type="date"]:valid:before{
 	margin-top:0.5em;
 }
 
+.ty-conversations h2{
+	margin-top:-0.25em;
+}
+
+.ty-conversations p{
+	color:#626262;
+	margin-top:-1em;
+	font-size:0.9em;
+	letter-spacing:0.05em;
+}
+
+.ty-conversations
+
 .ty-friend-section .ty-prof-pic-list{
 	margin-bottom:0.5em;
 	margin-top:-1.5em;
 	margin-right:1em;
+	margin-left:0.5em;
 }
 
 /* Meeting requests */
@@ -1183,4 +1197,19 @@ input[type="date"]:valid:before{
 	margin:0;
 	width:20%;
 	float:left;
+}
+
+.ty-chat-bar{
+	font-family:"Open Sans";
+}
+
+.ty-send-button{
+	color:#626262;
+}
+
+.ty-chat-field{
+	font-family:"Open Sans";
+	font-size:1em;
+	letter-spacing:0.05em;
+	font-weight:400;
 }

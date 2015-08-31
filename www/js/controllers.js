@@ -716,7 +716,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		$scope.me={
 			name:myInfo.name,
 			id:myInfo.id,
-			pic:myInfo.pic,
+			pic:"../img/white.png",
             class:"ty-me"
 		};
 		//other person

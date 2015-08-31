@@ -24,12 +24,12 @@
 		</div>
     </ion-content>
 
-	<ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+	<ion-footer-bar keyboard-attach class="ty-chat-bar bar-stable item-input-inset">
 		<label class="item-input-wrapper">
-			<input id="textbox" type="text" placeholder="Type your message" on-return="sendMessage()" ng-model="inputMessage" on-focus="inputUp()" on-blur="inputDown()" />
+			<input id="textbox" class="ty-chat-field" type="text" placeholder="Type your message" on-return="sendMessage()" ng-model="inputMessage" on-focus="inputUp()" on-blur="inputDown()" />
 		</label>
-		<button class="button button-clear" ng-click="sendMessage()">
-			Send
+		<button class="ty-send-button
+		button button-clear icon ion-ios-paperplane-outline" ng-click="sendMessage()">
 		</button>
 	</ion-footer-bar>
 	<!--<div class="ty-msg-box">
