@@ -531,6 +531,21 @@ a{
 	height:auto;
 }
 
+.ty-setup-prog{
+	margin:0;
+	padding:0;
+	table-layout:fixed;
+} 
+
+td{
+	box-sizing:border-box;
+}
+
+.ty-setup-prog col{
+	margin:0;
+	padding:0;
+}
+
 #ty-setup-step-1{
 	/*display:none;*/
 }
@@ -549,9 +564,6 @@ a{
 	max-width:20em;
 }
 
-.ty-setup-prog-item{
-}
-
 .ty-setup-prog .ty-circle-container{
 	float:none;
 	box-shadow: 0em .25em 0.5em 0em rgba(0,0,0,0.2);
@@ -559,14 +571,14 @@ a{
 }
 
 .ty-setup-icon-container{
-	height:2.5em;
-	width:2.5em;
+	height:2em;
+	width:2em;
 	color:white;
 }
 
 .ty-setup-icon{
-	height:2.5em;
-	width:2.5em;
+	height:2.25em;
+	width:2.25em;
 	border-radius:100%;
 	text-align:center;
 	/*margin:0 auto;*/
@@ -664,6 +676,7 @@ a{
 	margin-top:2em;
 	width:15vw;
 	min-width:7em;
+	margin-bottom:8em;
 }
 
 .ty-setup-back-button{
@@ -1128,7 +1141,7 @@ input[type="date"]:valid:before{
 	position:absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
 }
 
 .ty-my-pic .ty-prof-pic-list{
