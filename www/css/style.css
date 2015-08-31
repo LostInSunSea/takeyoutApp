@@ -1010,10 +1010,13 @@ input[type="date"]:valid:before{
 	letter-spacing:0.05em;
 }
 
+.ty-conversations
+
 .ty-friend-section .ty-prof-pic-list{
 	margin-bottom:0.5em;
 	margin-top:-1.5em;
 	margin-right:1em;
+	margin-left:0.5em;
 }
 
 /* Meeting requests */
