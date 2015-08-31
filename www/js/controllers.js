@@ -343,10 +343,12 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 			var date = convertDate(obj.date);
 		    var dateFields = date.split(" ");
 			$scope.requests.push({
-				id:obj.id,
+				meetingId:obj.meetingId,
+				userId:obj.userId,
 				name:obj.name,
 				picFull:obj.picFull,
 				date:date,
+				fullDate:obj.date,
 				time:obj.time,
 				place:obj.place,
 				month:dateFields[0],
@@ -356,6 +358,69 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 			 
 		$scope.$digest(); 
 	  })
+	  
+	  $scope.accept = function(request)
+	  {
+		  $.post("http://kawaiikrew.net/www/php/add_meeting.php", 
+		  {
+			  userId:request.userId,
+			  date:request.fullDate,
+			  time:request.time,
+			  place:request.place
+		  }, function(data){
+			  if (data == "Success")
+			  {
+				$.post("http://kawaiikrew.net/www/php/delete_meeting_request.php", 
+				{
+					requestId:request.meetingId,
+		  		}, function(data){
+		  			if (data == "Success")
+		  			{
+		  				for (var f = 0; f < ($scope.requests).length; f++)
+		  				{
+		  					if (request.id == ($scope.requests[f]).id)
+		  					{
+		  						($scope.requests).splice(f, 1);
+		  						$scope.$digest();
+					  		}
+				  		}
+			  		}
+			  		else
+			  		{
+			  			alert(data);
+			  		}
+		  		})
+		  	  }
+		  	  else
+		  	  {
+			  	alert(data);
+		  	  }
+		  })
+	  }
+	  
+	  $scope.reject = function(request)
+	  {
+		  $.post("http://kawaiikrew.net/www/php/delete_meeting_request.php", 
+		  {
+			  requestId:request.meetingId,
+		  }, function(data){
+			  if (data == "Success")
+			  {
+				  for (var f = 0; f < ($scope.requests).length; f++)
+				  {
+					  if (request.id == ($scope.requests[f]).id)
+					  {
+						  ($scope.requests).splice(f, 1);
+						  $scope.$digest();
+					  }
+				  }
+			  }
+			  else
+			  {
+				  alert(data);
+			  }
+		  })
+	  }
   })
 
   .controller('SetupTabCtrl', function($scope, $state) {

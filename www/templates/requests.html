@@ -38,10 +38,10 @@
 			<!-- Decision buttons -->
 			<div class="row ty-meeting-decision ty-divider">
 				<div class="col">
-					<a class="ty-done-centered ty-accept-meeting ty-caps ty-button button button-small icon icon-left ion-checkmark-circled" href="#">Accept</a>
+					<a class="ty-done-centered ty-accept-meeting ty-caps ty-button button button-small icon icon-left ion-checkmark-circled" ng-click="accept({{request}})" href="#">Accept</a>
 				</div>
 				<div class="col">
-					<a class="ty-done-centered ty-decline-meeting ty-caps ty-button button button-small icon icon-left ion-close-circled" href="#">Decline</a>
+					<a class="ty-done-centered ty-decline-meeting ty-caps ty-button button button-small icon icon-left ion-close-circled" ng-click="reject({{request}})" href="#">Decline</a>
 				</div>
 			</div>
 		</div>
