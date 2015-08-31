@@ -1,25 +1,25 @@
 <ion-view title="Requests">
 	<ion-content class="ty-calendar">
-		<div class="ty-meeting">
+		<div class="ty-meeting" ng-repeat="request in requests">
 			<div class="row ty-meeting-top">
 				<!-- Profile -->
 				<div class="col col-25">
-					<div class="ty-prof-pic-list ty-prof-pic " style="background-image:url('https://www.dropbox.com/s/x59ngk8zevotl4z/S1e16_Finn_afraid_of_the_ocean.jpg?raw=1');background-size:cover;"></div>
+					<div class="ty-prof-pic-list ty-prof-pic " style="background-image:url({{request.picFull}});background-size:cover;"></div>
 				</div>
 				
 				<!-- Name, date, & time -->
 				<div class="col col-50">
 					<div class="ty-meeting-info">
-						<h2 class="ty-caps">Finn</h2>
-						<h6>Sat, Sep 05 at 6:00pm</h6><br/>
+						<h2 class="ty-caps">{{request.name}}</h2>
+						<h6>{{request.date}} at {{request.time}}</h6><br/>
 					</div>
 				</div>
 
 				<!-- Month & day -->
 				<div class="col">
 					<div class="ty-date">
-						<div class="ty-month"><h2 class="ty-caps">Sep</h2></div>
-						<div class="ty-day"><h2 class="ty-caps">05</h2></div>
+						<div class="ty-month"><h2 class="ty-caps">{{request.month}}</h2></div>
+						<div class="ty-day"><h2 class="ty-caps">{{request.day}}</h2></div>
 					</div>
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 				<div class="row">
 					<div class="col"></div>
 					<div class="col col-75">
-						<h6>The Candy Kingdom</h6>
+						<h6>{{request.place}}</h6>
 						<p>Somewhere in the middle of Ooo</p>
 					</div>
 				</div>
