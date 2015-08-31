@@ -145,7 +145,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
                 {
                     $scope.trips.push(
                         {
-                            id:obj.id,
+                            id:0,
                             displayString:fullPlaceName,
                             tripClass:"ty-trip-icon ty-hometown ty-vertical",
                             icon:"ty-vertical icon ion-heart",
