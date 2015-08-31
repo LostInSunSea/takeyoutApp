@@ -645,7 +645,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 							time:data[i].time,
 							message:data[i].message,
 							person:$scope.me.name,
-							pic:$scope.me.pic
+							pic:$scope.me.pic,
+                            class: $scope.me.class
 						})
 					}
 					else{
@@ -653,7 +654,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 							time:data[i].time,
 							message:data[i].message,
 							person:$scope.other.name,
-							pic:$scope.other.pic
+							pic:$scope.other.pic,
+                            class:$scope.other.class
 						})
 					}
 					if(data[i].id>lastMessageIndex){
