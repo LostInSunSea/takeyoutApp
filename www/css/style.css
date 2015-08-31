@@ -1195,3 +1195,18 @@ input[type="date"]:valid:before{
 	width:20%;
 	float:left;
 }
+
+.ty-chat-bar{
+	font-family:"Open Sans";
+}
+
+.ty-send-button{
+	color:#626262;
+}
+
+.ty-chat-field{
+	font-family:"Open Sans";
+	font-size:1em;
+	letter-spacing:0.05em;
+	font-weight:400;
+}
