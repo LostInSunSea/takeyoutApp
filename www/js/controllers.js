@@ -113,14 +113,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
             key:key
 	    }, function(data){
 		  matches = JSON.parse(data);
-		  if (matches.length == 0)
-		  {
-		      $state.go('tab.connect_empty');
-		  }
-		  else
-		  {
-		      $state.go("tab.user_profile");
-		  }
+		  $state.go("tab.user_profile");
 	    })
     }
   })
@@ -145,7 +138,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
                 {
                     $scope.trips.push(
                         {
-                            id:obj.id,
+                            id:0,
                             displayString:fullPlaceName,
                             tripClass:"ty-trip-icon ty-hometown ty-vertical",
                             icon:"ty-vertical icon ion-heart",
@@ -186,6 +179,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
                 })
         }
     })
+    
+  .controller('ConversationCtrl', function($scope) {
+	 console.log('ConversationCtrl');
+	 alert("We here");
+  })
 
   .controller('CalendarTabCtrl', function($scope) {
     console.log('CalendarTabCtrl');
@@ -230,34 +228,44 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	  
 	  $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) 
 	  {
+		  var id;
+		  var dateString;
+		  var icon;
+		  var tripClass;
 	      var parsed = JSON.parse(data);
-	      if (parsed.length == 1)
-	      {
-	        var connectEmpty = document.getElementById("ty-connect-empty");
-	        connectEmpty.style.visibility = "visible";
-	      }
-		  else
-		  {
-		  	for(var i = 1; i < parsed.length; i++)
+		  	for(var i = 0; i < parsed.length; i++)
 		  	{
 		  		var obj = parsed[i];
+		  		if (i == 0)
+		  		{
+			  		id = 0;
+			  		dateString = "Hometown";
+			  		icon = "ty-vertical icon ion-heart";
+			  		tripClass = "ty-trip-icon ty-hometown ty-vertical";
+		  		}
+		  		else
+		  		{
+			  		id = obj.id;
+			  		dateString = convertDate(obj.startDate) + " - " + convertDate(obj.endDate);
+			  		icon = "ty-vertical icon ion-plane";
+			  		tripClass = "ty-trip-icon ty-trip ty-vertical";
+		  		}
 		  		var fullPlaceName = obj.city + ", " + obj.country;
 		        $scope.trips.push(
 		        {
-			      id:obj.id,
+			      id:id,
 	              displayString:fullPlaceName,
-	              tripClass:"ty-trip-icon ty-trip ty-vertical",
-	              icon:"ty-vertical icon ion-plane",
-	              dateString:convertDate(obj.startDate) + " - " + convertDate(obj.endDate),
+	              tripClass:tripClass,
+	              icon:icon,
+	              dateString:dateString,
 	              backgroundImage:obj.backgroundImage
 		        });
 	        }
 	        $scope.$digest();
-		  }
 	  });
 	  
 	  $scope.goToFriends = function(id)
-	  {
+	  {		  
 		  trips.style.display = "none";
 		  friends.style.display = "block";
 		  meeting.style.display = "none";
@@ -477,7 +485,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 	  if (matches.length == 0)
 	  {
-		  alert("No users, go to no users found page");
+		profilePage.style.display = "none";
+		buttons.style.display = "none";
+		emptyPage.style.display = "block";
+		return;
 	  }
 	  else
 	  {
@@ -605,17 +616,19 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		$scope.me={
 			name:myInfo.name,
 			id:myInfo.id,
-			pic:myInfo.pic
+			pic:myInfo.pic,
+            class:"ty-me"
 		};
 		//other person
 		$scope.other={
 			name:chatInfo.name,
 			id:otherID,
-			pic:chatInfo.pic
+			pic:chatInfo.pic,
+            class:"ty-other-person"
 		};
 		//initial message load----------------------------------------
 		$scope.messages=[];
-		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: convoID, limit: 5 } )
+		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: convoID, limit: 30 } )
 			.done(function( data ) {
 				data=JSON.parse(data);
                 console.log("------------------")
@@ -628,7 +641,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 							time:data[i].time,
 							message:data[i].message,
 							person:$scope.me.name,
-							pic:$scope.me.pic
+							pic:$scope.me.pic,
+                            class: $scope.me.class
 						})
 					}
 					else{
@@ -636,7 +650,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 							time:data[i].time,
 							message:data[i].message,
 							person:$scope.other.name,
-							pic:$scope.other.pic
+							pic:$scope.other.pic,
+                            class:$scope.other.class
 						})
 					}
 					if(data[i].id>lastMessageIndex){
@@ -650,9 +665,12 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 				time:"2015-3-10",
 				message:$scope.inputMessage,
 				person:$scope.me.name,
-				pic: $scope.me.pic
+				pic: $scope.me.pic,
+                class: $scope.me.class
 			});
-
+            console.log($scope.inputMessage);
+            $scope.inputMessage=" ";
+            console.log($scope.inputMessage);
 			$.post( "http://kawaiikrew.net/www/php/add_message.php", { text: $scope.inputMessage, to:$scope.other.id, convoID:convoID, time:"2015-08-26", id:convoID}, function(data, status){
 				lastMessageIndex = data;
 			});
@@ -672,7 +690,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 								message: obj.message,
 								time:obj.time,
 								person:$scope.me.name,
-								pic:$scope.me.pic
+								pic:$scope.me.pic,
+                                class:$scope.me.class
 							});
 						}
 						else
@@ -681,7 +700,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 								message:obj.message,
 								time:obj.time,
 								person:$scope.other.name,
-								pic:$scope.other.pic
+								pic:$scope.other.pic,
+                                class:$scope.other.class
 							});
 						}
 					}
