@@ -370,7 +370,15 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     var firstPage = document.getElementById('ty-setup-step-1');
     var secondPage = document.getElementById('ty-setup-step-2');
     var thirdPage = document.getElementById('ty-setup-step-3');
-    
+	
+    var firstPageIcon = document.getElementById('ty-setup-icon-1');
+    var secondPageIcon = document.getElementById('ty-setup-icon-2');
+    var thirdPageIcon = document.getElementById('ty-setup-icon-3');
+	
+    var firstBar = document.getElementById('ty-bar-1');
+    var secondBar = document.getElementById('ty-bar-2');
+	
+	
     $scope.firstToSecondPage = function() {
 	    var location = document.getElementById('hometownTextField');
 	    var locationSplit = (location.value).split(", ");
@@ -379,6 +387,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	    firstPage.style.display = "none";
 	    secondPage.style.display = "block";
 	    thirdPage.style.display = "none";
+		firstBar.className += " ty-setup-current";
+		secondPageIcon.className += " ty-setup-current";
     }
     
     $scope.secondToThirdPage = function() {
@@ -386,18 +396,26 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	    firstPage.style.display = "none";
 	    secondPage.style.display = "none";
 	    thirdPage.style.display = "block";
+		secondBar.className += " ty-setup-current";
+		thirdPageIcon.className += " ty-setup-current";
     }
     
     $scope.secondToFirstPage = function() {
 	  	firstPage.style.display = "block";
 	    secondPage.style.display = "none";
-	    thirdPage.style.display = "none"; 
+	    thirdPage.style.display = "none";
+		firstBar.className = "ty-prog-bar";
+		secondBar.className = "ty-prog-bar";
+		secondPageIcon.className = "ty-setup-icon"; 
+		thirdPageIcon.className = "ty-setup-icon"; 
     }
     
     $scope.thirdToSecondPage = function() {
 	    firstPage.style.display = "none";
 	    secondPage.style.display = "block";
-	    thirdPage.style.display = "none";
+	    thirdPage.style.display = "none"; 
+		secondBar.className = "ty-prog-bar";
+		thirdPageIcon.className = "ty-setup-icon";
     }
     
     $scope.finish = function(){
