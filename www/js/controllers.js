@@ -632,7 +632,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		};
 		//initial message load----------------------------------------
 		$scope.messages=[];
-		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: convoID, limit: 5 } )
+		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: convoID, limit: 30 } )
 			.done(function( data ) {
 				data=JSON.parse(data);
                 console.log("------------------")
@@ -672,7 +672,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 				pic: $scope.me.pic,
                 class: $scope.me.class
 			});
-
+            console.log($scope.inputMessage);
+            $scope.inputMessage=" ";
+            console.log($scope.inputMessage);
 			$.post( "http://kawaiikrew.net/www/php/add_message.php", { text: $scope.inputMessage, to:$scope.other.id, convoID:convoID, time:"2015-08-26", id:convoID}, function(data, status){
 				lastMessageIndex = data;
 			});
