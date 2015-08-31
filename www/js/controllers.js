@@ -669,7 +669,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 				time:"2015-3-10",
 				message:$scope.inputMessage,
 				person:$scope.me.name,
-				pic: $scope.me.pic
+				pic: $scope.me.pic,
+                class: $scope.me.class
 			});
 
 			$.post( "http://kawaiikrew.net/www/php/add_message.php", { text: $scope.inputMessage, to:$scope.other.id, convoID:convoID, time:"2015-08-26", id:convoID}, function(data, status){
@@ -691,7 +692,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 								message: obj.message,
 								time:obj.time,
 								person:$scope.me.name,
-								pic:$scope.me.pic
+								pic:$scope.me.pic,
+                                class:$scope.me.class
 							});
 						}
 						else
@@ -700,7 +702,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 								message:obj.message,
 								time:obj.time,
 								person:$scope.other.name,
-								pic:$scope.other.pic
+								pic:$scope.other.pic,
+                                class:$scope.other.class
 							});
 						}
 					}
