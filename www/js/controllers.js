@@ -113,14 +113,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
             key:key
 	    }, function(data){
 		  matches = JSON.parse(data);
-		  if (matches.length == 0)
-		  {
-		      $state.go('tab.connect_empty');
-		  }
-		  else
-		  {
-		      $state.go("tab.user_profile");
-		  }
+		  $state.go("tab.user_profile");
 	    })
     }
   })
@@ -492,7 +485,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 	  if (matches.length == 0)
 	  {
-		  alert("No users, go to no users found page");
+		profilePage.style.display = "none";
+		buttons.style.display = "none";
+		emptyPage.style.display = "block";
+		return;
 	  }
 	  else
 	  {
