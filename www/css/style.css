@@ -362,7 +362,7 @@ a{
 .ty-prof-header{
 	padding:0;
 	width:100vw;
-	height:16em;
+	height:18em;
 	min-height:10em;
 	overflow:hidden;
 }
@@ -378,11 +378,11 @@ a{
 	z-index:1;
 	position:absolute;
 	top:0vh;
-	height:16em;
+	height:18em;
 	min-height:10em;
 	width:100vw;
 	background-color:#fff;
-	opacity:0.6;
+	opacity:0.75;
 }
 
 /* Profile pic */
@@ -437,12 +437,56 @@ a{
 	margin-top:-0.5em;
 }
 
+/* Likes & Meetups */
+.ty-likes-meetups{
+	margin:0 auto;
+	padding:0;
+	width:45vw;
+	max-width:15em;
+	min-width:12em;
+	height:4em;
+	/*background-color:#fff;*/
+	text-align:center;
+}
+
+.ty-likes-meetups h1, h3{
+	font-family:"Open Sans";
+}
+
+.ty-likes-meetups h1{
+	font-weight:600;
+	font-size:1.25em;
+	color:#626262;
+}
+
+.ty-likes-meetups h3{
+	font-size:0.7em;
+	text-transform:uppercase;
+	margin-top:-0.75em;
+	letter-spacing:0.2em;
+	font-weight:800;
+	color:#FF8E30;
+}
+
+.ty-likes{
+	float:left;
+	margin:0;
+	width:50%;
+	border-right:1px solid #828282;
+}
+
+.ty-meetups{
+	float:left;
+	margin:0;
+	width:50%;
+}
+
 /* Edit button */
 .ty-edit-button{
 	z-index:3;
 	float:right;
 	position:relative;
-	bottom:8em;
+	bottom:8.25em;
 	right:3vw;
 	width:15vw;
 	min-width:6.75em;
@@ -1106,7 +1150,7 @@ input[type="date"]:valid:before{
 
 /* Other profile */
 .ty-other-prof{
-	height:13em;
+	height:17em;
 }
 
 .ty-other-prof-header{
