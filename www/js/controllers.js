@@ -3,7 +3,6 @@ var matches;
 var currFriends;
 var chatInfo;
 var myInfo;
-var curTrip;
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
@@ -98,7 +97,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     });
     
     $scope.goToMatch = function(type, id) {
-	    curTrip = id;
 	    var key = id;
         if (type != "Hometown")
         {
@@ -114,7 +112,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
             type:type,
             key:key
 	    }, function(data){
-		  matches = JSON.parse(data);
+		    if (data)
+		    {
+			    matches = JSON.parse(data);
+		    }
 		  $state.go("tab.user_profile");
 	    })
     }
@@ -630,8 +631,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		  alert(userId);
 		  $.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
-			  otherUser:userId,
-			  trip:curTrip
+			  otherUser:userId
 		  }, function(data) {
 			  alert(data);
 		  });
