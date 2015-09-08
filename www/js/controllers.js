@@ -618,12 +618,18 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.hometown = user.city + ", " + user.country;
 	      $scope.bio = user.bio;
 	      $scope.picFull = user.picFull;
-	      $scope.favoriteFoods = user.favoriteFoods;
+	      $scope.interests = user.interests;
 	      $scope.languages = user.languages;  
 	  }
       
       $scope.accept = function(){
-		  $scope.openModal();
+		  //$scope.openModal();
+		  $.get("http://kawaiikrew.net/www/php/accept.php", 
+		  {
+			  
+		  }, function(data) {
+			  
+		  });
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
