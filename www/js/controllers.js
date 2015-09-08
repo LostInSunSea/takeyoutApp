@@ -112,7 +112,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
             type:type,
             key:key
 	    }, function(data){
-		  matches = JSON.parse(data);
+		    if (data)
+		    {
+			    matches = JSON.parse(data);
+		    }
 		  $state.go("tab.user_profile");
 	    })
     }
@@ -618,12 +621,20 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.hometown = user.city + ", " + user.country;
 	      $scope.bio = user.bio;
 	      $scope.picFull = user.picFull;
-	      $scope.favoriteFoods = user.favoriteFoods;
-	      $scope.languages = user.languages;  
+	      $scope.interests = user.interests;
+	      $scope.languages = user.languages;
+	      $scope.id = user.id;  
 	  }
       
-      $scope.accept = function(){
-		  $scope.openModal();
+      $scope.accept = function(userId){
+		  //$scope.openModal();
+		  alert(userId);
+		  $.get("http://kawaiikrew.net/www/php/accept.php", 
+		  {
+			  otherUser:userId
+		  }, function(data) {
+			  alert(data);
+		  });
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
@@ -895,38 +906,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     });
   })
   
-  /*.controller('ShowMatchCtrl', function($scope, $ionicModal) {
-	  $ionicModal.fromTemplateUrl('match-modal.html', {
-		scope: $scope,
-		animation: 'fade-in'
-	  }).then(function(modal) {
-		$scope.modal = modal;
-	  });
-	  $scope.openModal = function() {
-		$scope.modal.show();
-		$( ".ty-match" ).fadeIn( "slow" );
-		$( ".ty-match-left" ).animate( { "margin-left":"+=5em" }, "slow" );
-		$( ".ty-match-right" ).animate( { "margin-right":"+=5em" }, "slow" );
-	  };
-	  $scope.closeModal = function() {
-		$scope.modal.hide();
-	  };
-	  //Cleanup the modal when we're done with it!
-	  $scope.$on('$destroy', function() {
-		$scope.modal.remove();
-	  });
-	  // Execute action on hide modal
-	  $scope.$on('modal.hidden', function() {
-		// Execute action
-		$( ".ty-match-left" ).animate( { "margin-left":"-5em" }, "slow" );
-		$( ".ty-match-right" ).animate( { "margin-right":"-5em" }, "slow" );
-	  });
-	  // Execute action on remove modal
-	  $scope.$on('modal.removed', function() {
-		// Execute action
-	  });
-	})*/
-
 //In the connect controller, convert the sql date string in the format yyyy-mm-dd to a more readable format
 function convertDate(initial)
 {
