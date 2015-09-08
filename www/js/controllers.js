@@ -428,7 +428,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     var city;
     var country;
     var preferences;
-    var favoriteFoods;
+    var interests;
     var languages;
     var bio;
     
@@ -484,7 +484,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     }
     
     $scope.finish = function(){
-	    favoriteFoods = document.getElementById('favFoods').value;
+	    interests = document.getElementById('interests').value;
 	    bio = document.getElementById('ty-about-input').value;
 	    if (bio.length > 140)
 	    {
@@ -500,7 +500,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		    country:country,
 		    preferences:preferences,
 		    languages:languages,
-		    favoriteFoods:favoriteFoods
+		    interests:interests
 	    }, function(data) 
 	    {
 		    if (data=="Success")
@@ -592,7 +592,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     })*/
   })
 
-  .controller('MatchCtrl', function($scope, $state) {
+  .controller('MatchCtrl', function($scope, $state, $ionicModal) {
 	  console.log("MatchCtrl");
 	  var profilePage = document.getElementById('user-profile');
 	  var buttons = document.getElementById('acceptreject');
@@ -623,6 +623,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	  }
       
       $scope.accept = function(){
+		  $scope.openModal();
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
@@ -635,8 +636,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		  $scope.name = user.name;
 	      fullName = (user.name).split(" ");
 	      $scope.firstName = fullName[0];
-	      $scope.headline = user.headline;
 	      $scope.hometown = user.city + ", " + user.country;
+	      $scope.headline = user.headline;
 	      $scope.bio = user.bio;
 	      $scope.picFull = user.picFull;
 	      $scope.favoriteFoods = user.favoriteFoods;
@@ -665,7 +666,36 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.languages = user.languages;
 	      $scope.$digest();
       }
-      
+    
+      $ionicModal.fromTemplateUrl('match-modal.html', {
+		scope: $scope,
+		animation: 'fade-in'
+	  }).then(function(modal) {
+		$scope.modal = modal;
+	  });
+	  $scope.openModal = function() {
+		$scope.modal.show();
+		$( ".ty-match" ).fadeIn( "slow" );
+		$( ".ty-match-left" ).animate( { "margin-left":"+=5em" }, "slow" );
+		$( ".ty-match-right" ).animate( { "margin-right":"+=5em" }, "slow" );
+	  };
+	  $scope.closeModal = function() {
+		$scope.modal.hide();
+	  };
+	  //Cleanup the modal when we're done with it!
+	  $scope.$on('$destroy', function() {
+		$scope.modal.remove();
+	  });
+	  // Execute action on hide modal
+	  $scope.$on('modal.hidden', function() {
+		// Execute action
+		$( ".ty-match-left" ).animate( { "margin-left":"-5em" }, "slow" );
+		$( ".ty-match-right" ).animate( { "margin-right":"-5em" }, "slow" );
+	  });
+	  // Execute action on remove modal
+	  $scope.$on('modal.removed', function() {
+		// Execute action
+	  });	
   })
 
   .controller('EditProfileCtrl', function($scope, $state) {
@@ -859,13 +889,13 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       $scope.hometown = user.city + ", " + user.country;
       $scope.bio = user.bio;
       $scope.picFull = user.picFull;
-      $scope.favoriteFoods = user.favoriteFoods;
+      $scope.interests = user.interests;
       $scope.languages = user.languages;
       $scope.$digest();
     });
   })
   
-  .controller('ShowMatchCtrl', function($scope, $ionicModal) {
+  /*.controller('ShowMatchCtrl', function($scope, $ionicModal) {
 	  $ionicModal.fromTemplateUrl('match-modal.html', {
 		scope: $scope,
 		animation: 'fade-in'
@@ -895,7 +925,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	  $scope.$on('modal.removed', function() {
 		// Execute action
 	  });
-	})
+	})*/
 
 //In the connect controller, convert the sql date string in the format yyyy-mm-dd to a more readable format
 function convertDate(initial)
