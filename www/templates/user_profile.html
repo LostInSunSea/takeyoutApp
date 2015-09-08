@@ -80,4 +80,26 @@
 			<div class="ty-subtitle"><h2>It seems there are no more available matches. Try again later!<br /><br />Or, better yet, you can invite your friends to Takeyout!</h2></div>
 		</div>
 	</ion-content>
+	
+	<!-- Match overlay -->
+	<script id="match-modal.html" type="text/ng-template">
+		<div class="modal transparent ty-match" ng-click="closeModal()">
+			<div class="ty-match-overlay"></div>
+			<h1>You've been connected</h1>
+			<p>You and Sloth can now network with one another!</p>
+			<div class="ty-match-pics">
+				<div class="ty-match-pic-container ty-match-left ty-circle-container ty-prof-pic-container">
+					<div class="ty-prof-pic ty-vertical" style="background-image:url('img/me.jpg');background-size:cover;"></div>
+				</div>
+				
+				<div class="ty-match-pic-container ty-match-right ty-circle-container ty-prof-pic-container">
+					<div class="ty-prof-pic ty-vertical" style="background-image:url('img/me.jpg');background-size:cover;"></div>
+				</div>
+			</div>
+			
+			<button class="ty-button ty-caps ty-match-button ty-match-message button icon icon-left ion-paper-airplane">Message Sloth Person</button>
+			
+			<button class="ty-button ty-caps ty-match-button button">Continue Browsing</button>
+		</div>
+	</script>
 </ion-view>
