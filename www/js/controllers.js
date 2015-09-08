@@ -3,6 +3,7 @@ var matches;
 var currFriends;
 var chatInfo;
 var myInfo;
+var curTrip;
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
@@ -97,6 +98,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     });
     
     $scope.goToMatch = function(type, id) {
+	    curTrip = id;
 	    var key = id;
         if (type != "Hometown")
         {
@@ -619,16 +621,19 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.bio = user.bio;
 	      $scope.picFull = user.picFull;
 	      $scope.interests = user.interests;
-	      $scope.languages = user.languages;  
+	      $scope.languages = user.languages;
+	      $scope.id = user.id;  
 	  }
       
-      $scope.accept = function(){
+      $scope.accept = function(userId){
 		  //$scope.openModal();
+		  alert(userId);
 		  $.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
-			  
+			  otherUser:userId,
+			  trip:curTrip
 		  }, function(data) {
-			  
+			  alert(data);
 		  });
 	      matches.shift();
 	      if (matches.length == 0)
