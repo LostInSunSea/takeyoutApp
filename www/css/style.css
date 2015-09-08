@@ -455,7 +455,7 @@ a{
 
 .ty-likes-meetups h1{
 	font-weight:600;
-	font-size:1.25em;
+	font-size:1.5em;
 	color:#626262;
 }
 
@@ -1269,4 +1269,112 @@ input[type="date"]:valid:before{
 	font-size:1em;
 	letter-spacing:0.05em;
 	font-weight:400;
+}
+
+/* Match overlay */
+/*.ty-match{
+	display:none;
+	height:100vh;
+	width:100vw;
+	z-index:999 !important;
+	background-color:black;
+	opacity:0.8;
+}*/
+
+/*.ty-match-overlay{
+	height:100vw;
+	width:100vh;
+	background-color:#000;
+	opacity:0.8;
+	z-index:-1;
+}*/
+
+.modal{
+	background-color:#000;
+	opacity:0;
+}
+
+.modal h1{
+	color:#fff;
+	font-family:"League Spartan";
+	text-transform:uppercase;
+	letter-spacing:0.25em;
+	text-align:center;
+	font-size:1.75em;
+	line-height:1.5em;
+	margin-top:15vh;
+	margin-left:1.5em;
+	margin-right:1.5em;
+}
+
+.modal p{
+	color:#fff;
+	text-align:center;
+	letter-spacing:0.1em;
+	font-weight:400;
+	margin-left:3em;
+	margin-right:3em;
+}
+
+/*.ty-match h1{
+	color:#fff;
+	font-family:"League Spartan";
+	text-transform:uppercase;
+	letter-spacing:0.25em;
+	text-align:center;
+	font-size:1.75em;
+	line-height:1.5em;
+	margin-top:10vh;
+	margin-left:1.5em;
+	margin-right:1.5em;
+}*/
+
+.ty-match-pics{
+	margin:0 auto;
+	margin-top:3em;
+	width:40vw;
+	max-width:16em;
+	min-width:12em;
+	height:20vw;
+	max-height:8em;
+	min-height:6em;
+}
+
+.ty-match-pic-container{
+	width:45%;
+	max-width:7.2em;
+	height:90%;
+	max-height:7.2em;
+	float:left;
+}
+
+.ty-match-left{
+	margin-left:-5em;
+}
+
+.ty-match-right{
+	float:right;
+	margin-right:-5em;
+}
+
+.ty-match-pic-container .ty-prof-pic{
+	width:95%;
+	height:95%;
+	max-width:7.1em;
+	max-height:7.1em;
+}
+
+.ty-match-button{
+	position:fixed;
+	left:50vw;
+	top:80vh;
+	position:fixed;
+	margin-left:-35vw;
+	width:70vw;
+	background-color:#c2c2c2;
+}
+
+.ty-match-message{
+	top:70vh;
+	background-color:#28d6d6;
 }
