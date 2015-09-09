@@ -670,6 +670,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.favoriteFoods = user.favoriteFoods;
 	      $scope.languages = user.languages;
+	      $scope.id = user.id;  
 	      $scope.$digest();
       }
       
@@ -692,6 +693,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.favoriteFoods = user.favoriteFoods;
 	      $scope.languages = user.languages;
+	      $scope.id = user.id;  
 	      $scope.$digest();
       }
     
