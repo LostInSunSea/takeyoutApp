@@ -838,11 +838,12 @@ input[type="date"]:valid:before{
 }
 
 /* Calendar page */
-.ty-tabs h2{
-	font-size:0.9em;
+.ty-top-tabs h2{
+	font-size:1em;
 	font-weight:800;
 	text-align:center;
 	padding-bottom:0.25em;
+	letter-spacing:0.075em;
 }
 
 .ty-tab-selected h2{
@@ -894,7 +895,7 @@ input[type="date"]:valid:before{
 	margin-top:1em;
 	font-family:"Open Sans";
 	font-weight:600;
-	letter-spacing:0.1em;
+	letter-spacing:0.05em;
 }
 
 .ty-meeting-requests em{
@@ -1289,12 +1290,12 @@ input[type="date"]:valid:before{
 	z-index:-1;
 }*/
 
-.modal{
+.ty-match-modal .modal{
 	background-color:#000;
 	opacity:0;
 }
 
-.modal h1{
+.ty-match-modal .modal h1{
 	color:#fff;
 	font-family:"League Spartan";
 	text-transform:uppercase;
@@ -1307,7 +1308,7 @@ input[type="date"]:valid:before{
 	margin-right:1.5em;
 }
 
-.modal p{
+.ty-match-modal .modal p{
 	color:#fff;
 	text-align:center;
 	letter-spacing:0.1em;
@@ -1377,4 +1378,96 @@ input[type="date"]:valid:before{
 .ty-match-message{
 	top:70vh;
 	background-color:#28d6d6;
+}
+
+/* Reviews modal */
+.ty-reviews-modal .modal{
+}
+
+.ty-reviews-modal .bar-header{
+	background-color:#c2c2c2;
+	color:#fff;
+	text-align:center;
+	/*font-weight:600;
+	font-size:1.1em;*/
+}
+
+.ty-reviews-modal .bar-header h1{
+	display:inline-block;
+	font-family:"Open Sans";
+	color:#fff;
+	font-weight:400;
+	font-size:1.1em;
+}
+
+.ty-reviews{
+	margin-top:6em;
+	margin-bottom:3em;
+}
+
+.ty-reviews h2{
+	font-weight:800;
+	font-size:1em;
+	color:#626262;
+	letter-spacing:0.1em;
+}
+
+.ty-reviews h6{
+	font-family:"Open Sans";
+	font-weight:600;
+	font-size:0.9em;
+	color:#626262;
+	letter-spacing:0.05em;
+	margin-top:-4.75em;
+	padding-right:4.5em;
+}
+
+.ty-reviews p{
+	font-size:1em;
+	letter-spacing:0.05em;
+	color:#626262;
+	padding-bottom:1em;
+	line-height:1.25em;
+	padding-right:0.75em;
+}
+
+.ty-reviews-modal .bar-footer{
+	border-color:#fff;
+	background-color:#28d6d6;
+}
+
+.ty-review-button{
+	position:fixed;
+	left:50vw;
+	margin-left:-50vw;
+	width:100vw;
+	background-color:#28d6d6;
+}
+
+.ty-reviews .ty-prof-pic-list{
+	margin:0 auto;
+	border-radius:100%;
+	height:3.75em;
+	width:3.75em;
+}
+
+.ty-review-date h2{
+	color:#b2b2b2;
+	float:right;
+	padding-right:0.75em;
+	text-transform:none;
+	letter-spacing:0.025em;
+	font-weight:600;
+	font-size:0.9em;
+}
+
+.ty-modal-icon{
+	font-size:1.5em;
+	margin-top:-0.4em;
+	margin-left:-0.5em;
+}
+
+.ty-modal-header{
+	margin-top:-0.25em;
+	float:left;
 }

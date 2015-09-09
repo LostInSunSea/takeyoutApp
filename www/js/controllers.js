@@ -895,20 +895,21 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     });
   })
   
-  /*.controller('ShowMatchCtrl', function($scope, $ionicModal) {
-	  $ionicModal.fromTemplateUrl('match-modal.html', {
+  .controller('ShowReviewsCtrl', function($scope, $ionicModal) {
+	  $ionicModal.fromTemplateUrl('review-modal.html', {
 		scope: $scope,
-		animation: 'fade-in'
+		animation: 'slide-in-up'
 	  }).then(function(modal) {
 		$scope.modal = modal;
 	  });
-	  $scope.openModal = function() {
+	  $scope.openReviewModal = function() {
+		console.log("i got called");
 		$scope.modal.show();
 		$( ".ty-match" ).fadeIn( "slow" );
 		$( ".ty-match-left" ).animate( { "margin-left":"+=5em" }, "slow" );
 		$( ".ty-match-right" ).animate( { "margin-right":"+=5em" }, "slow" );
 	  };
-	  $scope.closeModal = function() {
+	  $scope.closeReviewModal = function() {
 		$scope.modal.hide();
 	  };
 	  //Cleanup the modal when we're done with it!
@@ -925,7 +926,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	  $scope.$on('modal.removed', function() {
 		// Execute action
 	  });
-	})*/
+	})
 
 //In the connect controller, convert the sql date string in the format yyyy-mm-dd to a more readable format
 function convertDate(initial)
