@@ -640,12 +640,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.id = user.id;  
 	  }
       
-      $scope.accept = function(userId){
+      $scope.accept = function(){
 		  //$scope.openModal();
-		  alert(userId);
 		  $.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
-			  otherUser:userId,
+			  otherUser:matches[0].id,
 			  trip:curTripId,
 			  city:curCity,
 			  country:curCountry
@@ -670,8 +669,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.favoriteFoods = user.favoriteFoods;
 	      $scope.languages = user.languages;
-	      $scope.id = user.id;  
-	      $scope.$digest();
+	      $scope.id = user.id; 
       }
       
       $scope.reject = function(){
@@ -693,8 +691,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.favoriteFoods = user.favoriteFoods;
 	      $scope.languages = user.languages;
-	      $scope.id = user.id;  
-	      $scope.$digest();
+	      $scope.id = user.id; 
       }
     
       $ionicModal.fromTemplateUrl('match-modal.html', {
