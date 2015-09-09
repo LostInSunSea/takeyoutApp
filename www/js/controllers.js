@@ -3,6 +3,9 @@ var matches;
 var currFriends;
 var chatInfo;
 var myInfo;
+var curTripId;
+var curCity;
+var curCountry;
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
@@ -77,7 +80,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
               tripClass:"ty-trip-icon ty-hometown ty-vertical",
               icon:"ty-vertical icon ion-heart",
               dateString:"Hometown",
-              backgroundImage:obj.backgroundImage
+              backgroundImage:obj.backgroundImage,
+              city:obj.city,
+              country:obj.country
             });  
         }
         else
@@ -89,14 +94,23 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
               tripClass:"ty-trip-icon ty-trip ty-vertical",
               icon:"ty-vertical icon ion-plane",
               dateString:convertDate(obj.startDate) + " - " + convertDate(obj.endDate),
-              backgroundImage:obj.backgroundImage
+              backgroundImage:obj.backgroundImage,
+              city:obj.city,
+              country:obj.country
             });
         }
       }
       $scope.$digest();
     });
     
-    $scope.goToMatch = function(type, id) {
+    $scope.goToMatch = function(type, id, city, country) {
+	    if (!id)
+	    {
+		    id = 0;
+	    }
+	    curTripId = id;
+	    curCity = city;
+	    curCountry = country;
 	    var key = id;
         if (type != "Hometown")
         {
@@ -631,7 +645,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		  alert(userId);
 		  $.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
-			  otherUser:userId
+			  otherUser:userId,
+			  trip:curTripId,
+			  city:curCity,
+			  country:curCountry
 		  }, function(data) {
 			  alert(data);
 		  });
