@@ -3,6 +3,9 @@ var matches;
 var currFriends;
 var chatInfo;
 var myInfo;
+var curTripId;
+var curCity;
+var curCountry;
 angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('LoginCtrl',function($scope, $cordovaOauth,$state){
@@ -77,7 +80,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
               tripClass:"ty-trip-icon ty-hometown ty-vertical",
               icon:"ty-vertical icon ion-heart",
               dateString:"Hometown",
-              backgroundImage:obj.backgroundImage
+              backgroundImage:obj.backgroundImage,
+              city:obj.city,
+              country:obj.country
             });  
         }
         else
@@ -89,14 +94,23 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
               tripClass:"ty-trip-icon ty-trip ty-vertical",
               icon:"ty-vertical icon ion-plane",
               dateString:convertDate(obj.startDate) + " - " + convertDate(obj.endDate),
-              backgroundImage:obj.backgroundImage
+              backgroundImage:obj.backgroundImage,
+              city:obj.city,
+              country:obj.country
             });
         }
       }
       $scope.$digest();
     });
     
-    $scope.goToMatch = function(type, id) {
+    $scope.goToMatch = function(type, id, city, country) {
+	    if (!id)
+	    {
+		    id = 0;
+	    }
+	    curTripId = id;
+	    curCity = city;
+	    curCountry = country;
 	    var key = id;
         if (type != "Hometown")
         {
@@ -626,12 +640,14 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.id = user.id;  
 	  }
       
-      $scope.accept = function(userId){
+      $scope.accept = function(){
 		  //$scope.openModal();
-		  alert(userId);
 		  $.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
-			  otherUser:userId
+			  otherUser:matches[0].id,
+			  trip:curTripId,
+			  city:curCity,
+			  country:curCountry
 		  }, function(data) {
 			  alert(data);
 		  });
@@ -653,7 +669,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.favoriteFoods = user.favoriteFoods;
 	      $scope.languages = user.languages;
-	      $scope.$digest();
+	      $scope.id = user.id; 
       }
       
       $scope.reject = function(){
@@ -675,7 +691,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.favoriteFoods = user.favoriteFoods;
 	      $scope.languages = user.languages;
-	      $scope.$digest();
+	      $scope.id = user.id; 
       }
     
       $ionicModal.fromTemplateUrl('match-modal.html', {
