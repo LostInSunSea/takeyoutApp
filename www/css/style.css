@@ -1471,3 +1471,45 @@ input[type="date"]:valid:before{
 	margin-top:-0.25em;
 	float:left;
 }
+
+/* Write a review */
+.ty-write-review{
+	margin:0.75em;
+	margin-top:3em;
+}
+
+.ty-write-review .col{
+	text-align:center;
+}
+
+.ty-write-review img{
+	height:6.5em;
+}
+
+.ty-write-review h2{
+	font-family:"Open Sans";
+	font-size:1.25em;
+	color:#626262;
+	letter-spacing:0.05em;
+	font-weight:800;
+}
+
+.ty-write-review h6{
+	font-family:"Open Sans";
+	letter-spacing:0.075em;
+	color:#626262;
+	margin-top:0;
+	text-transform:uppercase;
+}
+
+.ty-write-review textarea{
+	letter-spacing:0.05em;
+}
+
+.ty-write-review .item{
+	margin-top:-2em;
+}
+
+.ty-faces{
+	margin-top:-2em;
+}
