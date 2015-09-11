@@ -14,7 +14,7 @@
 				<h2 class="ty-caps">{{name}}</h2>
 				<h6>{{headline}}</h6>
 				
-				<div class="ty-likes-meetups">
+				<div class="ty-likes-meetups" ng-controller="ShowReviewsCtrl" ng-click="openReviewModal()">
 					<div class="ty-likes">
 						<h1>3</h1>
 						<h3>Likes</h3>
@@ -83,23 +83,197 @@
 	
 	<!-- Match overlay -->
 	<script id="match-modal.html" type="text/ng-template">
-		<div class="modal transparent ty-match" ng-click="closeModal()">
-			<div class="ty-match-overlay"></div>
-			<h1>You've been connected</h1>
-			<p>You and Sloth can now network with one another!</p>
-			<div class="ty-match-pics">
-				<div class="ty-match-pic-container ty-match-left ty-circle-container ty-prof-pic-container">
-					<div class="ty-prof-pic ty-vertical" style="background-image:url('img/me.jpg');background-size:cover;"></div>
+		<div class="ty-match-modal">
+			<div class="modal transparent ty-match" ng-click="closeModal()">
+				<div class="ty-match-overlay"></div>
+				<h1>You've been connected</h1>
+				<p>You and Sloth can now network with one another!</p>
+				<div class="ty-match-pics">
+					<div class="ty-match-pic-container ty-match-left ty-circle-container ty-prof-pic-container">
+						<div class="ty-prof-pic ty-vertical" style="background-image:url('img/me.jpg');background-size:cover;"></div>
+					</div>
+					
+					<div class="ty-match-pic-container ty-match-right ty-circle-container ty-prof-pic-container">
+						<div class="ty-prof-pic ty-vertical" style="background-image:url('img/me.jpg');background-size:cover;"></div>
+					</div>
 				</div>
 				
-				<div class="ty-match-pic-container ty-match-right ty-circle-container ty-prof-pic-container">
-					<div class="ty-prof-pic ty-vertical" style="background-image:url('img/me.jpg');background-size:cover;"></div>
-				</div>
+				<button class="ty-button ty-caps ty-match-button ty-match-message button icon icon-left ion-paper-airplane">Message Sloth Person</button>
+				
+				<button class="ty-button ty-caps ty-match-button button">Continue Browsing</button>
 			</div>
-			
-			<button class="ty-button ty-caps ty-match-button ty-match-message button icon icon-left ion-paper-airplane">Message Sloth Person</button>
-			
-			<button class="ty-button ty-caps ty-match-button button">Continue Browsing</button>
+		</div>
+	</script>
+	
+	<!-- Review overlay -->
+	<script id="review-modal.html" type="text/ng-template">
+		<div class="ty-reviews-modal">
+			<div class="modal">
+				<div class="bar bar-header ty-caps ty-nav-bar">
+					<div class="row">
+						<div class="col col-10 ty-vertical">
+							<div class="ty-modal-icon" ng-click="closeReviewModal()">
+								<h1 class="icon icon-left ion-chevron-left"></h1>
+							</div>
+						</div>
+						
+						<div class="col col-90 ty-vertical">
+							<div class="ty-modal-header">
+								<h1>Reviews for Sloth</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row ty-top-tabs bar bar-subheader">
+					<div class="col ty-tab-selected"><h2 class="ty-vertical ty-caps">Positive (3)</h2></div>
+					<div class="col ty-tab"><h2 class="ty-vertical ty-caps">Neutral (0)</h2></div>
+					<div class="col ty-tab"><h2 class="ty-vertical ty-caps">Negative (0)</h2></div>
+				</div>
+				<ion-content class="ty-reviews">					
+					<div class="ty-user-review">
+						<div class="row">
+							<!-- Profile -->
+							<div class="col col-20">
+								<div class="ty-prof-pic-list" style="background-image:url('img/me.jpg');background-size:cover;"></div>
+							</div>
+							
+							<!-- Name, date, & time -->
+							<div class="col col-40">
+								<h2 class="ty-caps">Sloth Person</h2>
+							</div>
+							<div class="col col-40 ty-review-date">
+								<h2 class="ty-caps">Jul 2014</h2>
+							</div>
+						</div>
+						<div class="row ty-divider">
+							<div class="col col-20"></div>
+							<div class="col col-80">
+								<h6>Halp I'm a lonely sloth oh so lonely</h6>
+								<p>So alone that I have to write my own reviews.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="ty-user-review">
+						<div class="row">
+							<!-- Profile -->
+							<div class="col col-20">
+								<div class="ty-prof-pic-list" style="background-image:url('img/me.jpg');background-size:cover;"></div>
+							</div>
+							
+							<!-- Name, date, & time -->
+							<div class="col col-40">
+								<h2 class="ty-caps">Sloth Person</h2>
+							</div>
+							<div class="col col-40 ty-review-date">
+								<h2 class="ty-caps">Jul 2014</h2>
+							</div>
+						</div>
+						<div class="row ty-divider">
+							<div class="col col-20"></div>
+							<div class="col col-80">
+								<h6>Halp I'm a lonely sloth oh so lonely</h6>
+								<p>I'm normal, right? You'll be my friend, right? I'll be a good friend, I promise. I promise with all my little sloth heart and soul.</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="ty-user-review">
+						<div class="row">
+							<!-- Profile -->
+							<div class="col col-20">
+								<div class="ty-prof-pic-list" style="background-image:url('img/me.jpg');background-size:cover;"></div>
+							</div>
+							
+							<!-- Name, date, & time -->
+							<div class="col col-40">
+								<h2 class="ty-caps">Sloth Person</h2>
+							</div>
+							<div class="col col-40 ty-review-date">
+								<h2 class="ty-caps">Jul 2014</h2>
+							</div>
+						</div>
+						<div class="row ty-divider">
+							<div class="col col-20"></div>
+							<div class="col col-80">
+								<h6>Halp I'm a lonely sloth oh so lonely</h6>
+								<p>Pls love me. :(</p>
+							</div>
+						</div>
+					</div>
+				</ion-content>
+				
+				<div class="bar bar-footer"><button class="ty-review-button ty-button ty-caps button" ng-controller="TypeReviewsCtrl" ng-click="openTypeReviewModal()">Add Review</button></div>
+			</div>
+		</div>
+	</script>
+	
+	<!-- Write a review -->
+	<script id="type-review-modal.html" type="text/ng-template">
+		<div class="ty-reviews-modal">
+			<div class="modal">
+				<div class="bar bar-header ty-caps ty-nav-bar">
+					<div class="row">
+						<div class="col col-10 ty-vertical">
+							<div class="ty-modal-icon" ng-click="closeTypeReviewModal()">
+								<h1 class="icon icon-left ion-chevron-left"></h1>
+							</div>
+						</div>
+						
+						<div class="col col-90 ty-vertical">
+							<div class="ty-modal-header">
+								<h1>Review Sloth</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<ion-content class="ty-write-review">
+					<div class="row">
+						<div class="col">
+							<h2>How did you feel about your experience with Sloth?</h2>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col col-33">
+							<div id="ty-sad-face">
+								<img src="img/sad-unselected.svg" />
+								<h6>Negative</h6>
+							</div>
+						</div>
+						<div class="col col-33">
+							<div id="ty-neutral-face">
+								<img src="img/neutral-unselected.svg" />
+								<h6>Neutral</h6>
+							</div>
+						</div>
+						<div class="col col-33">
+							<div id="ty-happy-face">
+								<img id="ty-happy-face" src="img/happy-unselected.svg" />
+								<h6>Positive</h6>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col">
+							<h2>Describe your experience.</h2>
+						</div>
+					</div>
+					
+					<div class="row">		
+						<div class="col col-100">
+							<label class="item item-input item-stacked-label">
+								<!--<span class="ty-field-name ty-caps ty-input-label"></span>-->
+								<textarea rows="2" id="ty-about-input" placeholder="My experience was..." onkeyup="resizeTextArea('ty-about-input')"></textarea>
+							</label>
+						</div>
+					</div>
+				</ion-content>
+				
+				<div class="bar bar-footer"><button class="ty-review-button ty-button ty-caps button">Submit Review</button></div>
+			</div>
 		</div>
 	</script>
 </ion-view>

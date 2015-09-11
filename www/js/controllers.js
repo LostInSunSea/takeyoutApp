@@ -922,6 +922,137 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     });
   })
   
+  .controller('ShowReviewsCtrl', function($scope, $ionicModal) {
+	  $ionicModal.fromTemplateUrl('review-modal.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	  }).then(function(modal) {
+		$scope.modal = modal;
+	  });
+	  $scope.openReviewModal = function() {
+		//console.log("i got called");
+		$scope.modal.show();
+	  };
+	  $scope.closeReviewModal = function() {
+		$scope.modal.hide();
+	  };
+	  //Cleanup the modal when we're done with it!
+	  $scope.$on('$destroy', function() {
+		$scope.modal.remove();
+	  });
+	  // Execute action on hide modal
+	  $scope.$on('modal.hidden', function() {
+		// Execute action
+	  });
+	  // Execute action on remove modal
+	  $scope.$on('modal.removed', function() {
+		// Execute action
+	  });
+	})
+	
+	.controller('TypeReviewsCtrl', function($scope, $ionicModal) {
+	  $ionicModal.fromTemplateUrl('type-review-modal.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	  }).then(function(modal) {
+		$scope.modal = modal;
+	  });
+	  
+		var isNeg = false;
+		var isNeu = false;
+		var isPos = false;
+		  
+	  $scope.openTypeReviewModal = function() {
+		$scope.modal.show();
+		
+		$( "#ty-sad-face" ).on("click", function() {
+			if( !isNeg ){
+				if( isPos ) { 
+					$( "#ty-happy-face h6" ).css("font-weight", 400);  
+					$( "#ty-happy-face img" ).attr("src", "img/happy-unselected.svg");
+					isPos = false; 
+				} 
+				else { 
+					$( "#ty-neutral-face h6" ).css("font-weight", 400);
+					$( "#ty-neutral-face img" ).attr("src", "img/neutral-unselected.svg"); 
+					isNeu = false;
+				}
+			
+				$( "#ty-sad-face img" ).attr("src", "img/sad.svg");
+				$( "#ty-sad-face h6" ).css("font-weight", 800);
+				isNeg = true;
+			}
+		});
+		$( "#ty-happy-face" ).on("click", function() {
+			if( !isPos ){
+				if( isNeg ) {
+					$( "#ty-sad-face h6" ).css("font-weight", 400); 
+					$( "#ty-sad-face img" ).attr("src", "img/sad-unselected.svg");
+					isNeg = false; 
+				} 
+				else { 
+					$( "#ty-neutral-face h6" ).css("font-weight", 400);
+					$( "#ty-neutral-face img" ).attr("src", "img/neutral-unselected.svg"); 
+					isNeu = false;
+				}
+			
+				$( "#ty-happy-face img" ).attr("src", "img/happy.svg");
+				$( "#ty-happy-face h6" ).css("font-weight", 800);
+				isPos = true;
+			}
+		});
+		$( "#ty-neutral-face" ).on("click", function() {
+			if( !isNeu ){
+				if( isNeg ) {
+					$( "#ty-sad-face h6" ).css("font-weight", 400); 
+					$( "#ty-sad-face img" ).attr("src", "img/sad-unselected.svg");
+					isNeg = false; 
+				} 
+				else { 
+					$( "#ty-happy-face h6" ).css("font-weight", 400);  
+					$( "#ty-happy-face img" ).attr("src", "img/happy-unselected.svg");
+					isPos = false; 
+				}
+				
+				$( "#ty-neutral-face img" ).attr("src", "img/neutral.svg");
+				$( "#ty-neutral-face h6" ).css("font-weight", 800);
+				isNeu = true;
+			}
+		});
+	  };
+	  $scope.closeTypeReviewModal = function() {
+		$scope.modal.hide();
+		
+		if( isNeg ) {
+			$( "#ty-sad-face h6" ).css("font-weight", 400); 
+			$( "#ty-sad-face img" ).attr("src", "img/sad-unselected.svg");
+			isNeg = false; 
+		} 
+		else if ( isPos ) { 
+			$( "#ty-happy-face h6" ).css("font-weight", 400);  
+			$( "#ty-happy-face img" ).attr("src", "img/happy-unselected.svg");
+			isPos = false; 
+		}
+		else { 
+			$( "#ty-neutral-face h6" ).css("font-weight", 400);
+			$( "#ty-neutral-face img" ).attr("src", "img/neutral-unselected.svg"); 
+			isNeu = false;
+		}
+	  };
+	  //Cleanup the modal when we're done with it!
+	  $scope.$on('$destroy', function() {
+		$scope.modal.remove();
+	  });
+	  // Execute action on hide modal
+	  $scope.$on('modal.hidden', function() {
+		// Execute action
+	  });
+	  // Execute action on remove modal
+	  $scope.$on('modal.removed', function() {
+		// Execute action
+	  });
+	})
+	
 //In the connect controller, convert the sql date string in the format yyyy-mm-dd to a more readable format
 function convertDate(initial)
 {
