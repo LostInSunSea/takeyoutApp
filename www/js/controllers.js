@@ -612,6 +612,13 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('MatchCtrl', function($scope, $state, $ionicModal) {
 	  console.log("MatchCtrl");
+	  
+	  $.get("http://kawaiikrew.net/www/php/get_user_pic.php", {}, function(data)
+	  {
+		  var self = JSON.parse(data);
+		  $scope.selfPic = self.picThumbnail;
+	  });
+	  
 	  var profilePage = document.getElementById('user-profile');
 	  var buttons = document.getElementById('acceptreject');
 	  var emptyPage = document.getElementById('empty');
@@ -649,8 +656,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.modalPic = $scope.picFull;
 	      $scope.modalName = $scope.name;
 	      $scope.modalFirstName = $scope.firstName;
-		  //$scope.openModal();
-		  $.get("http://kawaiikrew.net/www/php/accept.php", 
+		  $scope.openModal();
+		  /*$.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
 			  otherUser:matches[0].id,
 			  trip:curTripId,
@@ -661,7 +668,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
               {
                   $scope.openModal();
               }
-		  });
+		  });*/
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
