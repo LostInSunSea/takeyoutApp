@@ -109,18 +109,18 @@
 			<div class="modal transparent ty-match" ng-click="closeModal()">
 				<div class="ty-match-overlay"></div>
 				<h1>You've been connected</h1>
-				<p>You and Sloth can now network with one another!</p>
+				<p>You and {{modalFirstName}} can now network with one another!</p>
 				<div class="ty-match-pics">
 					<div class="ty-match-pic-container ty-match-left ty-circle-container ty-prof-pic-container">
 						<div class="ty-prof-pic ty-vertical" style="background-image:url('img/me.jpg');background-size:cover;"></div>
 					</div>
 					
 					<div class="ty-match-pic-container ty-match-right ty-circle-container ty-prof-pic-container">
-						<div class="ty-prof-pic ty-vertical" style="background-image:url('img/me.jpg');background-size:cover;"></div>
+						<div class="ty-prof-pic ty-vertical" style="background-image:url({{modalPic}});background-size:cover;"></div>
 					</div>
 				</div>
 				
-				<button class="ty-button ty-caps ty-match-button ty-match-message button icon icon-left ion-paper-airplane">Message Sloth Person</button>
+				<button class="ty-button ty-caps ty-match-button ty-match-message button icon icon-left ion-paper-airplane">Message {{modalName}}</button>
 				
 				<button class="ty-button ty-caps ty-match-button button">Continue Browsing</button>
 			</div>
@@ -141,7 +141,7 @@
 						
 						<div class="col col-90 ty-vertical">
 							<div class="ty-modal-header">
-								<h1>Reviews for Sloth</h1>
+								<h1>Reviews for {{firstName}}</h1>
 							</div>
 						</div>
 					</div>

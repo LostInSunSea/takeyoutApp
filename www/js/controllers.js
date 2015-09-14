@@ -1,5 +1,6 @@
 //Global var, the current 10 matches
 var matches;
+
 var currFriends;
 var chatInfo;
 var myInfo;
@@ -617,6 +618,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	  profilePage.style.display = "block";
 	  buttons.style.display = "block";
 	  emptyPage.style.display = "none";
+	  
+	  $scope.modalPic;
+	  $scope.modalName;
+	  $scope.modalFirstName;
 
 	  if (matches.length == 0)
 	  {
@@ -637,12 +642,15 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.interests = user.interests;
 	      $scope.languages = user.languages;
-	      $scope.id = user.id;  
+	      $scope.id = user.id; 
 	  }
       
       $scope.accept = function(){
-		  $scope.openModal();
-		  /*$.get("http://kawaiikrew.net/www/php/accept.php", 
+	      $scope.modalPic = $scope.picFull;
+	      $scope.modalName = $scope.name;
+	      $scope.modalFirstName = $scope.firstName;
+		  //$scope.openModal();
+		  $.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
 			  otherUser:matches[0].id,
 			  trip:curTripId,
@@ -653,7 +661,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
               {
                   $scope.openModal();
               }
-		  });*/
+		  });
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
@@ -672,7 +680,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.favoriteFoods = user.favoriteFoods;
 	      $scope.languages = user.languages;
-	      $scope.id = user.id; 
+	      $scope.id = user.id;
       }
       
       $scope.reject = function(){
@@ -682,7 +690,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
           }, function(data)
           {
               //alert(data);
-          })
+          });
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
