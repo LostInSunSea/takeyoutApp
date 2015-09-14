@@ -641,16 +641,19 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	  }
       
       $scope.accept = function(){
-		  //$scope.openModal();
-		  $.get("http://kawaiikrew.net/www/php/accept.php", 
+		  $scope.openModal();
+		  /*$.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
 			  otherUser:matches[0].id,
 			  trip:curTripId,
 			  city:curCity,
 			  country:curCountry
 		  }, function(data) {
-			  alert(data);
-		  });
+			  if (data == "New conversation made")
+              {
+                  $scope.openModal();
+              }
+		  });*/
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
@@ -673,6 +676,13 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       }
       
       $scope.reject = function(){
+	      $.post("http://kawaiikrew.net/www/php/reject.php",
+          {
+              otherUser:matches[0].id
+          }, function(data)
+          {
+              //alert(data);
+          })
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
