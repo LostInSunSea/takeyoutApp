@@ -719,6 +719,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.id = user.id; 
       }
     
+      $scope.message = function()
+      {
+	      $state.go("tab.messages");
+      }
+    
       $ionicModal.fromTemplateUrl('match-modal.html', {
 		scope: $scope,
 		animation: 'fade-in'
