@@ -14,7 +14,29 @@
 				<h2 class="ty-caps">{{name}}</h2>
 				<h6>{{headline}}</h6>
 				
-				<div class="ty-likes-meetups" ng-controller="ShowReviewsCtrl" ng-click="openReviewModal()">
+				<div class="ty-user-stars" ng-controller="ShowReviewsCtrl" ng-click="openReviewModal()">
+					<!-- User page stars
+					<!-- Add class "ty-star-selected" to fill in star
+					<!-- Add class "ty-star-half" to fill in half star -->
+					<div class="row">	
+						<div class="col col-25"></div>
+						<div class="col col-50">
+							<p class="ty-vertical ty-star ty-star-selected icon ion-star"></p>
+							<p class="ty-vertical ty-star ty-star-selected icon ion-star"></p>
+							<p class="ty-vertical ty-star ty-star-selected icon ion-star"></p>
+							<p class="ty-vertical ty-star ty-star-half icon ion-star"></p>
+							<p class="ty-vertical ty-star icon ion-star"></p>
+						</div>
+						<div class="col col-25"></div>
+					</div>
+					<div class="ty-num-ratings row">
+						<div class="col col-25"></div>
+						<div class="col"><h2>8 User Ratings</h2></div>
+						<div class="col col-25"></div>
+					</div>
+				</div>
+				
+				<!--<div class="ty-likes-meetups" ng-controller="ShowReviewsCtrl" ng-click="openReviewModal()">
 					<div class="ty-likes">
 						<h1>3</h1>
 						<h3>Likes</h3>
@@ -23,7 +45,7 @@
 						<h1>3</h1>
 						<h3>Meetups</h3>
 					</div>
-				</div>
+				</div>-->
 			</div>
 			
 		</div>
@@ -231,12 +253,19 @@
 				<ion-content class="ty-write-review">
 					<div class="row">
 						<div class="col">
-							<h2>How did you feel about your experience with Sloth?</h2>
+							<h2>How would you rate your experience with Sloth?</h2>
 						</div>
 					</div>
 					
 					<div class="row">
-						<div class="col col-33">
+						<div class="col col-25"></div>
+						<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-1"></p></div>
+						<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-2"></p></div>
+						<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-3"></p></div>
+						<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-4"></p></div>
+						<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-5"></p></div>
+						<div class="col col-25"></div>
+						<!--<div class="col col-33">
 							<div id="ty-sad-face">
 								<img src="img/sad-unselected.svg" />
 								<h6>Negative</h6>
@@ -253,7 +282,7 @@
 								<img id="ty-happy-face" src="img/happy-unselected.svg" />
 								<h6>Positive</h6>
 							</div>
-						</div>
+						</div>-->
 					</div>
 					
 					<div class="row">

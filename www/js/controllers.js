@@ -958,14 +958,62 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		$scope.modal = modal;
 	  });
 	  
-		var isNeg = false;
+		/*var isNeg = false;
 		var isNeu = false;
-		var isPos = false;
+		var isPos = false;*/
 		  
 	  $scope.openTypeReviewModal = function() {
 		$scope.modal.show();
 		
-		$( "#ty-sad-face" ).on("click", function() {
+		var starOn = function(starNum) {
+			$( "#ty-star-" + starNum ).addClass( "ty-star-selected" );
+		}
+		
+		var starOff = function(starNum) {
+			$( "#ty-star-" + starNum ).removeClass( "ty-star-selected" );
+		}
+		
+		$( "#ty-star-1" ).on( "click", function() {
+			starOn(1);
+			starOff(2);
+			starOff(3);
+			starOff(4);
+			starOff(5);
+		});
+		
+		$( "#ty-star-2" ).on( "click", function() {
+			starOn(1);
+			starOn(2);
+			starOff(3);
+			starOff(4);
+			starOff(5);
+		});
+		
+		$( "#ty-star-3" ).on( "click", function() {
+			starOn(1);
+			starOn(2);
+			starOn(3);
+			starOff(4);
+			starOff(5);
+		});
+		
+		$( "#ty-star-4" ).on( "click", function() {
+			starOn(1);
+			starOn(2);
+			starOn(3);
+			starOn(4);
+			starOff(5);
+		});
+		
+		$( "#ty-star-5" ).on( "click", function() {
+			starOn(1);
+			starOn(2);
+			starOn(3);
+			starOn(4);
+			starOn(5);
+		});
+		
+		/*$( "#ty-sad-face" ).on("click", function() {
 			if( !isNeg ){
 				if( isPos ) { 
 					$( "#ty-happy-face h6" ).css("font-weight", 400);  
@@ -1018,12 +1066,12 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 				$( "#ty-neutral-face h6" ).css("font-weight", 800);
 				isNeu = true;
 			}
-		});
+		});*/
 	  };
 	  $scope.closeTypeReviewModal = function() {
 		$scope.modal.hide();
 		
-		if( isNeg ) {
+		/*if( isNeg ) {
 			$( "#ty-sad-face h6" ).css("font-weight", 400); 
 			$( "#ty-sad-face img" ).attr("src", "img/sad-unselected.svg");
 			isNeg = false; 
@@ -1037,7 +1085,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 			$( "#ty-neutral-face h6" ).css("font-weight", 400);
 			$( "#ty-neutral-face img" ).attr("src", "img/neutral-unselected.svg"); 
 			isNeu = false;
-		}
+		}*/
 	  };
 	  //Cleanup the modal when we're done with it!
 	  $scope.$on('$destroy', function() {

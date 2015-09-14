@@ -1513,3 +1513,44 @@ input[type="date"]:valid:before{
 .ty-faces{
 	margin-top:-2em;
 }
+
+.ty-star{
+	height:1.75em;
+	width:1.75em;
+	font-size:1.25em;
+	background-color:#b2b2b2;
+	border-radius:100%;
+	color:#fff;
+	padding-top:0.35em;
+}
+
+.ty-star-selected{
+	background-color:#ff8e30;
+}
+
+/* User page stars */
+.ty-user-stars {
+	text-align:center;
+	margin-top:-0.75em;
+}
+
+.ty-user-stars h2{
+	font-family:"Open Sans";
+	font-weight:400;
+	font-size:0.75em;
+	margin-top:-3.5em;
+}
+
+.ty-user-stars .ty-star{
+	height:1.5em;
+	width:1.5em;
+	font-size:1em;
+	padding-top:0.075em;
+	padding-left:1px;
+	display:inline-block;
+}
+
+.ty-user-stars .ty-star-half{
+	background-image:url("../img/half-star.svg");
+	background-size:cover;
+}

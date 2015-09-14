@@ -13,7 +13,29 @@
 				<h2 class="ty-caps">{{name}}</h2>
 				<h6>{{headline}}</h6>
 				
-				<div class="ty-likes-meetups" ng-controller="ShowReviewsCtrl" ng-click="openReviewModal()">
+				<div class="ty-user-stars" ng-controller="ShowReviewsCtrl" ng-click="openReviewModal()">
+					<!-- User page stars
+					<!-- Add class "ty-star-selected" to fill in star
+					<!-- Add class "ty-star-half" to fill in half star -->
+					<div class="row">	
+						<div class="col col-25"></div>
+						<div class="col col-50">
+							<p class="ty-vertical ty-star ty-star-selected icon ion-star"></p>
+							<p class="ty-vertical ty-star ty-star-selected icon ion-star"></p>
+							<p class="ty-vertical ty-star ty-star-selected icon ion-star"></p>
+							<p class="ty-vertical ty-star ty-star-half icon ion-star"></p>
+							<p class="ty-vertical ty-star icon ion-star"></p>
+						</div>
+						<div class="col col-25"></div>
+					</div>
+					<div class="ty-num-ratings row">
+						<div class="col col-25"></div>
+						<div class="col"><h2>10 User Ratings</h2></div>
+						<div class="col col-25"></div>
+					</div>
+				</div>
+				
+				<!--<div class="ty-likes-meetups" ng-controller="ShowReviewsCtrl" ng-click="openReviewModal()">
 					<div class="ty-likes">
 						<h1>3</h1>
 						<h3>Likes</h3>
@@ -22,7 +44,7 @@
 						<h1>3</h1>
 						<h3>Meetups</h3>
 					</div>
-				</div>
+				</div>-->
 			</div>
 
 			<a class="button button-small ty-caps ty-button ty-add-button ty-edit-button" href="#/tab/edit_profile">Edit</a>
