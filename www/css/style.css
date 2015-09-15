@@ -1431,6 +1431,22 @@ input[type="date"]:valid:before{
 	padding-right:0.75em;
 }
 
+.ty-review-stars {
+	text-align:center;
+	width:35vw;
+	margin-top:0.75em;
+}
+
+.ty-review-stars .ty-star{
+	height:1.5em;
+	width:1.5em;
+	color:#fff;
+	font-size:1em;
+	padding-top:0.1em;
+	padding-left:0.3em;
+	display:inline-block;
+}
+
 .ty-reviews-modal .bar-footer{
 	border-color:#fff;
 	background-color:#28d6d6;
