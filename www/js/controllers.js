@@ -1,5 +1,6 @@
 //Global var, the current 10 matches
 var matches;
+
 var currFriends;
 var chatInfo;
 var myInfo;
@@ -611,12 +612,23 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
   .controller('MatchCtrl', function($scope, $state, $ionicModal) {
 	  console.log("MatchCtrl");
+	  
+	  $.get("http://kawaiikrew.net/www/php/get_user_pic.php", {}, function(data)
+	  {
+		  var self = JSON.parse(data);
+		  $scope.selfPic = self.picThumbnail;
+	  });
+	  
 	  var profilePage = document.getElementById('user-profile');
 	  var buttons = document.getElementById('acceptreject');
 	  var emptyPage = document.getElementById('empty');
 	  profilePage.style.display = "block";
 	  buttons.style.display = "block";
 	  emptyPage.style.display = "none";
+	  
+	  $scope.modalPic;
+	  $scope.modalName;
+	  $scope.modalFirstName;
 
 	  if (matches.length == 0)
 	  {
@@ -637,20 +649,26 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.interests = user.interests;
 	      $scope.languages = user.languages;
-	      $scope.id = user.id;  
+	      $scope.id = user.id; 
 	  }
       
       $scope.accept = function(){
-		  //$scope.openModal();
-		  $.get("http://kawaiikrew.net/www/php/accept.php", 
+	      $scope.modalPic = $scope.picFull;
+	      $scope.modalName = $scope.name;
+	      $scope.modalFirstName = $scope.firstName;
+		  $scope.openModal();
+		  /*$.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
 			  otherUser:matches[0].id,
 			  trip:curTripId,
 			  city:curCity,
 			  country:curCountry
 		  }, function(data) {
-			  alert(data);
-		  });
+			  if (data == "New conversation made")
+              {
+                  $scope.openModal();
+              }
+		  });*/
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
@@ -669,10 +687,17 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.picFull = user.picFull;
 	      $scope.favoriteFoods = user.favoriteFoods;
 	      $scope.languages = user.languages;
-	      $scope.id = user.id; 
+	      $scope.id = user.id;
       }
       
       $scope.reject = function(){
+	      $.post("http://kawaiikrew.net/www/php/reject.php",
+          {
+              otherUser:matches[0].id
+          }, function(data)
+          {
+              //alert(data);
+          });
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
@@ -692,6 +717,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.favoriteFoods = user.favoriteFoods;
 	      $scope.languages = user.languages;
 	      $scope.id = user.id; 
+      }
+    
+      $scope.message = function()
+      {
+	      $state.go("tab.messages");
       }
     
       $ionicModal.fromTemplateUrl('match-modal.html', {
