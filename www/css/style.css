@@ -1431,6 +1431,22 @@ input[type="date"]:valid:before{
 	padding-right:0.75em;
 }
 
+.ty-review-stars {
+	width:8.75em;
+	text-align:center;
+	margin-top:0.75em;
+}
+
+.ty-review-stars .ty-star{
+	height:1.5em;
+	width:1.5em;
+	color:#fff;
+	font-size:1em;
+	padding-top:0.1em;
+	padding-left:0.3em;
+	display:inline-block;
+}
+
 .ty-reviews-modal .bar-footer{
 	border-color:#fff;
 	background-color:#28d6d6;
@@ -1515,13 +1531,16 @@ input[type="date"]:valid:before{
 }
 
 .ty-star{
-	height:1.75em;
-	width:1.75em;
-	font-size:1.25em;
 	background-color:#b2b2b2;
 	border-radius:100%;
 	color:#fff;
-	padding-top:0.35em;
+}
+
+.ty-write-review .ty-star{
+	height:1.5em;
+	width:1.5em;
+	font-size:1.25em;
+	padding-top:0.1em;
 }
 
 .ty-star-selected{
