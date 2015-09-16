@@ -255,6 +255,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		  var dateString;
 		  var icon;
 		  var tripClass;
+		  var conversationId;
+		  
 	      var parsed = JSON.parse(data);
 		  	for(var i = 0; i < parsed.length; i++)
 		  	{
@@ -302,7 +304,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 				 $scope.friends.push({
 					 id:friend.id,
 					 name:friend.name,
-					 picFull:friend.picFull 
+					 picFull:friend.picFull,
+					 conversation:friend.conversationId 
 				 });
 			 }
 			 
@@ -310,7 +313,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		  });
 	  }
 	  
-	  $scope.goToPlan = function(id, name, picture)
+	  $scope.goToPlan = function(id, name, picture, convo)
 	  {
 		  trips.style.display = "none";
 		  friends.style.display = "none";
@@ -320,6 +323,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		  $scope.picture = picture;
 		  
 		  friendID = id;
+		  conversationId = convo;
 	  }
 	  
 	  $scope.makeMeeting = function()
@@ -334,7 +338,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 			  date:date,
 			  time:time,
 			  place:place,
-			  userId:friendID
+			  userId:friendID,
+			  conversationId:conversationId
 		  }, function (data)
 		  {
 		  	if (data == "Success")
@@ -365,8 +370,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 				time:obj.time,
 				place:obj.place,
 				month:dateFields[0],
-				day:dateFields[1] 
+				day:dateFields[1],
+				conversationId:obj.conversationId
 			});
+			
+			alert(obj.conversationId);
 		}
 			 
 		$scope.$digest(); 
@@ -689,7 +697,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $.post("http://kawaiikrew.net/www/php/reject.php",
           {
               otherUser:matches[0].id,
-              trip:curTripId
+              trip:curTripId,
+              city:curCity,
+              country:curCountry
           }, function(data)
           {
               //alert(data);
