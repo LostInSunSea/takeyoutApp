@@ -374,7 +374,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 				conversationId:obj.conversationId
 			});
 			
-			alert(obj.conversationId);
 		}
 			 
 		$scope.$digest(); 
@@ -387,7 +386,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 			  userId:request.userId,
 			  date:request.fullDate,
 			  time:request.time,
-			  place:request.place
+			  place:request.place,
+			  conversationId:request.conversationId
 		  }, function(data){
 			  if (data == "Success")
 			  {
