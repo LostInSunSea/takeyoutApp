@@ -134,6 +134,100 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		  $state.go("tab.user_profile");
 	    })
     }
+	
+	// Delete trips
+	var deleteOn = false;
+	var deleteTripsId = [];
+	var numDelete = 0;
+	
+	$scope.deleteTrips = function() {
+		numDelete = 0;
+		deleteTripsId = [];
+		
+		if( !deleteOn ) {
+			$( ".ty-add-button" ).css( "display", "none" );
+			$( ".ty-delete-button" ).css( "display", "inline-block" );
+			$( ".ty-delete-button" ).text( "Delete 0 Trips" ); 
+			$( ".ty-trip-next" ).css( "display", "none" );
+			
+			deleteOn = true;
+		}
+		else {
+			$( ".ty-delete-overlay" ).css( "opacity", 0 );
+			$( ".ty-checkbox-placeholder" ).removeClass( "ty-vertical ty-delete-checkbox icon ion-checkmark-circled" );
+			$( ".ty-delete-button" ).css( "display", "none" );
+			$( ".ty-add-button" ).css( "display", "inline-block" );
+			$( ".ty-trip-next" ).css( "display", "inline-block" );
+			
+			deleteOn = false;
+		}
+	}
+	
+	$scope.hideTrip = function() {
+		if( numDelete > 0 ) {
+			for(var i = 0; i < deleteTripsId.length; i++) {
+				console.log("i");
+				for(var j = 0; j < $scope.trips.length; j++) {
+					console.log("i'm here");
+					if( $scope.trips[j].id === deleteTripsId[i] ) {
+						console.log("deleting " + $scope.trips[j].id);
+						$scope.trips.splice(j, 1);
+					}
+				}
+				
+				$timeout(function() {
+					$scope.$apply();
+				});
+				
+				$.post("http://kawaiikrew.net/www/php/delete_trip.php", 
+				{
+					tripId:deleteTripsId[i]
+				}, function(data){
+				})
+			}
+			
+			$( ".ty-delete-overlay" ).css( "opacity", 0 );
+			$( ".ty-checkbox-placeholder" ).removeClass( "ty-vertical ty-delete-checkbox icon ion-checkmark-circled" );
+			$( ".ty-delete-button" ).css( "display", "none" );
+			$( ".ty-add-button" ).css( "display", "inline-block" );
+			$( ".ty-trip-next" ).css( "display", "inline-block" );
+			
+			deleteTripsId = [];
+			deleteOn = false;
+		}
+	}
+	
+	$scope.updateTripsNum = function() {
+		if( numDelete == 1 ) { 
+			$( ".ty-delete-button" ).text( "Delete " + numDelete + " Trip" ); 
+		}
+		else { 
+			$( ".ty-delete-button" ).text( "Delete " + numDelete + " Trips" ); 
+		}
+	}
+	
+	$scope.deleteSelect = function(id){
+		if( !deleteOn ) { return; }
+		else {
+			var tripIndex = deleteTripsId.indexOf(id);
+			if( tripIndex != -1 ) {
+				numDelete--;
+				$( "#" + id + " .ty-delete-overlay" ).css( "opacity", 0 );
+				$( "#" + id + " .ty-checkbox-placeholder" ).removeClass( "ty-vertical ty-delete-checkbox icon ion-checkmark-circled" );
+				$scope.updateTripsNum();
+				deleteTripsId.splice(tripIndex, 1);
+			}
+			else {
+				deleteTripsId.push(id);
+				numDelete++;
+				$scope.updateTripsNum();
+				//console.log( id );
+				
+				$( "#" + id + " .ty-delete-overlay" ).css( "opacity", 0.25 );
+				$( "#" + id + " .ty-checkbox-placeholder" ).addClass( "ty-vertical ty-delete-checkbox icon ion-checkmark-circled" );
+			}
+		}
+	}
   })
 
   .controller('MessagesTabCtrl', function($scope, $state) {

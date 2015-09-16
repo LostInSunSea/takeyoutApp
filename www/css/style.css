@@ -83,6 +83,12 @@ a{
 	border:none;
 }
 
+.ty-header-icon{
+	font-size:2em;
+	margin-top:0.1em;
+	margin-right:0.1em;
+}
+
 .card{
 	margin:0;
 	margin-bottom:3vh;
@@ -203,6 +209,36 @@ a{
 	width:100vw;
 }
 
+.ty-delete{
+	/*z-index:9;
+	margin:0;
+	padding:0;*/
+	width:100vw;
+	height:18vh;
+	position:fixed;
+}
+
+.ty-delete-loc{
+	background-color:black;
+}
+
+.ty-delete-overlay{
+	z-index:10;
+	position:fixed;
+	height:18vh;
+	width:100vw;
+	background-color:red;
+	opacity:0;
+}
+
+.ty-delete-checkbox{
+	z-index:11;
+	margin-right:0.5em;
+	font-size:2em;
+	color:#fff;
+	float:right;
+}
+
 .ty-connect-location h2{
 	font-family:"Open Sans";
 	font-size:0.9em;
@@ -247,6 +283,18 @@ a{
 	right:2em;
 	bottom:12vh;
 	z-index:100;
+	
+	/* Shadow effect */
+	box-shadow: 0em 0.25em 0.25em 0em rgba(0, 0, 0, 0.25);
+}
+
+.ty-delete-button{
+	display:none;
+	position:fixed;
+	right:2em;
+	bottom:12vh;
+	z-index:100;
+	background-color:red;
 	
 	/* Shadow effect */
 	box-shadow: 0em 0.25em 0.25em 0em rgba(0, 0, 0, 0.25);
@@ -1401,7 +1449,10 @@ input[type="date"]:valid:before{
 }
 
 .ty-reviews{
-	margin-top:6em;
+	margin-top:2em;
+}
+
+.ty-all-reviews{
 	margin-bottom:3em;
 }
 
