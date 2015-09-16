@@ -689,7 +689,9 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $.post("http://kawaiikrew.net/www/php/reject.php",
           {
               otherUser:matches[0].id,
-              trip:curTripId
+              trip:curTripId,
+              city:curCity,
+              country:curCountry
           }, function(data)
           {
               //alert(data);
