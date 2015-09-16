@@ -142,11 +142,6 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
         $scope.trips = [];
         $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) {
             var parsed = JSON.parse(data);
-            if (parsed.length == 1)
-            {
-                var connectEmpty = document.getElementById("ty-connect-empty");
-                connectEmpty.style.visibility = "visible";
-            }
 
             for(var i = 0; i < parsed.length; i++)
             {
@@ -656,8 +651,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.modalPic = $scope.picFull;
 	      $scope.modalName = $scope.name;
 	      $scope.modalFirstName = $scope.firstName;
-		  $scope.openModal();
-		  /*$.get("http://kawaiikrew.net/www/php/accept.php", 
+		  //$scope.openModal();
+		  $.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
 			  otherUser:matches[0].id,
 			  trip:curTripId,
@@ -668,7 +663,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
               {
                   $scope.openModal();
               }
-		  });*/
+		  });
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
@@ -693,7 +688,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
       $scope.reject = function(){
 	      $.post("http://kawaiikrew.net/www/php/reject.php",
           {
-              otherUser:matches[0].id
+              otherUser:matches[0].id,
+              trip:curTripId
           }, function(data)
           {
               //alert(data);
@@ -874,11 +870,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
                 class: $scope.me.class
 			});
             console.log($scope.inputMessage);
-            $scope.inputMessage=" ";
-            console.log($scope.inputMessage);
 			$.post( "http://kawaiikrew.net/www/php/add_message.php", { text: $scope.inputMessage, to:$scope.other.id, convoID:convoID, time:"2015-08-26", id:convoID}, function(data, status){
 				lastMessageIndex = data;
 			});
+			$scope.inputMessage=" ";
+            console.log($scope.inputMessage);
 		}
 		//update messages------------------------------------------------
 		$interval(function(){
