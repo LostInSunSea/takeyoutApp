@@ -44,7 +44,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     }
   })
 
-  .controller('ConnectTabCtrl', function($scope, $state) {
+  .controller('ConnectTabCtrl', function($scope, $state, $timeout) {
     console.log('ConnectTabCtrl');  
 	$scope.trips = [];
 
@@ -105,6 +105,10 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
     });
     
     $scope.goToMatch = function(type, id, city, country) {
+		if( deleteOn ){
+			return;
+		}
+	
 	    if (!id)
 	    {
 		    id = 0;
