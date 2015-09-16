@@ -656,8 +656,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	      $scope.modalPic = $scope.picFull;
 	      $scope.modalName = $scope.name;
 	      $scope.modalFirstName = $scope.firstName;
-		  $scope.openModal();
-		  /*$.get("http://kawaiikrew.net/www/php/accept.php", 
+		  //$scope.openModal();
+		  $.get("http://kawaiikrew.net/www/php/accept.php", 
 		  {
 			  otherUser:matches[0].id,
 			  trip:curTripId,
@@ -668,7 +668,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
               {
                   $scope.openModal();
               }
-		  });*/
+		  });
 	      matches.shift();
 	      if (matches.length == 0)
 	      {
