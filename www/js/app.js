@@ -76,6 +76,15 @@ angular.module('starter', ['ionic','ngCordova' ,'ngCordovaOauth','starter.contro
         }
       }
     })
+	.state('tab.review', {
+      url: "/review",
+      views: {
+        'calendar-tab': {
+          templateUrl: "templates/review.html",
+          controller: "ReviewUserCtrl"
+        }
+      }
+    })
     .state('tab.messages', {
       url: "/messages",
       views: {
