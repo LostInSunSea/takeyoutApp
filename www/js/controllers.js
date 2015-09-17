@@ -1084,6 +1084,58 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 	  });
 	})
 	
+	.controller('ReviewUserCtrl', function($scope) {
+		console.log("ReviewUserCtrl");
+		
+		$scope.starOn = function(starNum) {
+			$( "#ty-star-" + starNum ).addClass( "ty-star-selected" );
+		}
+		
+		$scope.starOff = function(starNum) {
+			$( "#ty-star-" + starNum ).removeClass( "ty-star-selected" );
+		}
+		
+		$scope.star1 = function() {
+			$scope.starOn(1);
+			$scope.starOff(2);
+			$scope.starOff(3);
+			$scope.starOff(4);
+			$scope.starOff(5);
+		}
+		
+		$scope.star2 = function() {
+			$scope.starOn(1);
+			$scope.starOn(2);
+			$scope.starOff(3);
+			$scope.starOff(4);
+			$scope.starOff(5);
+		}
+		
+		$scope.star3 = function() {
+			$scope.starOn(1);
+			$scope.starOn(2);
+			$scope.starOn(3);
+			$scope.starOff(4);
+			$scope.starOff(5);
+		}
+		
+		$scope.star4 = function() {
+			$scope.starOn(1);
+			$scope.starOn(2);
+			$scope.starOn(3);
+			$scope.starOn(4);
+			$scope.starOff(5);
+		}
+		
+		$scope.star5 = function() {
+			$scope.starOn(1);
+			$scope.starOn(2);
+			$scope.starOn(3);
+			$scope.starOn(4);
+			$scope.starOn(5);
+		}
+	})
+	
 	.controller('TypeReviewsCtrl', function($scope, $ionicModal) {
 	  $ionicModal.fromTemplateUrl('type-review-modal.html', {
 		scope: $scope,

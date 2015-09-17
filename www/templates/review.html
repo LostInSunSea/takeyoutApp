@@ -1,0 +1,97 @@
+<ion-view cache-view="false" title="Review Sloth">
+    <ion-content class="ty-write-review">
+		<div class="ty-meeting ty-calendar">
+			<div class="row ty-meeting-top">
+				<!-- Profile -->
+				<div class="col col-25">
+					<div class="ty-prof-pic-list" style="background-image:url(img/me.jpg);background-size:cover;"></div>
+				</div>
+				
+				<!-- Name, date, & time -->
+				<div class="col col-50">
+					<div class="ty-meeting-info">
+						<h2 class="ty-caps">Sloth Person</h2>
+						<h6>Sep 06 at 5:00 PM</h6><br/>
+					</div>
+				</div>
+
+				<!-- Month & day -->
+				<div class="col">
+					<div class="ty-date">
+						<div class="ty-month"><h2 class="ty-caps">Sep</h2></div>
+						<div class="ty-day"><h2 class="ty-caps">06</h2></div>
+					</div>
+				</div>
+			</div>
+		
+			<!-- Location -->
+			<div class="ty-meeting-location">
+				<div class="row ty-divider">
+					<div class="col"></div>
+					<div class="col col-75">
+						<h6>Rainforest Cafe</h6>
+						<!--<p>The last tree on the left, after the river mouth, beyond the purple mushrooms</p>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="row">
+			<div class="col">
+				<h2>You met with <em>Sloth</em> on <em>Sep 02, 2015</em> at <em>Rain Forest Cafe</em></h2>
+			</div>
+		</div>-->
+		
+		<div class="ty-review-questions">
+			<div class="row">
+				<div class="col">
+					<h6>How would you rate your above experience with Sloth?</h6>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col col-25"></div>
+				<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-1" ng-click="star1()"></p></div>
+				<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-2" ng-click="star2()"></p></div>
+				<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-3" ng-click="star3()"></p></div>
+				<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-4" ng-click="star4()"></p></div>
+				<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-5" ng-click="star5()"></p></div>
+				<div class="col col-25"></div>
+				<!--<div class="col col-33">
+					<div id="ty-sad-face">
+						<img src="img/sad-unselected.svg" />
+						<h6>Negative</h6>
+					</div>
+				</div>
+				<div class="col col-33">
+					<div id="ty-neutral-face">
+						<img src="img/neutral-unselected.svg" />
+						<h6>Neutral</h6>
+					</div>
+				</div>
+				<div class="col col-33">
+					<div id="ty-happy-face">
+						<img id="ty-happy-face" src="img/happy-unselected.svg" />
+						<h6>Positive</h6>
+					</div>
+				</div>-->
+			</div>
+			
+			<div class="row">
+				<div class="col">
+					<h6>Describe your experience.</h6>
+				</div>
+			</div>
+			
+			<div class="row">		
+				<div class="col col-100">
+					<label class="item item-input item-stacked-label">
+						<!--<span class="ty-field-name ty-caps ty-input-label"></span>-->
+						<textarea rows="2" id="ty-about-input" placeholder="My experience was..." onkeyup="resizeTextArea('ty-about-input')"></textarea>
+					</label>
+				</div>
+			</div>
+		</div>
+		
+		<a class="ty-done-centered ty-rev-button ty-caps ty-button button button-small" href="#">Submit Review</a>
+	</ion-content>
+</ion-view>
