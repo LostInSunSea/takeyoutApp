@@ -822,6 +822,16 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
         var otherID=chatInfo.id;
 		$scope.inputMessage=" ";
 		var lastMessageIndex=0;
+		var today = new Date();
+		var dd = today.getDate();
+		if (dd < 10){
+			dd = '0' + dd;
+		}
+		var mm = today.getMonth();
+		if (mm < 10){
+			mm = '0' + mm;
+		}
+		var yyyy = today.getFullYear();
 
 		//me
 		$scope.me={
@@ -849,7 +859,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 					if(data[i].from==myID){
 						$scope.messages.push({
-							time:data[i].time,
+							time:convertDate(data[i].time),
 							message:data[i].message,
 							person:$scope.me.name,
 							pic:$scope.me.pic,
@@ -858,7 +868,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 					}
 					else{
 						$scope.messages.push({
-							time:data[i].time,
+							time:convertDate(data[i].time),
 							message:data[i].message,
 							person:$scope.other.name,
 							pic:$scope.other.pic,
@@ -873,14 +883,14 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		//send messages--------------------------------------------------
 		$scope.sendMessage=function(){
 			$scope.messages.push({
-				time:"2015-3-10",
+				time:convertDate(yyyy+"-"+mm+"-"+dd),
 				message:$scope.inputMessage,
 				person:$scope.me.name,
 				pic: $scope.me.pic,
                 class: $scope.me.class
 			});
             console.log($scope.inputMessage);
-			$.post( "http://kawaiikrew.net/www/php/add_message.php", { text: $scope.inputMessage, to:$scope.other.id, convoID:convoID, time:"2015-08-26", id:convoID}, function(data, status){
+			$.post( "http://kawaiikrew.net/www/php/add_message.php", { text: $scope.inputMessage, to:$scope.other.id, convoID:convoID, time:yyyy + "-" + mm + "-" + dd, id:convoID}, function(data, status){
 				lastMessageIndex = data;
 			});
 			$scope.inputMessage=" ";
@@ -899,7 +909,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 						{
 							$scope.messages.push({
 								message: obj.message,
-								time:obj.time,
+								time:convertDate(obj.time),
 								person:$scope.me.name,
 								pic:$scope.me.pic,
                                 class:$scope.me.class
@@ -909,7 +919,7 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 						{
 							$scope.messages.push({
 								message:obj.message,
-								time:obj.time,
+								time:convertDate(obj.time),
 								person:$scope.other.name,
 								pic:$scope.other.pic,
                                 class:$scope.other.class
