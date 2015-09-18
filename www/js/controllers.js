@@ -403,7 +403,8 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 					 id:friend.id,
 					 name:friend.name,
 					 picFull:friend.picFull,
-					 conversation:friend.conversationId 
+					 conversation:friend.conversationId,
+					 headline:friend.headline
 				 });
 			 }
 			 

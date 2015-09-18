@@ -1114,9 +1114,8 @@ input[type="date"]:valid:before{
 	margin-top:-1em;
 	font-size:0.9em;
 	letter-spacing:0.05em;
+	margin-bottom:1em;
 }
-
-.ty-conversations
 
 .ty-friend-section .ty-prof-pic-list{
 	margin-bottom:0.5em;
@@ -1655,8 +1654,8 @@ input[type="date"]:valid:before{
 }
 
 
-/* Trips on messages page */
-.ty-message-trips h2{
+/* Trips on messages & add meetings page */
+.ty-my-trips h2{
 	margin-top:-1em;
 	font-family:"Open Sans";
 	font-size:1em;
@@ -1666,7 +1665,7 @@ input[type="date"]:valid:before{
 	color:#626262;
 }
 
-.ty-message-trips h6{
+.ty-my-trips h6{
 	font-family:"Open Sans";
 	margin-left:1em;
 	margin-top:-0.5em;
@@ -1676,12 +1675,13 @@ input[type="date"]:valid:before{
 	color:#626262;
 }
 
-.ty-message-trips .ty-circle-container{
+
+.ty-my-trips .ty-circle-container{
 	margin-top:-0.75em;
 	box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0);
 }
 
-.ty-message-trips .ion-android-mail, .ty-message-trips .ion-android-drafts{
+.ty-my-trips .ion-android-mail, .ty-my-trips .ion-android-drafts{
 	float:left;
 	font-size:1.5em;
 	color:#626262;
@@ -1705,4 +1705,11 @@ input[type="date"]:valid:before{
 
 .ty-num-unread{
 	background-color:red;
+}
+
+.ty-my-trips .ion-chevron-right{
+	color:#626262;
+	float:right;
+	margin-right:0.5em;
+	font-size:1.25em;
 }
