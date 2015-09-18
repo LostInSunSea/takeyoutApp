@@ -595,17 +595,26 @@ a{
 	font-size:3em;
 	position:fixed;
 	bottom:10vh;
+	background-color:#fff;
 	box-shadow: 0em 0.1em 0.2em 0em rgba(0, 0, 0, 0.25);
 }
 
+.ty-choose-circle img{
+	text-align:center;
+	height:1em;
+	margin-top:0.15em;
+}
+
 .ty-accept-circle{
-	background-color:#9ada44;
+	/*background-color:#9ada44;*/
 	right:20vw;
+	border:0.075em solid #9ada44;
 }
 
 .ty-reject-circle{
-	background-color:#ed5033;
+	/*background-color:#ed5033;*/
 	left:20vw;
+	border:0.075em solid #ed5033;
 }
 
 /* About profile tagline */
