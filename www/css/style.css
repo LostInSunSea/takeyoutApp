@@ -1670,7 +1670,8 @@ input[type="date"]:valid:before{
 	font-family:"Open Sans";
 	margin-left:1em;
 	margin-top:-0.5em;
-	font-size:0.8em;
+	margin-bottom:0.9em;
+	font-size:0.9em;
 	letter-spacing:0.075em;
 	color:#626262;
 }
@@ -1680,7 +1681,7 @@ input[type="date"]:valid:before{
 	box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0);
 }
 
-.ty-message-trips .ion-android-mail{
+.ty-message-trips .ion-android-mail, .ty-message-trips .ion-android-drafts{
 	float:left;
 	font-size:1.5em;
 	color:#626262;
@@ -1688,17 +1689,20 @@ input[type="date"]:valid:before{
 	/*margin-top:-0.25em;*/
 }
 
-.ty-num-unread{
+.ty-num-msg{
 	font-size:0.75em;
 	font-family:"Open Sans";
 	font-weight:800;
 	text-align:center;
 	float:left;
 	height:1.5em;
+	background-color:#c2c2c2;
 	width:1.5em;
-	background-color:red;
 	border-radius:100%;
 	color:#fff;
 	margin-left:0.5em;
-	padding-top:-0.5em;
+}
+
+.ty-num-unread{
+	background-color:red;
 }
