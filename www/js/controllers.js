@@ -240,7 +240,13 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
         $scope.trips = [];
         $.get("http://kawaiikrew.net/www/php/get_trips.php", {}, function(data) {
             var parsed = JSON.parse(data);
-
+			console.log("MessagesTabCtrlInfo:"+parsed);
+			console.log(parsed);
+			if(parsed.length===0){
+				var friendEmpty = document.getElementById("ty-friend-empty");
+				friendEmpty.style.visibility = "visible";
+			}
+			
             for(var i = 0; i < parsed.length; i++)
             {
                 var obj = parsed[i];
@@ -951,9 +957,11 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 		$.get( "http://kawaiikrew.net/www/php/retrieve_message.php", { conversationID: convoID, limit: 30 } )
 			.done(function( data ) {
 				data=JSON.parse(data);
-                console.log("------------------")
+                console.log("------------------");
                 console.log("all messages");
                 console.log(data);
+				console.log("type"+Array.isArray(data));
+				console.log("-------------------");
 				for(var i =0; i<data.length;i++){
 
 					if(data[i].from==myID){
@@ -1033,12 +1041,12 @@ angular.module('starter.controllers', ['ngCordova' ,'ngCordovaOauth'])
 
 
 	.controller('ConversationsCtrl',function($scope,$state){
-		//console.log("ConversationsCtrl");
+		console.log("ConversationsCtrl");
         $scope.friends=currFriends;
-        console.log("currFriends");
-        console.log(currFriends);
+        //console.log("currFriends");
+        //console.log(currFriends);
         $scope.goToChat=function(tripId,id,pic,name){
-            console.log("id for go to chat is"+id);
+            //console.log("id for go to chat is"+id);
             chatInfo={};
             chatInfo["tripId"]=tripId;
             chatInfo["id"]=id;
