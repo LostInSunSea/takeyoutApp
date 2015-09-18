@@ -1,7 +1,8 @@
 <ion-view title="Edit Profile">
-	<!-- Meeting form -->
+	<!--------------- EDIT PROFILE FORM ---------------->
 	<ion-content class="ty-edit-profile">
 		<div class="ty-add-form">
+			<!-- Edit profile picture -->
 			<a href="#"><div class="row ty-divider">
 				<div class="col">
 					<div class="ty-prof-pic-list ty-prof-pic" style="background-image:url('https://www.dropbox.com/s/rpz7pg7wmbte16k/me.jpg?raw=1');background-size:cover;"></div>
@@ -12,6 +13,8 @@
 			</div></a>
 			
 			<div class="ty-meeting-form">
+				
+				<!-- Hometown -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -29,6 +32,7 @@
 					</div>
 				</div>
 				
+				<!-- Languages -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -43,6 +47,7 @@
 					</div>
 				</div>
 				
+				<!-- Preferences/people you want to meet -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -50,13 +55,14 @@
 								<div class="ty-prof-icon">
 									<p class="ty-vertical ion-person-stalker"></p>
 								</div>
-							People I Want To Meet
+								People I Want To Meet
 							</span>
 							<textarea rows="2" id="ty-about-input" placeholder="Frands" onkeyup="resizeTextArea('ty-about-input')"></textarea>
 						</label>
 					</div>
 				</div>
 				
+				<!-- Interests -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -71,6 +77,7 @@
 					</div>
 				</div>
 				
+				<!-- About -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -78,15 +85,16 @@
 								<div class="ty-prof-icon">
 									<p class="ty-vertical ion-person"></p>
 								</div>
-							About
+								About
 							</span>
 							<textarea rows="2" id="ty-about-input" placeholder="O hai der" onkeyup="resizeTextArea('ty-about-input')"></textarea>
 						</label>
 					</div>
 				</div>
 			</div>
+			
+			<!-- SAVE CHANGES BUTTON -->
 			<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="update()" href="#">Save</a>
 		</div>
-		
 	</ion-content>
 </ion-view>

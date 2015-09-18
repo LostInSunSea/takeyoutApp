@@ -1,8 +1,9 @@
 <ion-view title="Add Meeting">
-	<!-- Trip list -->
+	<!--------------- TRIPS LIST ---------------->
 	<ion-content class="ty-trips-list" padding="false" id="trips-list">
 		<div class="ty-my-trips" ng-repeat="trip in trips" ng-click="goToFriends({{trip.id}})">
 			<div class="row ty-divider">
+				<!-- Trip/hometown icon -->
 				<div class="col col-10">
 					<div class="ty-circle-container ty-trip-icon-container">
 						<div class={{trip.tripClass}}>
@@ -10,32 +11,21 @@
 						</div>
 					</div>
 				</div>
+				
+				<!-- Location and date -->
 				<div class="col col-80">
 					<h2 class="ty-caps">{{trip.displayString}}</h2>
 					<h6>{{trip.dateString}}</h6>
 				</div>
+				
+				<!-- Right arrow icon -->
 				<div class="col">
 					<p class="icon icon-right ion-chevron-right ty-vertical">
 				</div>
 			</div>
 		</div>
-        <!--<div class="card" ng-repeat="trip in trips">
-            <div class="item item-text-wrap" ng-click="goToFriends({{trip.id}})" style="background-image:url({{trip.backgroundImage}});background-size:auto 100%;">
-				<div class="ty-circle-container ty-trip-icon-container">
-					<div class={{trip.tripClass}}>
-						<p class={{trip.icon}}></p>
-					</div>
-				</div>
-				<div class="ty-connect-location">
-					<h2 class="ty-caps">{{trip.displayString}}</h2>
-					<H6>{{trip.dateString}}</H6>
-					<div class="ty-vertical ty-trip-next icon ion-chevron-right"></div>
-				</div>
-            </div>
-        </div>-->
-	</ion-content>
-  
-	
+		
+		<!--------------- EMPTY TRIPS ---------------->
 		<div id="ty-connect-empty" style="visibility: hidden">
 			<div class="ty-transparent">
 				<div id="ty-empty-text" class="ty-caps">
@@ -48,7 +38,7 @@
 		</div>
 	</ion-content>
 
-	<!-- Friend list -->
+	<!--------------- FRIEND LIST ---------------->
 	<ion-content padding="false" class="ty-friendlist ty-conversations" id="friendlist">
 		<div class="ty-friend-section" ng-repeat="friend in friends" ng-click="goToPlan('{{friend.id}}','{{friend.name}}','{{friend.picFull}}', {{friend.conversation}})">
 			<div class="row ty-divider">
@@ -57,7 +47,7 @@
 					<div class="ty-prof-pic-list ty-prof-pic" style="background-image:url({{friend.picFull}} );background-size:cover;"></div>
 				</div>
 				
-				<!-- Name -->
+				<!-- Name and headline -->
 				<div class="col col-75">
 					<div class="ty-friend-info">
 						<h2 class="ty-caps">{{friend.name}}</h2>
@@ -66,30 +56,18 @@
 				</div>
 			</div>
 		</div>
-			<!--<div class="ty-friend-section" ng-repeat="friend in friends" ng-click="goToPlan('{{friend.id}}','{{friend.name}}','{{friend.picFull}}', {{friend.conversation}})">
-				<div class="row ty-divider">
-					<!-- Profile picture -->
-					<!--<div class="col col-25">
-						<div class="ty-prof-pic-list ty-prof-pic " style="background-image:url({{friend.picFull}} );background-size:cover;"></div>
-					</div>
-					
-					<!-- Name -->
-					<!--<div class="col col-75">
-						<div class="ty-friend-info">
-							<h2 class="ty-caps">{{friend.name}}</h2>
-						</div>
-					</div>
-				</div>
-			</div>-->
 	</ion-content>
 
-	<!-- Meeting form -->
+	<!--------------- MEETING FORM ---------------->
 	<ion-content class="ty-add-meeting" id="add-meeting">
 		<div class="ty-add-form">
 			<a href="#/tab/friend_list"><div class="row ty-divider">
+				<!-- Profile picture -->
 				<div class="col">
 					<div class="ty-prof-pic-list ty-prof-pic" style="background-image:url({{picture}});background-size:cover;"></div>
 				</div>
+				
+				<!-- Name and hometown -->
 				<div class="col col-75 ty-friend">
 					<h2 class="ty-caps"><em>{{name}}</em></h2>
 					<p>New York, US</p>
@@ -97,7 +75,9 @@
 			</div></a>
 			
 			<div class="ty-meeting-form">
+				<!-- Meeting date -->
 				<div class="row">
+					<!-- Date -->
 					<div class="col col-50 ty-start-date">
 						<label class="item item-input item-stacked-label">
 							<span class="ty-field-name ty-caps ty-input-label" id="ty-date-input">
@@ -110,6 +90,8 @@
 							<input class="ty-input-label" type="date" placeholder="Start date" id="date">
 						</label>
 					</div>
+					
+					<!-- Time -->
 					<div class="col col-50 ty-end-date">
 						<label class="item item-input item-stacked-label">
 							<span class="ty-field-name ty-caps ty-input-label" style="color:#fff;">
@@ -121,6 +103,7 @@
 					</div>
 				</div>
 				
+				<!-- Meeting location -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -135,9 +118,9 @@
 					</div>
 				</div>
 			</div>			
-				
+			
+			<!-- DONE BUTTON -->
 			<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="makeMeeting()" href="#">Done</a>
 		</div>
-		
 	</ion-content>
 </ion-view>

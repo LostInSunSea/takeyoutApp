@@ -1,19 +1,25 @@
-<ion-view title="Profile">	
-	<!-- Profile page -->
+<ion-view title="Profile">
+	<!--------------- OTHER USER PROFILE PAGE ---------------->
     <ion-content class="ty-profile" id="user-profile">
+		<!-- Header -->
 		<div class="ty-prof-header ty-other-prof ty-divider">
+			<!-- Background image -->
 			<div class="ty-prof-bg ty-other-prof" style="background-image:url('img/city.jpg');background-size:cover;-webkit-filter: blur(5px);filter:blur(5px);"></div>
+			
+			<!-- Transparent overlay -->
 			<div class="ty-prof-header-overlay ty-other-prof"></div>
 
+			<!-- Header info -->
 			<div class="ty-prof-header-info ty-other-prof-header">
 				<div class="ty-circle-container ty-prof-pic-container">
 					<div class="ty-prof-pic ty-vertical" style="background-image:url({{picFull}});background-size:cover;"></div>
 				</div>
 			
-			
+				<!-- Name and headline -->
 				<h2 class="ty-caps">{{name}}</h2>
 				<h6>{{headline}}</h6>
 				
+				<!-- User page average star rating -->
 				<div class="ty-user-stars" ng-controller="ShowReviewsCtrl" ng-click="openReviewModal()">
 					<!-- User page stars
 					<!-- Add class "ty-star-selected" to fill in star
@@ -29,6 +35,8 @@
 						</div>
 						<div class="col col-25"></div>
 					</div>
+					
+					<!-- Num ratings -->
 					<div class="ty-num-ratings row">
 						<div class="col col-25"></div>
 						<div class="col"><h2>8 User Ratings</h2></div>
@@ -36,6 +44,7 @@
 					</div>
 				</div>
 				
+				<!-- Likes/Meetups (not in use) -->
 				<!--<div class="ty-likes-meetups" ng-controller="ShowReviewsCtrl" ng-click="openReviewModal()">
 					<div class="ty-likes">
 						<h1>3</h1>
@@ -50,25 +59,36 @@
 			
 		</div>
 		
+		<!--------------- PROFILE INFO (QUICK FACTS) ---------------->
+		<!-- Appears below header -->
+		
 		<ul class="ty-prof-content ty-divider">
+			
+			<!-- Hometown -->
 			<li>
 				<div class="ty-prof-icon">
 					<p class="ty-vertical icon ion-home"></p>
 				</div>
 				<p class="ty-prof-facts"><em class="ty-caps"> Hometown:</em> {{hometown}}</p>
 			</li>
+			
+			<!-- Languages -->
 			<li>
 				<div class="ty-prof-icon">
 					<p class="ty-vertical icon ion-chatbubbles"></p>
 				</div>
 				<p class="ty-prof-facts"><em class="ty-caps"> Speaks:</em> {{languages}}</p>
 			</li>
+			
+			<!-- Preferences -->
 			<li>
 				<div class="ty-prof-icon">
 					<p class="ty-vertical icon icon-left ion-person-stalker"></p>
 				</div>
 				<p class="ty-prof-facts"><em class="ty-caps"> People I Want To Meet:</em> {{favoriteFoods}}</p>
 			</li>
+			
+			<!-- Interests -->
 			<li>
 				<div class="ty-prof-icon">
 					<p class="ty-vertical icon icon-left ion-happy"></p>
@@ -77,62 +97,81 @@
 			</li>
 		</ul>
 		
-
+		<!-- About -->
 		<div class="ty-prof-content ty-prof-content-margin">
 			<em class="ty-caps">About {{firstName}}</em>
 			<p class="ty-prof-about">{{bio}}</p>
 		</div>
     </ion-content>
 	
+	<!--------------- ACCEPT/REJECT BUTTONS ---------------->
 	<div class="ty-accept-reject" id="acceptreject">
+	
+		<!-- ACCEPT button -->
 		<div class="ty-choose-circle ty-accept-circle" ng-click="accept()">
 			<img src="img/thumbsup.svg" />
-			<!--<p class="ty-vertical icon ion-thumbsup"></p>-->
 		</div>
+		
+		<!-- REJECT button -->
 		<div class="ty-choose-circle ty-reject-circle" ng-click="reject()">
 			<img src="img/thumbsdown.svg" />
-			<!--<p class="ty-vertical icon ion-thumbsdown"></p>-->
 		</div>
 	</div>
 	
+	<!--------------- NO MATCHES PAGE ---------------->
 	<ion-content class="ty-connect-empty" id="empty">
+		<!-- Sad face image -->
 		<div class="ty-connect-empty-img">
 			<img src="img/sadface.svg" />
 		</div>
+		
+		<!-- Text -->
 		<div class="ty-connect-empty-text">
 			<h2 class="ty-caps">We can't find you any matches</h2>
 			<div class="ty-subtitle"><h2>It seems there are no more available matches. Try again later!<!--<br /><br />Or, better yet, you can invite your friends to Takeyout!</h2></div>-->
 		</div>
 	</ion-content>
 	
-	<!-- Match overlay -->
+	<!--------------- MATCH OVERLAY ---------------->
 	<script id="match-modal.html" type="text/ng-template">
 		<div class="ty-match-modal">
 			<div class="modal transparent ty-match" ng-click="closeModal()">
+				
+				<!-- Transparent background -->
 				<div class="ty-match-overlay"></div>
+				
+				<!-- Text -->
 				<h1>You've been connected</h1>
 				<p>You and {{modalFirstName}} can now network with one another!</p>
+				
+				<!-- Profile pictures (self and other user's) -->
 				<div class="ty-match-pics">
+					<!-- Self -->
 					<div class="ty-match-pic-container ty-match-left ty-circle-container ty-prof-pic-container">
 						<div class="ty-prof-pic ty-vertical" style="background-image:url({{selfPic}});background-size:cover;"></div>
 					</div>
 					
+					<!-- Other user -->
 					<div class="ty-match-pic-container ty-match-right ty-circle-container ty-prof-pic-container">
 						<div class="ty-prof-pic ty-vertical" style="background-image:url({{modalPic}});background-size:cover;"></div>
 					</div>
 				</div>
 				
+				<!-- MESSAGE button -->
 				<button class="ty-button ty-caps ty-match-button ty-match-message button icon icon-left ion-paper-airplane" ng-click="message()">Message {{modalName}}</button>
 				
+				<!-- CONTINUE BROWSING button -->
 				<button class="ty-button ty-caps ty-match-button button">Continue Browsing</button>
 			</div>
 		</div>
 	</script>
 	
-	<!-- Review overlay -->
+	<!--------------- REVIEW MODAL ---------------->
 	<script id="review-modal.html" type="text/ng-template">
 		<div class="ty-reviews-modal">
 			<div class="modal">
+			
+				<!-- Reviews page header -->
 				<div class="bar bar-header ty-caps ty-nav-bar">
 					<div class="row">
 						<div class="col col-10 ty-vertical">
@@ -148,14 +187,19 @@
 						</div>
 					</div>
 				</div>
+				
+				<!-- Positive/negative/neutral ratings tabs (not in use) -->
 				<!--<div class="row ty-top-tabs bar bar-subheader">
 					<div class="col ty-tab-selected"><h2 class="ty-vertical ty-caps">Positive (3)</h2></div>
 					<div class="col ty-tab"><h2 class="ty-vertical ty-caps">Neutral (0)</h2></div>
 					<div class="col ty-tab"><h2 class="ty-vertical ty-caps">Negative (0)</h2></div>
 				</div>-->
+				
+				<!--------------- REVIEW LIST ---------------->
 				<ion-content class="ty-reviews">					
 					<div class="ty-user-review">
 						<div class="row">
+						
 							<!-- Profile -->
 							<div class="col col-20">
 								<div class="ty-prof-pic-list" style="background-image:url('img/me.jpg');background-size:cover;"></div>
@@ -189,6 +233,7 @@
 					
 					<div class="ty-user-review">
 						<div class="row">
+						
 							<!-- Profile -->
 							<div class="col col-20">
 								<div class="ty-prof-pic-list" style="background-image:url('img/me.jpg');background-size:cover;"></div>
@@ -254,16 +299,20 @@
 					</div>
 				</ion-content>
 				
-				<!--<div class="bar bar-footer"><button class="ty-review-button ty-button ty-caps button" ng-controller="TypeReviewsCtrl" ng-click="openTypeReviewModal()">Add Review</button></div>-->
+				<!-- ADD REVIEW button -->
 				<a href="#/tab/review"><div class="bar bar-footer"><button class="ty-review-button ty-button ty-caps button" ng-click="closeReviewModal()">Add Review</button></div></a>
 			</div>
 		</div>
 	</script>
 	
-	<!-- Write a review -->
+	<!--------------- WRITE A REVIEW ---------------->
+	<!-- Not currently in use -->
+	<!-- Moved to another page -->
 	<script id="type-review-modal.html" type="text/ng-template">
 		<div class="ty-reviews-modal">
 			<div class="modal">
+			
+				<!-- Header -->
 				<div class="bar bar-header ty-caps ty-nav-bar">
 					<div class="row">
 						<div class="col col-10 ty-vertical">
@@ -281,12 +330,15 @@
 				</div>
 				
 				<ion-content class="ty-write-review">
+					
+					<!-- Star rating -->
 					<div class="row">
 						<div class="col">
 							<h2>How would you rate your experience with Sloth?</h2>
 						</div>
 					</div>
 					
+					<!-- Stars -->
 					<div class="row">
 						<div class="col col-25"></div>
 						<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-1"></p></div>
@@ -295,6 +347,8 @@
 						<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-4"></p></div>
 						<div class="col col-10"><p class="ty-vertical ty-star icon ion-star" id="ty-star-5"></p></div>
 						<div class="col col-25"></div>
+						
+						<!-- POSITIVE/NEUTRAL/NEGATIVE rating (not in use) -->
 						<!--<div class="col col-33">
 							<div id="ty-sad-face">
 								<img src="img/sad-unselected.svg" />
@@ -315,6 +369,7 @@
 						</div>-->
 					</div>
 					
+					<!-- Type review -->
 					<div class="row">
 						<div class="col">
 							<h2>Describe your experience.</h2>
@@ -331,6 +386,7 @@
 					</div>
 				</ion-content>
 				
+				<!-- SUBMIT REVIEW button -->
 				<div class="bar bar-footer"><button class="ty-review-button ty-button ty-caps button">Submit Review</button></div>
 			</div>
 		</div>
