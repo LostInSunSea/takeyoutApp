@@ -1,94 +1,52 @@
 <ion-view cache-view="false" title="Connect">
+	<!--------------- DELETE BUTTON ---------------->
+	<!-- Trash can icon in top right corner -->
 	<ion-nav-buttons side="right">
 		<p class="ty-header-icon icon icon-right ion-trash-b" id="ty-delete-trip" ng-click="deleteTrips()"></p>
     </ion-nav-buttons>
+	
+	<!--------------- TRIPS LIST ---------------->
     <ion-content padding="false">
         <div class="card" ng-repeat="trip in trips">
+			<!-- Background image of city -->
             <div class="item item-text-wrap" id={{trip.id}} ng-click="goToMatch('{{trip.dateString}}',{{trip.id}}, '{{trip.city}}','{{trip.country}}')" style="background-image:url({{trip.backgroundImage}});background-size:auto 100%;">
-				<!-- Trip Icon -->
+				<!-- Trip/Hometown icon -->
 				<div class="ty-circle-container ty-trip-icon-container">
 					<div class={{trip.tripClass}}>
 						<p class={{trip.icon}}></p>
 					</div>
 				</div>
+				
+				<!-- Overlay for deleting trips -->
 				<div class="ty-checkbox-placeholder"></div>
 				<div class="ty-delete-overlay" ng-click="deleteSelect(trip.id)"></div>
+				
+				<!-- Location and date -->
 				<div class="ty-connect-location">
 					<h2 class="ty-caps">{{trip.displayString}}</h2>
-					<H6>{{trip.dateString}}</H6>
+					<h6>{{trip.dateString}}</h6>
 					<div class="ty-vertical ty-trip-next icon ion-chevron-right"></div>
 				</div>
             </div>
         </div>
 	</ion-content>
-        <!--<div class="card">
-            <div class="item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Amsterdam.png'); background-size:auto 100%;">
-				<div class="ty-circle-container ty-trip-icon-container" id="ty-delete-trip"> 
-					<div class="ty-trip-icon ty-trip ty-vertical">
-						<p class="ty-vertical icon ion-plane"></p>
-					</div>
-				</div>	
-				<div class="ty-checkbox-placeholder"></div>
-				<div class="ty-placeholder"></div>
-				<div class="ty-connect-location">
-					<h2 class="ty-caps">New York, US</h2>
-					<h6>Nov 01 - Nov 07</h6>
-					<div class="ty-vertical ty-trip-next icon ion-chevron-right"></div>
-				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
-            </div>
-		</div>
-		
-        <div class="card">
-            <div class="ty-img-overlay item item-text-wrap" style="background-image:url('http://kawaiikrew.net/www/img/Hong%20Kong.png'); background-size:auto 100%;">
-				<div class="ty-circle-container ty-trip-icon-container">
-					<div class="ty-trip-icon ty-trip ty-vertical">
-						<p class="ty-vertical icon ion-plane"></p>
-					</div>
-				</div>
-				<div class="ty-connect-location">
-					<h2 class="ty-caps">Beijing, China</h2>
-					<H6>Dec 10 - Jan 02</H6>
-					<div class="ty-vertical ty-trip-next icon ion-chevron-right"></div>
-				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
-            </div>
-        </div>
-		
-		<div class="card">
-            <div class="ty-img-overlay item item-text-wrap" style="background-color:#000;">
-				<div class="ty-circle-container ty-trip-icon-container">
-					<div class="ty-trip-icon ty-trip ty-vertical">
-						<p class="ty-vertical icon ion-plane"></p>
-					</div>
-				</div>
-				<div class="ty-connect-location">
-					<h2 class="ty-caps">Black Background</h2>
-					<H6>I'm here to test legibility on a dark BG</H6>
-					<div class="ty-vertical ty-trip-next icon ion-chevron-right"></div>
-				</div>
-                <div style="visibility: hidden">Hello</div>
-                <div style="visibility: hidden">World</div>
-            </div>
-            </div>
-        </div> 
-    </ion-content>-->
 	
+	<!--------------- EMPTY TRIPS ---------------->
 	<div id="ty-connect-empty" style="visibility: hidden">
 		<div class="ty-transparent">
 			<div id="ty-empty-text" class="ty-caps">
 				<h2>You haven't added any trips yet.</h2>
 				<p>Pack your bags and add one now.</p>
 			</div>
+			<!-- Arrow pointing to ADD TRIPS button -->
 			<img id="ty-trip-arrow" src="img/arrow.svg" />
-			<img id="ty-luggage" src="https://www.dropbox.com/s/13r971gzukk9cal/luggage.png?raw=1" />
 		</div>
 	</div>
-		
+	
+	<!-- ADD TRIP button -->
 	<a class="ty-caps ty-button ty-add-button button icon icon-left ion-plus-circled" menu-close href="#/tab/connect2">Add Trip</a>
 	
+	<!-- DELETE TRIP button -->
 	<a class="ty-caps ty-button ty-delete-button button icon icon-left ion-close-circled" menu-close ng-click="hideTrip()">Delete 0 Trips</a>
 	<!--</div>-->
 </ion-view>

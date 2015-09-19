@@ -1,10 +1,6 @@
 <ion-view cache-view="false" title="Calendar">
-	<!--<div class="row ty-tabs bar bar-subheader">
-		<div class="col ty-tab-selected"><h2 class="ty-vertical ty-caps">Scheduled</h2></div>
-		<div class="col ty-tab"><h2 class="ty-vertical ty-caps">Requests</h2></div>
-		<div class="col ty-tab"><h2 class="ty-vertical ty-caps">Past</h2></div>
-	</div>-->
     <ion-content class="ty-calendar">
+		<!--------------- MEETING REQUESTS ---------------->
 		<div class="row ty-meeting-requests ty-divider">
 			<div class="col col-75">
 				<h2>You have <em>{{requestNum}}</em> {{requestText}}</h2>
@@ -13,6 +9,8 @@
 				<a class="ty-view-button ty-done-centered ty-caps ty-button button button-small" href="#/tab/requests">View</a>
 			</div>
 		</div>
+		
+		<!--------------- MEETINGS LIST ---------------->
 		<div class="ty-meeting" ng-repeat="meeting in meetings">
 			<div class="row ty-meeting-top">
 				<!-- Profile -->
@@ -28,7 +26,7 @@
 					</div>
 				</div>
 
-				<!-- Month & day -->
+				<!-- Month and day -->
 				<div class="col">
 					<div class="ty-date">
 						<div class="ty-month"><h2 class="ty-caps">{{meeting.month}}</h2></div>
@@ -50,6 +48,7 @@
 		</div>
 	</ion-content>
 	
+	<!--------------- EMPTY MEETINGS ---------------->
 	<div id="ty-meeting-empty" style="visibility: hidden">
 		<div class="ty-transparent">
 			<div id="ty-empty-text" class="ty-caps">
@@ -60,7 +59,8 @@
 			<img id="ty-luggage" src="https://www.dropbox.com/s/13r971gzukk9cal/luggage.png?raw=1" />
 		</div>
 	</div>
-
+	
+	<!--------------- ADD MEETINGS BUTTON ---------------->
 	<a class="ty-add-meeting-button ty-caps ty-button ty-add-button button icon icon-left ion-plus-circled" menu-close href="#/tab/add_meeting">Add Meeting</a>
 	
 	<!-- Empty friend list -->

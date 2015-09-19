@@ -1,7 +1,9 @@
 <ion-view title="Requests">
+	<!--------------- MEETING REUQESTS LIST ---------------->
 	<ion-content class="ty-calendar">
 		<div class="ty-meeting" ng-repeat="request in requests">
 			<div class="row ty-meeting-top">
+			
 				<!-- Profile -->
 				<div class="col col-25">
 					<div class="ty-prof-pic-list ty-prof-pic " style="background-image:url({{request.picFull}});background-size:cover;"></div>
@@ -35,11 +37,15 @@
 				</div>
 			</div>
 			
-			<!-- Decision buttons -->
+			<!-- DECISION buttons -->
 			<div class="row ty-meeting-decision ty-divider">
+			
+				<!-- ACCEPT button -->
 				<div class="col">
 					<a class="ty-done-centered ty-accept-meeting ty-caps ty-button button button-small icon icon-left ion-checkmark-circled" ng-click="accept({{request}})" href="#">Accept</a>
 				</div>
+				
+				<!-- DECLINE button -->
 				<div class="col">
 					<a class="ty-done-centered ty-decline-meeting ty-caps ty-button button button-small icon icon-left ion-close-circled" ng-click="reject({{request}})" href="#">Decline</a>
 				</div>

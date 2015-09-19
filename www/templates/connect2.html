@@ -1,8 +1,12 @@
 <ion-view title="Add Trip">
 	<ion-content id="ty-add-trip">
+		<!--------------- ADD TRIP FORM ---------------->
 		<div class="ty-add-form">
 			<div class="ty-trip-form">
+			
+				<!-- Trip dates -->
 				<div class="row">
+					<!-- Start date-->
 					<div class="col col-50 ty-start-date">
 						<label class="item item-input item-stacked-label">
 							<span class="ty-field-name ty-caps ty-input-label" id="ty-date-input">
@@ -15,6 +19,7 @@
 							<input class="ty-input-label" type="date" placeholder="Start date" id="start-date">
 						</label>
 					</div>
+					<!-- End date -->
 					<div class="col col-50 ty-end-date">
 						<label class="item item-input item-stacked-label">
 							<span class="ty-field-name ty-caps ty-input-label" style="color:#fff;">
@@ -26,6 +31,7 @@
 					</div>
 				</div>
 				
+				<!-- Trip location -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -40,6 +46,7 @@
 					</div>
 				</div>
 				
+				<!-- Trip preferences -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -56,6 +63,7 @@
 			</div>
 		</div>
 		
+		<!-- DONE BUTTON -->
 		<a class="ty-done-centered ty-caps ty-button button button-small" ng-click="makeTrip()" href="#">Done</a>
 	</ion-content>
 </ion-view>

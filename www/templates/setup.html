@@ -1,39 +1,11 @@
 <ion-view title="Profile Setup">
-	<!-- Profile setup page -->
+	<!--------------- PROFILE SETUP PAGE ---------------->
 	<ion-content class="ty-setup">
-		<!--<div class="ty-setup-prog row">
-			<div class="col col-10"></div>
-			<div class="col col-10">
-				<div class="ty-circle-container ty-setup-icon-container">
-					<div class="ty-setup-current ty-setup-icon">
-						<p class="ty-vertical">1</p>
-					</div>
-				</div>
-			</div>
-			<div class="col col-25">
-				<div class="ty-prog-bar"></div>
-			</div>
-			<div class="col col-10">
-				<div class="ty-circle-container ty-setup-icon-container">
-					<div class="ty-setup-icon">
-						<p class="ty-vertical">2</p>
-					</div>
-				</div>
-			</div>
-			<div class="col col-25">
-				<div class="ty-prog-bar"></div>
-			</div>
-			<div class="col col-10">
-				<div class="ty-circle-container ty-setup-icon-container">
-					<div class="ty-setup-icon">
-						<p class="ty-vertical">3</p>
-					</div>
-				</div>
-			</div>
-			<div class="col col-10"></div>
-		</div>-->
+	
+		<!-- Progress bar -->
 		<table class="ty-setup-prog">
 			<tr>
+				<!-- Step 1 circle -->
 				<td class="ty-setup-prog-item">
 					<div class="ty-circle-container ty-setup-icon-container">
 						<div class="ty-setup-current ty-setup-icon" id="ty-setup-icon-1">
@@ -41,9 +13,13 @@
 						</div>
 					</div>
 				</td>
+				
+				<!-- Bar in between 1 & 2 -->
 				<td class="ty-setup-prog-item">
 					<div class="ty-prog-bar" id="ty-bar-1"></div>
 				</td>
+				
+				<!-- Step 2 circle -->
 				<td class="ty-setup-prog-item">
 					<div class="ty-circle-container ty-setup-icon-container">
 						<div class="ty-setup-icon" id="ty-setup-icon-2">
@@ -51,9 +27,13 @@
 						</div>
 					</div>
 				</td>
+				
+				<!-- Bar in between 2 & 3 -->
 				<td class="ty-setup-prog-item">
 					<div class="ty-prog-bar" id="ty-bar-2"></div>
 				</td>
+				
+				<!-- Step 3 circle -->
 				<td class="ty-setup-prog-item">
 					<div class="ty-circle-container ty-setup-icon-container">
 						<div class="ty-setup-icon" id="ty-setup-icon-3">
@@ -64,18 +44,21 @@
 			</tr>
 		</table>	
 		
-		<!-- Step 1 -->
+		<!--------------- STEP 1 ---------------->
 		<div class="ty-setup-content" id="ty-setup-step-1">
+		
+			<!-- Title -->
 			<div class="ty-setup-header">
 				<h2 class="ty-caps">Step 1</h2>
 				<h6 class="ty-caps">Your Hometown</h6>
 			</div>
 			
+			<!-- Description -->
 			<div class="ty-setup-description">
 				<p>Your <em>hometown</em> will be used so that you can always connect with others in your most frequented area.</p>
 			</div>
 		
-		
+			<!-- Hometown -->
 			<div class="ty-setup-form">
 				<label class="item item-input item-stacked-label">
 					<span class="ty-field-name ty-caps ty-input-label">
@@ -88,22 +71,26 @@
 				</label>
 			</div>
 			
-			<!--<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" href="#">Back</a>-->
-			
+			<!-- NEXT button -->
 			<a class="ty-caps ty-button ty-setup-button ty-setup-next-button button button-small icon icon-right ion-chevron-right" ng-click="firstToSecondPage()" href="#">Next</a>
 		</div>
 		
-		<!-- Step 2 -->
+		
+		<!--------------- STEP 2 ---------------->
 		<div class="ty-setup-content" id="ty-setup-step-2">
+		
+			<!-- Title- -->
 			<div class="ty-setup-header">
 				<h2 class="ty-caps">Step 2</h2>
 				<h6 class="ty-caps">People You Want To Meet</h6>
 			</div>
 			
+			<!-- Description -->
 			<div class="ty-setup-description">
 				<p>What kinds of people do you want to meet? Tell us your preferences. (Don't worry, you can always change this later!)</p>
 			</div>
 		
+			<!-- Preferences -->
 			<div class="ty-setup-form">
 				<label class="item item-input item-stacked-label">
 					<span class="ty-field-name ty-caps ty-input-label">
@@ -116,23 +103,29 @@
 				</label>
 			</div>
 			
+			<!-- BACK button -->
 			<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" ng-click="secondToFirstPage()" href="#">Back</a>
 			
+			<!-- NEXT button -->
 			<a class="ty-caps ty-button ty-setup-button ty-setup-next-button button button-small icon icon-right ion-chevron-right" ng-click="secondToThirdPage()" href="#">Next</a>
 		</div>
 		
-		<!-- Step 3 -->
+		
+		<!--------------- STEP 3 ---------------->
 		<div class="ty-setup-content" id="ty-setup-step-3">
+		
+			<!-- Header -->
 			<div class="ty-setup-header">
 				<h2 class="ty-caps">Step 3</h2>
 				<h6 class="ty-caps">Tell Us About Yourself</h6>
 			</div>
 			
+			<!-- Description -->
 			<div class="ty-setup-description">
 				<p>We want to get to you know a little better!</p>
 			</div>
 		
-		
+			<!-- Interests -->
 			<div class="ty-setup-form">
 				<label class="item item-input item-stacked-label">
 					<span class="ty-field-name ty-caps ty-input-label">
@@ -144,6 +137,7 @@
 					<input class="ty-input-label" type="text" placeholder="Ex. Board games, skiing, etc." id="favFoods">
 				</label>
 				
+				<!-- Languages -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -158,6 +152,7 @@
 					</div>
 				</div>
 				
+				<!-- About -->
 				<div class="row">
 					<div class="col">
 						<label class="item item-input item-stacked-label">
@@ -173,8 +168,10 @@
 				</div>
 			</div>
 			
+			<!-- BACK button -->
 			<a class="ty-caps ty-button ty-setup-button ty-setup-back-button button button-small icon icon-left ion-chevron-left" ng-click="thirdToSecondPage()"href="#">Back</a>
 			
+			<!-- DONE button -->
 			<a class="ty-caps ty-setup-button ty-setup-next-button ty-setup-done-button ty-button button button-small" ng-click="finish()" href="#">Done</a>
 		</div>
 	</ion-content>
